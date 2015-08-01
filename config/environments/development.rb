@@ -37,6 +37,17 @@ Rails.application.configure do
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
 
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings = {
+    address: "smtp.gmail.com",
+    port: 587,
+    domain: ENV["DOMAIN_MAILER"],
+    authentication: "plain",
+    user_name: ENV["USERNAME_MAILER"],
+    password: ENV["PASSWORD_MAILER"]
+  }
+
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 end
