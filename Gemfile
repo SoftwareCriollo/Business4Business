@@ -8,6 +8,8 @@ gem 'devise'
 gem 'pg'
 # Code templante
 gem 'slim'
+# Material Desing
+gem 'materialize-sass'
 # Validates URL
 gem "validate_url"
 # Enumerate
