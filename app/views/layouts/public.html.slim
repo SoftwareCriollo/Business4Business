@@ -9,10 +9,10 @@ html lang="en"
   body
     nav.light-blue.darken-4 role="navigation"
       .nav-wrapper.container
-        a#logo-container.brand-logo href="#"  B4B
+        a#logo-container.brand-logo href="/"  B4B
         ul.right.hide-on-med-and-down
           li
-            a href="#"  Login
+            = link_to 'login', new_company_session_path
         ul#nav-mobile.side-nav
           li
             a href="#"  Login

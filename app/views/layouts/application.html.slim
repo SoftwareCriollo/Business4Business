@@ -8,7 +8,7 @@ html
   body
     nav.green.darken-4 role="navigation"
       .nav-wrapper.container
-        a#logo-container.brand-logo href="#"  B4B
+        a#logo-container.brand-logo href="/"  B4B
         ul.right.hide-on-med-and-down
           li
             a href="#"  Login
@@ -17,6 +17,10 @@ html
             a href="#"  Login
         a.button-collapse data-activates="nav-mobile" href="#"
           i.material-icons menu
-    p.notice = notice
-    p.alert = alert
+    - if notice
+      .card-panel.green.accent-2
+        p.notice = notice
+    - if alert
+      .card-panel.red.accent-2
+        p.alert = alert
     = yield
