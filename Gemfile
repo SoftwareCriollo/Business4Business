@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
-
-
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+ruby '2.1.5'
+# Bunle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 # User for authenticate
 gem 'devise'
@@ -9,6 +8,10 @@ gem 'devise'
 gem 'pg'
 # Code templante
 gem 'slim'
+# Material Desing
+gem 'materialize-sass'
+# Validates URL
+gem "validate_url"
 # Enumerate
 gem "enumerate_it"
 # Paginator
@@ -47,10 +50,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-
+  gem 'pry-rails'
   # Use for set environment vars
   gem 'dotenv-rails'
 
