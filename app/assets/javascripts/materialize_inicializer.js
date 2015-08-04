@@ -5,4 +5,5 @@ $(document).ready(function() {
     selectYears: 100
   });
   $('input#input_text, textarea#textarea1').characterCounter();
+  $(".button-collapse").sideNav();
 });
