@@ -2,10 +2,21 @@ doctype html
 html
   head
     title Business4business
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
     = csrf_meta_tags
   body
+    nav.green.darken-4 role="navigation"
+      .nav-wrapper.container
+        a#logo-container.brand-logo href="#"  B4B
+        ul.right.hide-on-med-and-down
+          li
+            a href="#"  Login
+        ul#nav-mobile.side-nav
+          li
+            a href="#"  Login
+        a.button-collapse data-activates="nav-mobile" href="#"
+          i.material-icons menu
     p.notice = notice
     p.alert = alert
     = yield
