@@ -1,0 +1,49 @@
+.container
+  .row
+    .col-s12
+      = link_to 'Back', :back, class:'waves-effect waves-light blue btn right'
+      h3 = "Almost Done"
+      = form_for(@company) do |f|
+        = render 'shared/errors_messages', object: f.object
+        .row
+          .col.s12
+            .file-field
+              .btn
+                span Upload Logo
+                = f.file_field :logo
+              input.file-path.validate type="text"
+        .row
+          .col.s6
+            = f.label :name
+            = f.text_field :name, class:'validate'
+          .col.s6
+            = f.label :email
+            = f.email_field :email, autofocus: true, class:'validate'
+        .row
+          .col.s12
+            = f.label :description
+            = f.text_area :description, class:'materialize-textarea validate', rows:1
+        .row
+          .col.s8
+            = f.label :category_id, 'Industry'
+            = f.select :category_id, Category.all.collect {|p| [ p.name, p.id ] }, class:'validate'
+          .col.s4
+            = f.label :tax_id
+            = f.text_field :tax_id, class:'validate'
+        .row
+          .col.s12
+            = f.label :address
+            = f.text_field :address
+        .row
+          .col.s6
+            = f.label :website
+            = f.text_field :website
+          .col.s6
+            = f.label :constitution_date
+            = f.text_field :constitution_date, class:'datepicker'
+
+        = f.hidden_field :type_company
+        .actions
+          button.waves-effect.waves-light.blue.btn type='submit'
+            span Ready!
+            i.material-icons.right done
