@@ -6,6 +6,7 @@ class CompaniesController < ApplicationController
   end
 
   def update
+    @company.complete_profile = true
     if @company.update(company_params)
       redirect_to company_path(@company), notice: 'Company information edited successfully'
     else

@@ -12,7 +12,4 @@ class Company < ActiveRecord::Base
   belongs_to :category
   has_many :contacts
 
-  before_update do
-    self.complete_profile = true
-  end
 end
