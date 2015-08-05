@@ -41,20 +41,7 @@
             = f.label :constitution_date
             = f.text_field :constitution_date, class:'datepicker'
 
-        / .field
-        /   = f.label :password, "Password (leave blank if you don't want to change it)"
-        /   br
-        /   = f.password_field :password, autocomplete: "off"
-        / .field
-        /   = f.label :password_confirmation
-        /   br
-        /   = f.password_field :password_confirmation, autocomplete: "off"
-        / .field
-        /   = f.label :current_password
-        /   / i (we need your current password to confirm your changes)
-        /   br
-        /   = f.password_field :current_password, autocomplete: "off"
-        = f.hidden_field :type_company, value: TypeCompany::TEAM_COMPANY
+        = f.hidden_field :type_company
         .actions
           button.waves-effect.waves-light.blue.btn type='submit'
             span Ready!
