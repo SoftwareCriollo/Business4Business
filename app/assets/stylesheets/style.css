@@ -1,0 +1,20 @@
+
+.company-profile{
+  margin-top: 40px;
+}
+.company-title {
+  font-weight: bold;
+}
+.large-max{
+  margin-top: 20px;
+  font-size: 10em !important;
+}
+p.infor-profile span, a{
+  vertical-align: super;
+}
+p.infor-profile{
+  margin: 5px;
+}
+.space-top{
+  margin-top: 50px;
+}
