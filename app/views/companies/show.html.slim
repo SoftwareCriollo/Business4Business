@@ -1,0 +1,26 @@
+.container
+  .row.company-profile.valign-wrapper
+    .col.s4.center-align
+      - if @company.logo
+          img class='circle' src='#{@company.logo_url}' height='200' width='200'
+      - else
+          i.material-icons.large-max supervisor_account
+      p.teal-text.text-darken-2.company-title = @company.name.upcase
+      .valign-wrapper
+      p.infor-profile
+        i.material-icons business
+        span = @company.category_name.capitalize
+      p.infor-profile
+        i.material-icons email
+        = mail_to "#{@company.email}"
+      = link_to @company.website, @company.website
+    .col.s8.center-align
+      p.flow-text.company-description.grey-text = truncate(@company.description, omision: "...", length: 150)
+  hr
+  .row
+    .col.s12.m6
+      .card-panel.teal
+        span.white-text PROJECT
+    .col.s12.m6
+      .card-panel.teal
+        span.white-text PROJECT
