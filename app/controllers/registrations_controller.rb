@@ -2,6 +2,10 @@ class RegistrationsController < Devise::RegistrationsController
 
   protected
 
+    def after_sign_up_path_for(resource)
+      type_companies_path
+    end
+
   private
     def sign_up_params
       params.require(:company).permit(:email, :password, :password_confirmation)
