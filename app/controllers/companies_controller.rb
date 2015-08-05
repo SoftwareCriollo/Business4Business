@@ -1,13 +1,13 @@
 class CompaniesController < ApplicationController
+  before_action :find_company, except: [:select_type_company]
 
   def edit
-    @company = Company.find(params[:id])
+    @company.type_company = params[:type] if params[:type]
   end
 
   def update
-    @company = Company.find(params[:id])
     if @company.update(company_params)
-      redirect_to edit_company_path(@company), notice: 'Company information edited successfully'
+      redirect_to company_path(@company), notice: 'Company information edited successfully'
     else
       render 'edit'
     end
@@ -23,6 +23,10 @@ private
     [
       :id, :first_name, :last_name, :email, :phone
     ]
+  end
+
+  def find_company
+    @company = Company.find(params[:id])
   end
 
 end
