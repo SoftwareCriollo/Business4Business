@@ -12,6 +12,8 @@ gem 'slim'
 gem 'materialize-sass'
 # Validates URL
 gem "validate_url"
+# Stripe Gem
+gem 'stripe-rails'
 # Enumerate
 gem "enumerate_it"
 # Paginator
