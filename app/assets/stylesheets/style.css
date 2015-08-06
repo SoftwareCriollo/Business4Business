@@ -18,3 +18,6 @@ p.infor-profile{
 .space-top{
   margin-top: 50px;
 }
+.selected-type{
+  border: 5px solid yellow;
+}

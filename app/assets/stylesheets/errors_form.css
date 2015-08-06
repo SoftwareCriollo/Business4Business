@@ -20,3 +20,6 @@
   font-size: 17px;
   text-align: center;
 }
+.alert:empty {
+  display: none;
+}

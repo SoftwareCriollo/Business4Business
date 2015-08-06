@@ -17,6 +17,19 @@
           = f.label :password_confirmation
           br
           = f.password_field :password_confirmation, autocomplete: "off"
+          = f.hidden_field :type_company
+        .row
+          .valign-wrapper
+            .col.s6.valign.center-align
+              a.type-company href='#' typec='#{TypeCompany::COMPANY}'
+                .card-panel.blue
+                  i.material-icons.white-text.large contacts
+                  h5.white-text I find a Team
+            .col.s6.valign.center-align
+              a.type-company href='#' typec='#{TypeCompany::TEAM_COMPANY}'
+                .card-panel.red
+                  i.material-icons.white-text.large web
+                  h5.white-text I find a Project
         .actions
           button.waves-effect.waves-light.blue.btn type='submit'
             span Ready!

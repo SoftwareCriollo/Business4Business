@@ -3,22 +3,12 @@ class RegistrationsController < Devise::RegistrationsController
   protected
 
     def after_sign_up_path_for(resource)
-      type_companies_path
+      edit_company_path(current_company)
     end
 
   private
     def sign_up_params
-      params.require(:company).permit(:email, :password, :password_confirmation)
-    end
-
-    def account_update_params
-      params.require(:company).permit(:name, :address, :website, :constitution_date, :description, :category_id, :tax_id, :address, :logo, :type_company, :email, :password, :password_confirmation, contact_attributes: contact_params)
-    end
-
-    def contact_params
-      [
-        :id, :first_name, :last_name, :email, :phone
-      ]
+      params.require(:company).permit(:email, :password, :password_confirmation, :type_company)
     end
 
     def update_resource(resource, params)
