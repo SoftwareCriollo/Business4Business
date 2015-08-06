@@ -6,6 +6,7 @@ class Company < ActiveRecord::Base
 
   mount_uploader :logo, LogoUploader
   delegate :name, to: :category,  prefix: 'category'
+  validates :name, :type_company, presence: true, on: [ :create ]
   validates :website, presence: true, url: true, on: [ :update ]
   validates :name, :description, :category_id, :tax_id, :address, :logo, :type_company, presence: true, on: [ :update ]
 

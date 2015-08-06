@@ -8,7 +8,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   private
     def sign_up_params
-      params.require(:company).permit(:email, :password, :password_confirmation, :type_company)
+      params.require(:company).permit(:name, :email, :password, :password_confirmation, :type_company)
     end
 
     def update_resource(resource, params)
