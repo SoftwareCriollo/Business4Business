@@ -1,9 +1,5 @@
 class CompaniesController < ApplicationController
-  before_action :find_company, except: [:select_type_company]
-
-  def edit
-    @company.type_company = params[:type] if params[:type]
-  end
+  before_action :find_company
 
   def update
     @company.complete_profile = true

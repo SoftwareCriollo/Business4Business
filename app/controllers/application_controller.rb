@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
     if current_company.complete_profile?
       company_path(current_company)
     else
-      type_companies_path
+      edit_company_path(current_company)
     end
   end
 end
