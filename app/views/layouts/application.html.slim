@@ -8,7 +8,7 @@ html
     link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" /
     = csrf_meta_tags
   body
-    a#pstripe pkey="#{ENV['PUBLISHABLE_KEY']}"
+    a#pstripe pkey="#{ENV['PUBLISHABLE_KEY']}" src-img="#{image_url('logo_negro.png')}"
     header
       nav.green.darken-4 role="navigation"
         .nav-wrapper.container

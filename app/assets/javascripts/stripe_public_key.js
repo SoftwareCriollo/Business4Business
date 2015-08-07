@@ -2,7 +2,7 @@ $(function(){
 
   var handler = StripeCheckout.configure({
   key: $('#pstripe').attr('pkey'),
-  image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
+  image: $('#pstripe').attr('src-img'),
   token: function(token) {
       $('#customButton').attr('disabled', true);
       $('#customButton').addClass('disabled');
@@ -18,9 +18,9 @@ $(function(){
 
   $('#customButton').on('click', function(e) {
     handler.open({
-      name: 'B4B',
-      description: '2 widgets',
-      amount: 2000,
+      name: 'Business4Business',
+      description: 'Annual payment',
+      amount: 5000,
       color: '#2196F3'
     });
     e.preventDefault();
