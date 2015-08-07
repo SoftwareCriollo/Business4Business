@@ -1,28 +1,28 @@
 # This file contains descriptions of all your stripe plans
 
 # Example
-# Stripe::Plans::PRIMO #=> 'primo'
+ #Stripe::Plans::PRIMO #=> 'primo'
 
-# Stripe.plan :primo do |plan|
+Stripe.plan :primo do |plan|
 #
 #   # plan name as it will appear on credit card statements
-#   plan.name = 'Acme as a service PRIMO'
+  plan.name = 'Service tool b4b'
 #
 #   # amount in cents. This is 6.99
-#   plan.amount = 699
+  plan.amount = 50000
 #
 #   # currency to use for the plan (default 'usd')
-#   plan.currency = 'usd'
+  plan.currency = 'usd'
 #
 #   # interval must be either 'week', 'month' or 'year'
-#   plan.interval = 'month'
+  plan.interval = 'year'
 #
 #   # only bill once every three months (default 1)
-#   plan.interval_count = 3
+# plan.interval_count = 12
 #
 #   # number of days before charging customer's card (default 0)
 #   plan.trial_period_days = 30
-# end
+end
 
 # Once you have your plans defined, you can run
 #
