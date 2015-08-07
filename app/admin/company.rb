@@ -12,6 +12,13 @@ ActiveAdmin.register Company do
         rows :first_name, :last_name, :email, :phone
       end
     end
+
+    panel 'Payments' do
+      table_for company.payments do
+        column(:amount){ |a| "$#{a.amount / 100}" }
+        column('Paid date'){ |val| val.created_at.strftime("%c") }
+      end
+    end
   end
 
   index do
