@@ -1,5 +1,6 @@
 class CompaniesController < ApplicationController
   before_action :find_company
+  before_action :check_paid, only: [ :update ]
 
   def update
     @company.complete_profile = true
@@ -24,6 +25,14 @@ private
 
   def find_company
     @company = Company.find(params[:id])
+  end
+
+  def check_paid
+    unless @company.fee_paid?
+      flash[:alert] = 'To complete registration is necessary to pay the fee, please click the "Pay Now" Button, to continue'
+      @company.update(company_params)
+      render 'edit'
+    end
   end
 
 end

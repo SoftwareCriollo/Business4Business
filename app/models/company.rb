@@ -6,11 +6,18 @@ class Company < ActiveRecord::Base
 
   mount_uploader :logo, LogoUploader
   delegate :name, to: :category,  prefix: 'category'
+  validates :name, :type_company, presence: true, on: [ :create ]
   validates :website, presence: true, url: true, on: [ :update ]
 
   validates :name, :description, :category_id, :tax_id, :address, :logo, :type_company, :status, presence: true, on: [ :update ]
 
   belongs_to :category
   has_many :contacts
+  has_many :payments
+
+  def fee_paid?
+    payment = payments.last
+    payment.nil? ? false : payment.date_valid?
+  end
 
 end
