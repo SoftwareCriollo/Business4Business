@@ -1,0 +1,27 @@
+.container
+  .row
+    .col-s12
+      = link_to 'Back', :back, class:'waves-effect waves-light blue btn right'
+      h3 = "Almost Done"
+
+      = form_tag({controller: "registrations", action: "destroy"}, method: "delete")
+
+        .row
+          .col.s12
+            h5 We would like to have a brief explanation of the reason that led him to the cancellation of the account, with this, it would help us improve our services for future more successful relationship.
+
+        .row
+          .col.s6
+            = label_tag 'reason', 'Select a reason'
+            = select_tag 'reason', options_for_select(CancelReason.to_a), {include_blank: true, class: "form-control"}
+
+        .row
+          .col.s12
+            = label_tag 'note', 'Could you explain in detail'
+            = text_area_tag 'note', nil, rows: 1, class:'materialize-textarea validate'
+        
+        .actions
+          br
+           button.waves-effect.waves-light.blue.btn type='submit'
+              span Send
+              i.material-icons.right perm_identity

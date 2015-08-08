@@ -13,4 +13,12 @@ class Company < ActiveRecord::Base
   belongs_to :category
   has_many :contacts
 
+  def cancel_account
+    update_attribute(:deleted_at, Time.current)
+  end
+
+  def active_for_authentication?
+    super && !deleted_at
+  end
+
 end
