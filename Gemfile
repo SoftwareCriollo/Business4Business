@@ -71,9 +71,11 @@ end
 gem 'rails_12factor', group: :production
 
 group :test do
+  gem 'rspec-rails'
   gem 'capybara', '~> 2.4.4'
-  gem 'factory_girl_rails', '~> 4.5.0'
   gem 'simplecov', '~> 0.9.2', require: false
   gem 'shoulda-matchers'
   gem 'database_cleaner'
+  gem 'factory_girl_rails'
+  gem 'faker'
 end
