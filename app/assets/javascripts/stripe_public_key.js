@@ -7,8 +7,8 @@ $(function(){
       $('#customButton').attr('disabled', true);
       $('#customButton').addClass('disabled');
     $.post('/charges.json', { stripeToken: token.id }, function(data){
-      if (data.message != 'succeeded'){
-        Materialize.toast(data.message+', please try again', 4000)
+      if (data.message !== 'succeeded'){
+        Materialize.toast(data.message+', please try again', 4000);
         $('#customButton').prop('disabled', false);
         $('#customButton').removeClass('disabled');
       }

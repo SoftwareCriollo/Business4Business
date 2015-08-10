@@ -1,0 +1,6 @@
+{
+  "globals": {
+    "StripeCheckout": true,
+    "Materialize": true
+  }
+}
