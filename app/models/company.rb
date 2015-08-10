@@ -20,4 +20,12 @@ class Company < ActiveRecord::Base
     payment.nil? ? false : payment.date_valid?
   end
 
+  def cancel_account
+    update_attribute(:deleted_at, Time.current)
+  end
+
+  def active_for_authentication?
+    super && !deleted_at
+  end
+
 end
