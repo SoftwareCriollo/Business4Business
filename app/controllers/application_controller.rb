@@ -4,10 +4,14 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def after_sign_in_path_for(resource)
-    if current_company.complete_profile?
-      company_path(current_company)
+    if resource.class.name == 'Company'
+      if current_company.complete_profile?
+        company_path(current_company)
+      else
+        edit_company_path(current_company)
+      end
     else
-      edit_company_path(current_company)
+      super
     end
   end
 end

@@ -2,6 +2,10 @@ ActiveAdmin.register Company do
   permit_params :id, :name, :description, :category, :tax_id, :address, :logo, :type_company, :website, :status,
                 contacts_attributes: [:id, :first_name, :last_name, :email, :phone, :_destroy]
 
+  action_item :view_site do
+    link_to "View Site", "/"
+  end
+
   show do |company|
     attributes_table do
       rows :id, :name, :description, :category, :tax_id, :address, :logo, :type_company, :website, :status
@@ -31,7 +35,7 @@ ActiveAdmin.register Company do
     end
     column :website
     column :type_company
-    actions
+    action
   end
 
   filter :name
