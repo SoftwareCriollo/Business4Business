@@ -12,8 +12,9 @@ class Company < ActiveRecord::Base
   validates :name, :description, :category_id, :tax_id, :address, :type_company, :status, presence: true, on: [ :update ]
 
   belongs_to :category
-  has_many :contacts
-  has_many :payments
+  has_many :contacts,  dependent: :destroy
+  has_many :payments,  dependent: :destroy
+  has_many :projects,  dependent: :destroy
   has_and_belongs_to_many :skills
 
   def fee_paid?

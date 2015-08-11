@@ -17,6 +17,12 @@
     .col.s8.center-align
       p.flow-text.company-description.grey-text = truncate(@company.description, omision: "...", length: 150)
   hr
+  .row.center
+    br
+    = link_to new_project_path, class:'btn-floating btn-large waves-effect waves-light red'
+      i.material-icons add
+    br
+
   .row
     .col.s12.m6
       .card-panel.teal

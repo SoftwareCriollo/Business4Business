@@ -14,7 +14,8 @@
               .btn
                 span Upload Logo
                 = f.file_field :logo
-              input.file-path.validate type="text"
+              .file-path-wrapper
+                input.file-path.validate type="text"
         .row
           .col.s6
             = f.label :name
