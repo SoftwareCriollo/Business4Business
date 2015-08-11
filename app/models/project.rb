@@ -5,4 +5,8 @@ class Project < ActiveRecord::Base
   mount_uploader :file, LogoUploader
 
   validates :name, :description, presence: true
+
+  def timeframes
+    read_attribute(:timeframes).strftime('%e %B, %Y')
+  end
 end
