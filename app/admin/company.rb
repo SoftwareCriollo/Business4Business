@@ -35,7 +35,7 @@ ActiveAdmin.register Company do
     end
     column :website
     column :type_company
-    action
+    actions
   end
 
   filter :name

@@ -14,6 +14,7 @@ class Company < ActiveRecord::Base
   belongs_to :category
   has_many :contacts
   has_many :payments
+  has_and_belongs_to_many :skills
 
   def fee_paid?
     payment = payments.last
