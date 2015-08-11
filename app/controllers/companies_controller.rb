@@ -11,6 +11,16 @@ class CompaniesController < ApplicationController
     end
   end
 
+  def approve_request
+    @company.approve_request_company
+    redirect_to admin_company_path(@company.id)
+  end
+
+  def reject_request
+    @company.reject_request_company
+    redirect_to admin_company_path(@company.id)
+  end
+
 private
 
   def company_params
