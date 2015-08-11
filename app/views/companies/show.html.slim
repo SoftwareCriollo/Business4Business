@@ -18,15 +18,19 @@
       p.flow-text.company-description.grey-text = truncate(@company.description, omision: "...", length: 150)
   hr
   .row.center
-    br
-    = link_to new_project_path, class:'btn-floating btn-large waves-effect waves-light red'
+  .row.center
+    = link_to new_project_path, class:'right btn-floating btn-large waves-effect waves-light red'
       i.material-icons add
-    br
+    h4 Projects Registered
 
   .row
-    .col.s12.m6
-      .card-panel.teal
-        span.white-text PROJECT
-    .col.s12.m6
-      .card-panel.teal
-        span.white-text PROJECT
+    - @company.projects.each do |p|
+      .col.s12.m6
+        .card.blue-grey.darken-1
+          .card-content.white-text
+            span.card-title = p.name
+            p = truncate(p.description, omision:'...' ,length:150)
+          .card-action.right
+            = link_to 'Show', project_path(p)
+            = link_to 'Edit', edit_project_path(p)
+            = link_to 'Delete', project_path(p), method: 'delete', confirm: 'Are you sure?'
