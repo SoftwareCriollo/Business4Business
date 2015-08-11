@@ -1,0 +1,37 @@
+.body-public {
+	background: black url('/images/1-IMG_landing_page_B4B.jpg') no-repeat center top;
+	height: 100%;
+	width: 100%;
+}
+
+.nav-public {
+	background: transparent;
+	box-shadow: 0 0 0 0;
+}
+
+.img-logo-home {
+	padding-top: 18px;
+}
+
+.title-home {
+	margin-top: 180px;
+}
+
+.title-home hr {
+	border: 2px solid #00bfa5;
+	margin-top: 12px;
+	width: 270px;
+}
+
+.sub-title-home {
+	color: white;
+	font-weight: 600 !important;
+	margin-top: -20px !important;
+}
+
+.btn-home {
+	background-color: #00bfa5 !important;
+	border-radius: 5px !important;
+	font-size: 24px;
+	font-weight: 500;
+}
