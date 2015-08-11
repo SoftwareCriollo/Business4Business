@@ -1,13 +1,20 @@
 Rails.application.routes.draw do
-  devise_for :companies
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
+  devise_for :companies, controllers: { registrations: 'registrations' }
+
+  get 'company/cancel/:id', to: 'companies#cancel_account', as: :cancel_account
+
+  get 'company/approve/:id', to: 'companies#approve_request', as: :approve_request
+  get 'company/reject/:id', to: 'companies#reject_request', as: :reject_request
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
   root to: "home#index"
+  resources :companies
+  resources :charges
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

@@ -1,0 +1,19 @@
+doctype html
+html lang="en"
+  head
+    title Business4business
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
+    = csrf_meta_tags
+    link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" /
+
+  body.body-public
+    /! Header Menu
+    = render 'layouts/public_menu'
+    
+    /! Begin page content
+    .container-fluid.junke
+      = yield
+    
+    /! Footer
+    /= render 'layouts/footer_menu'    

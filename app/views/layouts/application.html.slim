@@ -1,0 +1,48 @@
+doctype html
+html
+  head
+    title Business4business
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
+    script type="text/javascript" src="https://js.stripe.com/v2/"
+    link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" /
+    = csrf_meta_tags
+  body
+    a#pstripe pkey="#{ENV['PUBLISHABLE_KEY']}" src-img="#{image_url('logo_negro.png')}"
+    header
+      nav.green.darken-4 role="navigation"
+        .nav-wrapper.container
+          a#logo-container.brand-logo href="/"  B4B
+          - if current_company
+              ul.right.hide-on-med-and-down
+                li
+                  = link_to 'Edit Info', edit_company_path(current_company)
+                li
+                  = link_to 'Sign out', destroy_company_session_path, method: 'delete'
+              ul#nav-mobile.side-nav
+                li
+                  = link_to 'Edit Info', edit_company_path(current_company)
+                li
+                  = link_to 'Sign out', destroy_company_session_path, method: 'delete'
+          - else
+              ul.right.hide-on-med-and-down
+                li
+                  = link_to 'login', new_company_session_path
+              ul#nav-mobile.side-nav
+                li
+                  = link_to 'login', new_company_session_path
+          a.button-collapse data-activates="nav-mobile" href="#"
+            i.material-icons menu
+      - if notice
+        .card.green.accent-2
+          p.notice = notice
+      - if alert
+        .card.red.accent-2
+          p.alert = alert
+    main
+      = yield
+    footer.page-footer.green
+      .footer-copyright
+        .container
+          | Made by
+          a.orange-text.text-lighten-3 href="http://softwarecriollo.com"  SoftwareCriollo.com
