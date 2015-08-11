@@ -15,6 +15,14 @@ class Company < ActiveRecord::Base
   has_many :contacts
   has_many :payments
 
+  def approve_request_company
+    update_attribute(:status, StatusCompany::APPROVE)
+  end
+
+  def reject_request_company
+    update_attribute(:status, StatusCompany::REJECT)
+  end
+
   def fee_paid?
     payment = payments.last
     payment.nil? ? false : !payment.time_expired?
