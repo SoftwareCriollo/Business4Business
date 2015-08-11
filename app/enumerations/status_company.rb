@@ -1,8 +1,8 @@
 class StatusCompany < EnumerateIt::Base
   associate_values(
-    :On_Hold => 0,
-    :Approve => 1,
-    :Reject => 2
+    :on_hold => 0,
+    :approve => 1,
+    :reject => 2
   )
 
   def self.to_h
