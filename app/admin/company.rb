@@ -6,9 +6,29 @@ ActiveAdmin.register Company do
     link_to "View Site", "/"
   end
 
+  action_item :company, only: :show do
+    if company.status == 0
+      render 'custom_action', company: company
+    elsif company.status == 1
+      link_to 'Reject', reject_request_path(company), class: "member_link"
+    else
+      link_to 'Approve', approve_request_path(company), class: "member_link"
+    end
+  end
+
   show do |company|
-    attributes_table do
-      rows :id, :name, :description, :category, :tax_id, :address, :logo, :type_company, :website, :status
+    panel "Company Details", only: :show do
+      attributes_table_for company do
+        row('status') { |s| StatusCompany.key_for(s.status).to_s.humanize }
+        row :name
+        row :description
+        row :website
+        row :category
+        row :address
+        row :tax_id
+        row('type_company') { |b| TypeCompany.key_for(b.type_company).to_s.humanize }
+        row :logo
+      end
     end
 
     panel 'Contacts' do
@@ -28,14 +48,27 @@ ActiveAdmin.register Company do
   index do
     selectable_column
     id_column
+    column('Status') { |s| StatusCompany.key_for(s.status).to_s.humanize }
     column :name
-    column :status
     column :company do |company|
       truncate(company.description, omision: "...", length: 100)
     end
     column :website
-    column :type_company
+    column('Type Company') { |type| TypeCompany.key_for(type.type_company).to_s.humanize }
+
     actions
+
+    column 'Manage' do |company|
+      div do
+        if company.status == 0
+          render 'custom_action', company: company
+        elsif company.status == 1
+          link_to 'Reject', reject_request_path(company), class: "member_link"
+        else
+          link_to 'Approve', approve_request_path(company), class: "member_link"
+        end
+      end
+    end
   end
 
   filter :name
@@ -50,7 +83,7 @@ ActiveAdmin.register Company do
       f.input :logo
       f.input :type_company, as: :select, collection: TypeCompany.to_a
       f.input :website
-      f.input :status, as: :select, collection: StatusCompany.keys
+      f.input :status, as: :select, collection: StatusCompany.to_a
     end
     f.actions
   end

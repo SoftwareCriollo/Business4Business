@@ -1,0 +1,31 @@
+nav.nav-public role="navigation"
+  .nav-wrapper.container
+    a#logo-container.brand-logo href="/"
+      img.img-logo-home src="/images/LOGO_blanco.png"
+
+    - if current_company
+        ul.right.hide-on-med-and-down
+          li
+            = link_to destroy_company_session_path, method: 'delete' do
+              | SIGN OUT 
+              img src="/images/user_icon_12px.png"
+            
+        ul#nav-mobile.side-nav
+          li
+            = link_to destroy_company_session_path, method: 'delete' do
+              | SIGN OUT 
+              img src="/images/user_icon_12px.png"
+    - else
+        ul.right.hide-on-med-and-down
+          li
+            = link_to new_company_session_path do
+              | LOGIN 
+              img src="/images/user_icon_12px.png"
+        ul#nav-mobile.side-nav
+          li
+            = link_to new_company_session_path do
+              | LOGIN 
+              img src="/images/user_icon_12px.png"
+
+    a.button-collapse data-activates="nav-mobile" href="#"
+      i.material-icons menu

@@ -17,6 +17,14 @@ class Company < ActiveRecord::Base
   has_many :projects,  dependent: :destroy
   has_and_belongs_to_many :skills
 
+  def approve_request_company
+    update_attribute(:status, StatusCompany::APPROVE)
+  end
+
+  def reject_request_company
+    update_attribute(:status, StatusCompany::REJECT)
+  end
+
   def fee_paid?
     payment = payments.last
     payment.nil? ? false : !payment.time_expired?
