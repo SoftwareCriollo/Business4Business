@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   root to: "home#index"
   resources :companies
   resources :charges
+  resources :projects
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

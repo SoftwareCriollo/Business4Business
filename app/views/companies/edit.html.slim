@@ -1,6 +1,6 @@
 .container
   .row
-    .col-s12
+    .col.s12
       = link_to 'Back', :back, class:'waves-effect waves-light blue btn right'
       - if @company.complete_profile?
           h3 = 'Edit Profile Information'
@@ -14,7 +14,8 @@
               .btn
                 span Upload Logo
                 = f.file_field :logo
-              input.file-path.validate type="text"
+              .file-path-wrapper
+                input.file-path.validate type="text"
         .row
           .col.s6
             = f.label :name

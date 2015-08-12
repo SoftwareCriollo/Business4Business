@@ -1,0 +1,37 @@
+.container
+  .row
+    .col.s12
+      p
+        = link_to 'Back', :back, class:'waves-effect waves-light blue btn right'
+      h1 = @project.name
+      hr
+
+  .row
+    .col.m8.s12
+      p.flow-text
+        strong = 'Project description: '
+        = @project.description
+    .col.m4.s12.center
+      - if @project.skills.count > 0
+          ul.collection.with-header
+            li.collection-header.teal.lighten-2.white-text
+              strong Skills Required
+            - @project.skills.each do |skill|
+                li.collection-item = skill.name
+
+      - if @project.timeframes
+          ul.collection.with-header
+            li.collection-header.teal.lighten-2.white-text
+              strong TimeFrames
+            li.collection-item = @project.timeframes
+
+      - if @project.budget
+          ul.collection.with-header
+            li.collection-header.teal.lighten-2.white-text
+              strong Budget
+            li.collection-item = "$ #{@project.budget}"
+
+      - if @project.file.url
+          a.waves-effect.waves-light.btn-large href="#{@project.file.url}"
+            i.material-icons.left cloud
+            | Download Files
