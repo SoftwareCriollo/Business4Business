@@ -7,18 +7,19 @@ section#step2.container
 
   .row
     .col.s5
+      = render 'shared/errors_messages', object: c.object
       .input-field
-        = c.text_field :name, autofocus: true, class: "input-sign-up-company validate"
+        = c.text_field :name, class: "input-sign-up-company validate", required: ""
         = c.label 'Company Name', class: "label-sign-up-company"
       .input-field
-        = c.email_field :email, autocomplete: "off", class: "input-sign-up-company validate"
+        = c.email_field :email, autocomplete: "off", class: "input-sign-up-company validate", required: ""
         = c.label :email, class: "label-sign-up-company"
       .input-field
         - if @minimum_password_length
-        = c.password_field :password, autocomplete: "off", class: "input-sign-up-company validate"
+        = c.password_field :password, autocomplete: "off", class: "input-sign-up-company validate", required: ""
         = c.label :password, class: "label-sign-up-company"
       .input-field
-        = c.password_field :password_confirmation, autocomplete: "off", class: "input-sign-up-company validate"
+        = c.password_field :password_confirmation, autocomplete: "off", class: "input-sign-up-company validate", required: ""
         = c.label :password_confirmation, class: "label-sign-up-company"
 
       button class="btn-large waves-effect waves-light btn-sign-up-company" type="submit" name="action" Create Profile
