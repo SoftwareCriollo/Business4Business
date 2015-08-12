@@ -7,13 +7,10 @@ html lang="en"
     = csrf_meta_tags
     link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" /
 
-  body.body-public
+  body class="body-public"
     /! Header Menu
     = render 'layouts/public_menu'
     
     /! Begin page content
     .container-fluid.junke
       = yield
-    
-    /! Footer
-    /= render 'layouts/footer_menu'    

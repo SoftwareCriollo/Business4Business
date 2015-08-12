@@ -3,6 +3,12 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   devise_for :companies, controllers: { registrations: 'registrations' }
 
+  devise_scope :company do
+    get 'companies/new/:type', to: 'companies#new', as: :company_sign_up
+    get 'companies/type', to: 'companies#type_company', as: :company_type
+    post 'companies/create', to: 'companies#create', as: :company_create
+  end
+
   get 'company/cancel/:id', to: 'companies#cancel_account', as: :cancel_account
 
   get 'company/approve/:id', to: 'companies#approve_request', as: :approve_request

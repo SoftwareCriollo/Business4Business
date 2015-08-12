@@ -1,6 +1,21 @@
 class CompaniesController < ApplicationController
-  before_action :find_company
+  before_action :find_company, except: [ :new, :create, :type_company ]
   before_action :check_paid, only: [ :update ]
+
+  def new
+    @companies = Company.new()
+    render layout: "public"
+  end
+
+  def create
+    @companies = Company.new(company_params)
+    if @companies.save
+      sign_in @companies
+      redirect_to edit_company_path(@companies), notice: 'Company created successfully'
+    else
+      render 'new', layout: "public"
+    end
+  end
 
   def update
     @company.complete_profile = true
@@ -20,6 +35,10 @@ class CompaniesController < ApplicationController
     @company.reject_request_company
     redirect_to admin_company_path(@company.id)
   end
+
+  def type_company
+    render layout: "public"
+  end  
 
 private
 

@@ -7,9 +7,9 @@ ActiveAdmin.register Company do
   end
 
   action_item :company, only: :show do
-    if company.status == 0
+    if company.status == StatusCompany::ON_HOLD
       render 'custom_action', company: company
-    elsif company.status == 1
+    elsif company.status == StatusCompany::APPROVE
       link_to 'Reject', reject_request_path(company), class: "member_link"
     else
       link_to 'Approve', approve_request_path(company), class: "member_link"
@@ -60,9 +60,9 @@ ActiveAdmin.register Company do
 
     column 'Manage' do |company|
       div do
-        if company.status == 0
+        if company.status == StatusCompany::ON_HOLD
           render 'custom_action', company: company
-        elsif company.status == 1
+        elsif company.status == StatusCompany::APPROVE
           link_to 'Reject', reject_request_path(company), class: "member_link"
         else
           link_to 'Approve', approve_request_path(company), class: "member_link"

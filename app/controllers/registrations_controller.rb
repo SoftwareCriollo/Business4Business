@@ -1,11 +1,10 @@
 class RegistrationsController < Devise::RegistrationsController
 
   public
-    
+
     def destroy
       if resource.cancel_account
-        NotificationMailer.notification_company(reason: CancelReason.t(params[:reason].to_i), note: params[:note]).deliver_now
-        NotificationMailer.notification_admin(reason: CancelReason.t(params[:reason].to_i), note: params[:note], company: resource).deliver_now
+        send_mails_notifications        
         Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name)
         set_flash_message :notice, :destroyed if is_flashing_format?
         yield resource if block_given?
@@ -22,6 +21,12 @@ class RegistrationsController < Devise::RegistrationsController
     end
 
   private
+
+    def send_mails_notifications
+      NotificationMailer.notification_company(reason: CancelReason.t(params[:reason].to_i), note: params[:note]).deliver_now
+      NotificationMailer.notification_admin(reason: CancelReason.t(params[:reason].to_i), note: params[:note], company: resource).deliver_now
+    end
+    
     def sign_up_params
       params.require(:company).permit(:name, :email, :password, :password_confirmation, :type_company)
     end
