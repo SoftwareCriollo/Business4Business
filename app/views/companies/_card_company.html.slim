@@ -1,0 +1,14 @@
+.col.m6.l4.s12
+  .card.small.card-custom.hoverable
+    .card-image
+      img src="images/2-IMG_landing_select_company_B4B.jpg"
+      span.card-title.bold
+        strong = c.name
+    .card-content.content-small
+      .col.m9
+        p.text-small
+          = truncate(c.description, omission: '...', length:120)
+      .col.m3.text-center
+        img class="circle" height="50" src="#{c.logo_url}" width="50"
+    .card-action.action-small
+      a.teal-text.text-lighten-2 href="#" FULL PROFILE

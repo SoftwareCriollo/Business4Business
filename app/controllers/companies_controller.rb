@@ -1,9 +1,13 @@
 class CompaniesController < ApplicationController
-  before_action :find_company, except: [ :new, :create, :type_company ]
+  before_action :find_company, except: [ :new, :create, :type_company, :index ]
   before_action :check_paid, only: [ :update ]
 
+  def index
+    @companies = Company.approved.profile_complete
+  end
+
   def new
-    @companies = Company.new()
+    @companies = Company.new
     render layout: "public"
   end
 
@@ -38,7 +42,7 @@ class CompaniesController < ApplicationController
 
   def type_company
     render layout: "public"
-  end  
+  end
 
 private
 

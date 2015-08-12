@@ -1,0 +1,28 @@
+.container
+  .row
+    .col.m6.s12
+      h3.title-page
+        | ALL TEAMS
+        hr
+    .col.m6.s12
+      .col.s6.m8
+        .input-field
+          label Filter: Location
+          input type='text'
+      .col.s6.m4
+        .add-container.right
+          = link_to new_project_path do
+            button.btn-floating.waves-effect.waves-light.teal.lighten-2
+              i.material-icons add
+            span.teal-text
+              strong.teal-text.text-lighten-2 PROJECT
+
+
+
+
+  .row
+    - if @companies.count > 0
+      - @companies.each do |company|
+        = render 'card_company', c: company
+    - else
+      = render 'empty_list'

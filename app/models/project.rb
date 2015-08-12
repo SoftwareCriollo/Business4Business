@@ -7,6 +7,6 @@ class Project < ActiveRecord::Base
   validates :name, :description, presence: true
 
   def timeframes
-    read_attribute(:timeframes).strftime('%e %B, %Y')
+    read_attribute(:timeframes) ? read_attribute(:timeframes).strftime('%e %B, %Y') : read_attribute(:timeframes)
   end
 end

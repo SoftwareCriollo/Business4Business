@@ -17,6 +17,9 @@ class Company < ActiveRecord::Base
   has_many :projects,  dependent: :destroy
   has_and_belongs_to_many :skills
 
+  scope :approved, -> { where(status: StatusCompany::APPROVE) }
+  scope :profile_complete, -> { where(complete_profile: true) }
+
   def approve_request_company
     update_attribute(:status, StatusCompany::APPROVE)
   end
