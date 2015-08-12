@@ -1,0 +1,5 @@
+.row
+  .col-md-12
+    = form_for(@companies, url: company_create_path) do |c|
+      = c.hidden_field :type_company, :value => params[:type]
+      = render 'company_sign_up', c:c
