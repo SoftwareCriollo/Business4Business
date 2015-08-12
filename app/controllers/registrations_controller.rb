@@ -23,8 +23,10 @@ class RegistrationsController < Devise::RegistrationsController
   private
 
     def send_mails_notifications
-      NotificationMailer.notification_company(reason: CancelReason.t(params[:reason].to_i), note: params[:note]).deliver_now
-      NotificationMailer.notification_admin(reason: CancelReason.t(params[:reason].to_i), note: params[:note], company: resource).deliver_now
+      @reason = CancelReason.t(params[:reason].to_i)
+      @note = params[:note]
+      NotificationMailer.notification_company(reason: @reason, note: @note).deliver_now
+      NotificationMailer.notification_admin(reason: @reason, note: @note, company: resource).deliver_now
     end
     
     def sign_up_params
