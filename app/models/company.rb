@@ -17,6 +17,8 @@ class Company < ActiveRecord::Base
   has_many :projects,  dependent: :destroy
   has_and_belongs_to_many :skills
 
+  accepts_nested_attributes_for :skills, :allow_destroy => true, :reject_if => :all_blank
+
   def approve_request_company
     update_attribute(:status, StatusCompany::APPROVE)
   end

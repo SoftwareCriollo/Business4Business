@@ -57,6 +57,52 @@
 	padding: 0 0 !important;
 }
 
+
+
+@media (max-width: 640px) {
+	.type-company-align-box-left {
+		margin-top: 0;
+		margin-left: auto !important;
+		margin-bottom: 10px;
+		margin-right: auto !important;
+		float: none !important;
+	}
+
+	.type-company-align-box-right {
+		margin-top: 0;
+		margin-left: auto !important;
+		margin-bottom: 10px;
+		margin-right: auto !important;
+		float: none !important;
+	}
+
+	.type-company-box-col {
+		width: 100% !important;
+		text-align: center;
+	}
+}
+
+
+
+.type-company-display {
+	display: inline !important;
+}
+
+.type-company-box-col {
+	float: left;
+	min-width: 280px;
+}
+
+.type-company-align-box-left {
+	float: right;
+	margin-right: 15px;
+}
+
+.type-company-align-box-right {
+	float: left;
+	margin-left: 15px;
+}
+
 .box-panel-type-company {
 	margin-top: 20px;
 	margin-left: auto;
