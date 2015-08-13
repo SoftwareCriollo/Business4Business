@@ -5,16 +5,16 @@
       hr
 
   .row
-    .valign-wrapper
-      .col.s6.valign.center-align
-        a.type-company.btn-large.waves-effect.waves-light.btn-select-type-company href="/companies/new/#{TypeCompany::TEAM_COMPANY}"
+    .valign-wrapper.type-company-display
+      .col.s6.valign.type-company-box-col
+        a.type-company.btn-large.waves-effect.waves-light.btn-select-type-company.type-company-align-box-left href="/companies/new/#{TypeCompany::COMPANY}"
           .box-panel-type-company
             img src="/images/TEAMcompany-type-icon.png"
             h5.white-text.text-type-company
               | Find a 
               strong Team
-      .col.s6.valign.center-align
-        a.type-company.btn-large.waves-effect.waves-light.btn-select-type-company href="/companies/new/#{TypeCompany::COMPANY}"
+      .col.s6.valign.type-company-box-col
+        a.type-company.btn-large.waves-effect.waves-light.btn-select-type-company.type-company-align-box-right href="/companies/new/#{TypeCompany::TEAM_COMPANY}"
           .box-panel-type-company
             img src="/images/PROJECTcompany-type-icon.png"
             h5.white-text.text-type-company 

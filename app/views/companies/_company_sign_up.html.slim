@@ -22,4 +22,9 @@ section#step2.container
         = c.password_field :password_confirmation, autocomplete: "off", class: "input-sign-up-company validate", required: ""
         = c.label :password_confirmation, class: "label-sign-up-company"
 
+      - if params[:type].to_i == TypeCompany::TEAM_COMPANY
+        .input-field
+          = select_tag :skills, options_for_select(Skill.all.map {|s| [s.name, s.id]}, @companies.skills.map {|j| j.id}), :multiple => true, :size => 10, :class => "input-sign-up-company validate"
+          = c.label :skills, class: "label-sign-up-company"
+
       button class="btn-large waves-effect waves-light btn-sign-up-company" type="submit" name="action" Create Profile

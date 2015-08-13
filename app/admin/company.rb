@@ -43,6 +43,13 @@ ActiveAdmin.register Company do
         column('Paid date'){ |val| val.created_at.strftime("%c") }
       end
     end
+
+    panel 'Projects' do
+      table_for company.payments do
+        column(:amount){ |a| "$#{a.amount / 100}" }
+        column('Paid date'){ |val| val.created_at.strftime("%c") }
+      end
+    end
   end
 
   index do
