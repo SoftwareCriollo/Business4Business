@@ -38,7 +38,7 @@ class CompaniesController < ApplicationController
 
   def type_company
     render layout: "public"
-  end  
+  end
 
 private
 
