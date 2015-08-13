@@ -3,7 +3,8 @@ class CompaniesController < ApplicationController
   before_action :check_paid, only: [ :update ]
 
   def index
-    @companies = Company.approved.profile_complete
+    @q = Company.approved.profile_complete.ransack(params[:q])
+    @companies = @q.result
   end
 
   def new

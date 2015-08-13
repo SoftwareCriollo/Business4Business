@@ -6,9 +6,10 @@
         hr
     .col.m6.s12
       .col.s6.m8
-        .input-field
-          label Filter: Location
-          input type='text'
+        = search_form_for @q do |f|
+          .input-field
+            = f.search_field :address_cont, placeholder:'Filter: Location'
+
       .col.s6.m4
         .add-container.right
           = link_to new_project_path do
