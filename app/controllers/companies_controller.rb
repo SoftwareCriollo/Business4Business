@@ -3,7 +3,8 @@ class CompaniesController < ApplicationController
   before_action :check_paid, only: [ :update ]
 
   def new
-    @companies = Company.new()
+    @type = params[:type]
+    @companies = Company.new(type_company: @type)
     render layout: "public"
   end
 
