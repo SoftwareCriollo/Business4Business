@@ -1,5 +1,6 @@
 $(document).ready(function() {
   $('select').material_select();
+  $('.select-dropdown').val('');
   $(".chosen-select").chosen({disable_search_threshold: 10});
   $('.datepicker').pickadate({
     selectMonths: true,
