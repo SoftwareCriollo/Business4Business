@@ -10,9 +10,9 @@ ActiveAdmin.register Company do
     if company.status == StatusCompany::ON_HOLD
       render 'custom_action', company: company
     elsif company.status == StatusCompany::APPROVE
-      link_to 'Reject', reject_request_path(company), class: "member_link"
+      link_to 'Reject', reject_request_companies_path(company), class: "member_link"
     else
-      link_to 'Approve', approve_request_path(company), class: "member_link"
+      link_to 'Approve', approve_request_companies_path(company), class: "member_link"
     end
   end
 
@@ -70,9 +70,9 @@ ActiveAdmin.register Company do
         if company.status == StatusCompany::ON_HOLD
           render 'custom_action', company: company
         elsif company.status == StatusCompany::APPROVE
-          link_to 'Reject', reject_request_path(company), class: "member_link"
+          link_to 'Reject', reject_request_companies_path(company), class: "member_link"
         else
-          link_to 'Approve', approve_request_path(company), class: "member_link"
+          link_to 'Approve', approve_request_companies_path(company), class: "member_link"
         end
       end
     end

@@ -9,17 +9,25 @@ Rails.application.routes.draw do
     post 'companies/create', to: 'companies#create', as: :company_create
   end
 
+  get 'companies', to: 'companies#index', as: :company_dashboard
+  get 'projects', to: 'projects#index', as: :team_company_dashboard
+
   get 'company/cancel/:id', to: 'companies#cancel_account', as: :cancel_account
 
-  get 'company/approve/:id', to: 'companies#approve_request', as: :approve_request
-  get 'company/reject/:id', to: 'companies#reject_request', as: :reject_request
+  # get 'company/approve/:id', to: 'companies#approve_request', as: :approve_request
+  # get 'company/reject/:id', to: 'companies#reject_request', as: :reject_request
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
   root to: "home#index"
-  resources :companies
+  resources :companies do
+    collection do
+      get '/approve/:id', to: 'companies#approve_request', as: :approve_request
+      get '/reject/:id', to: 'companies#reject_request', as: :reject_request
+    end
+  end
   resources :charges
   resources :projects
   # Example of regular route:
