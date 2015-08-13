@@ -43,4 +43,8 @@ class Company < ActiveRecord::Base
     super && !deleted_at
   end
 
+  def is_team_company?
+    type_company == TypeCompany::TEAM_COMPANY
+  end
+
 end

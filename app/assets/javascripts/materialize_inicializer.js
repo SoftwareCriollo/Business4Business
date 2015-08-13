@@ -9,3 +9,6 @@ $(document).ready(function() {
   $('input#input_text, textarea#textarea1').characterCounter();
   $(".button-collapse").sideNav();
 });
+$(window).bind("load", function() {
+  Materialize.updateTextFields();
+});
