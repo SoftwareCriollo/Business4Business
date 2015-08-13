@@ -19,6 +19,9 @@ class Company < ActiveRecord::Base
 
   accepts_nested_attributes_for :skills, :allow_destroy => true, :reject_if => :all_blank
 
+  scope :approved, -> { where(status: StatusCompany::APPROVE) }
+  scope :profile_complete, -> { where(complete_profile: true) }
+
   def approve_request_company
     update_attribute(:status, StatusCompany::APPROVE)
   end

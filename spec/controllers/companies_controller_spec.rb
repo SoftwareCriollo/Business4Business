@@ -63,12 +63,12 @@ describe CompaniesController do
 
     it "Approve Company path" do
       get :approve_request, id: company
-      expect { company.reload }.to change(company, :status).from(StatusCompany::ON_HOLD.to_s).to(StatusCompany::APPROVE.to_s)
+      expect { company.reload }.to change(company, :status).from(StatusCompany::ON_HOLD).to(StatusCompany::APPROVE)
     end
 
     it "Decline Company path" do
       get :reject_request, id: company
-      expect { company.reload }.to change(company, :status).from(StatusCompany::ON_HOLD.to_s).to(StatusCompany::REJECT.to_s)
+      expect { company.reload }.to change(company, :status).from(StatusCompany::ON_HOLD).to(StatusCompany::REJECT)
     end
   end
 end

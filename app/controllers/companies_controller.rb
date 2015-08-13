@@ -1,6 +1,11 @@
 class CompaniesController < ApplicationController
-  before_action :find_company, except: [ :new, :create, :type_company ]
+  before_action :find_company, except: [ :new, :create, :type_company, :index ]
   before_action :check_paid, only: [ :update ]
+
+  def index
+    @q = Company.approved.profile_complete.ransack(params[:q])
+    @companies = @q.result
+  end
 
   def new
     @type = params[:type]

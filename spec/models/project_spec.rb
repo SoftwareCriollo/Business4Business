@@ -11,7 +11,7 @@ describe Project do
   end
 
   it 'is correct format of timeframes' do
-    expect(build(:project).timeframes).to eq(Time.now.strftime('%e %B, %Y'))
+    expect(build(:project).timeframes).to eq(Time.now.utc.strftime('%e %B, %Y'))
   end
 
 end

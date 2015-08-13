@@ -14,6 +14,8 @@ gem 'materialize-sass'
 gem "validate_url"
 # Stripe Gem
 gem 'stripe-rails'
+# Filters of search
+gem 'ransack'
 # Enumerate
 gem "enumerate_it"
 # Paginator
