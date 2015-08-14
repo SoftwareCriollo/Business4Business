@@ -49,12 +49,11 @@
           - if !current_company.fee_paid?
             .col.s8.offset-m5.m3.offset-s4
               = link_to pay_path, :class => 'waves-effect waves-light orange darken-4 btn btn-large' do
-                | Pay Now 
+                | Pay Now
                 i.material-icons.right payment
 
             script src="https://checkout.stripe.com/checkout.js"
 
-        = f.hidden_field :type_company
         .actions
           button.waves-effect.waves-light.blue.btn type='submit'
             span Ready!

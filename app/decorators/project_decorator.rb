@@ -15,5 +15,4 @@ class ProjectDecorator < Draper::Decorator
     object.description.truncate(80)
   end
 
-
 end
