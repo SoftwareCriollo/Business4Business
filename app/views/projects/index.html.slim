@@ -1,0 +1,16 @@
+.container
+  .row
+    .col.m9.s12
+      h3.title-page
+        | ALL Projects
+        hr
+    .col.s12.m3
+        = search_form_for @q do |f|
+          .input-field
+            = f.search_field :name_cont, placeholder:'Filter: Name'
+  .row
+    - if @projects.count > 0
+      - @projects.each do |project|
+        = render 'card_project', p: project
+    - else
+      = render 'empty_projects'

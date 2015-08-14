@@ -1,3 +1,7 @@
+#error_explanation {
+  margin-bottom: 50px;
+}
+
 #error_explanation h2{
   font-size: 17px;
   font-style: italic;
@@ -11,7 +15,6 @@
 }
 
 .notice{
-  color: white;
   font-size: 17px;
   text-align: center;
 }
@@ -19,4 +22,7 @@
   color: white;
   font-size: 17px;
   text-align: center;
+}
+.alert:empty {
+  display: none;
 }

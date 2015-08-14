@@ -12,6 +12,12 @@ gem 'slim'
 gem 'materialize-sass'
 # Validates URL
 gem "validate_url"
+# Stripe Gem
+gem 'stripe-rails'
+# Docorators
+gem 'draper', '~> 1.3'
+# Filters of search
+gem 'ransack'
 # Enumerate
 gem "enumerate_it"
 # Paginator
@@ -69,9 +75,12 @@ end
 gem 'rails_12factor', group: :production
 
 group :test do
+  gem 'rspec-rails'
   gem 'capybara', '~> 2.4.4'
-  gem 'factory_girl_rails', '~> 4.5.0'
   gem 'simplecov', '~> 0.9.2', require: false
   gem 'shoulda-matchers'
   gem 'database_cleaner'
+  gem 'factory_girl_rails'
+  gem 'faker'
+  gem "codeclimate-test-reporter", require: nil
 end

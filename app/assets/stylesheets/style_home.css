@@ -1,0 +1,245 @@
+.body-public {
+	background: url(/images/1-IMG_landing_page_B4B.jpg) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.body-pay {
+	background: url(/images/5-IMG_Pricing_B4B.jpg) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.body-type-company {
+	background: url(/images/2-IMG_landing_select_company_B4B.jpg) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.body-sign-up-company {
+	background: url(/images/4-IMG_Project_createprofile_B4B.jpg) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.nav-public {
+	background: transparent;
+	box-shadow: 0 0 0 0;
+}
+
+.img-logo-home {
+	padding-top: 18px;
+}
+
+.title-home {
+	margin-top: 180px;
+}
+
+.title-home hr {
+	border: 2px solid #00bfa5;
+	margin-top: 12px;
+	width: 270px;
+}
+
+.sub-title-home {
+	color: white;
+	font-weight: 600 !important;
+	margin-top: -20px !important;
+}
+
+.btn-home {
+	background-color: #00bfa5 !important;
+	border-radius: 5px !important;
+	font-size: 24px;
+	font-weight: 500;
+}
+
+#step1 {
+	padding-top: 15px;
+}
+
+.title-type-company {
+	margin-top: 10px;
+}
+
+.btn-select-type-company {
+	height: 160px !important;
+	width: 280px !important;
+	border-radius: 5px !important;
+	padding: 0 0 !important;
+}
+
+@media (max-width: 991px) {
+	.title-home {
+		font-size: 3.5rem;
+	}
+}
+
+@media (max-width: 640px) {
+	.type-company-align-box-left {
+		margin-top: 0;
+		margin-left: auto !important;
+		margin-bottom: 10px;
+		margin-right: auto !important;
+		float: none !important;
+	}
+
+	.type-company-align-box-right {
+		margin-top: 0;
+		margin-left: auto !important;
+		margin-bottom: 10px;
+		margin-right: auto !important;
+		float: none !important;
+	}
+
+	.type-company-box-col {
+		width: 100% !important;
+		text-align: center;
+	}
+}
+
+
+
+.type-company-display {
+	display: inline !important;
+}
+
+.type-company-box-col {
+	float: left;
+	min-width: 280px;
+}
+
+.type-company-align-box-left {
+	float: right;
+	margin-right: 15px;
+}
+
+.type-company-align-box-right {
+	float: left;
+	margin-left: 15px;
+}
+
+.box-panel-type-company {
+	margin-top: 20px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.text-type-company {
+	margin: 0 !important;
+    letter-spacing: 0px;
+    font-weight: 300;
+    font-size: 30px;
+    margin-top: -15px !important;
+}
+
+#step2 {
+	padding-top: 40px;
+}
+
+.title-sign-up-company {
+	margin-top: 10px;
+	font-size: 36px;
+}
+
+.title-sign-up-company hr {
+	border: 2px solid #00bfa5;
+	margin-left: 0;
+	margin-top: 12px;
+	width: 210px;
+}
+
+.input-sign-up-company {
+	font-size: 24px !important;
+	color: white !important;
+}
+
+.label-sign-up-company {
+	left: 0 !important;
+}
+
+.btn-sign-up-company {
+	background-color: #00bfa5 !important;
+	border-radius: 5px !important;
+	font-size: 20px;
+	font-weight: 500;
+	text-transform: none !important;
+	margin-top: 45px;
+}
+
+.btn-cancel-company {
+	color: #2d776a !important;
+	background-color: #eceff1 !important;
+	border-radius: 5px !important;
+	font-size: 20px;
+	font-weight: 500;
+	text-transform: none !important;
+	margin-top: 45px;
+}
+
+.container-pay {
+	padding-top: 40px;
+	padding-left: 10px;
+	color: #263238;
+}
+
+.title-pay {
+	margin-top: 10px;
+	font-size: 36px;
+}
+
+.title-pay hr {
+	border: 2px solid #00bfa5;
+	margin-left: 0;
+	margin-top: 12px;
+	width: 100px;
+}
+
+.margin-title-pay {
+	margin-bottom: 0px !important;
+}
+
+.text-mount-pay {
+	font-size: 40px;
+}
+
+.text-pay-yearly {
+	font-size: 20px;
+	width: 100px;
+}
+
+.text-p-pay {
+	font-size: 19px;
+    font-weight: 300;
+}
+
+.btn-pay {
+	font-size: 24px;
+	text-transform: none !important;
+}
+
+.box-img-text-pay {
+	width: 170px;
+	height: 210px;
+    text-align: center;
+    margin: 5px 25px 5px 0px;
+    float: left;
+}
+
+.box-img-text-pay img {
+
+}
+
+.text-img-pay {
+	line-height: 1.25em;
+    font-size: 13px;
+    font-weight: 500;
+}

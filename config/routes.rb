@@ -2,6 +2,22 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :companies, controllers: { registrations: 'registrations' }
+
+  devise_scope :company do
+    get 'companies/new/:type', to: 'companies#new', as: :company_sign_up
+    get 'companies/type', to: 'companies#type_company', as: :company_type
+    post 'companies/create', to: 'companies#create', as: :company_create
+  end
+
+  get 'companies', to: 'companies#index', as: :company_dashboard
+  get 'projects', to: 'projects#index', as: :team_company_dashboard
+
+  get 'company/cancel/:id', to: 'companies#cancel_account', as: :cancel_account
+
+  get 'company/pay', to: 'charges#pay', as: :pay
+
+  # get 'company/approve/:id', to: 'companies#approve_request', as: :approve_request
+  # get 'company/reject/:id', to: 'companies#reject_request', as: :reject_request
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -10,10 +26,12 @@ Rails.application.routes.draw do
   root to: "home#index"
   resources :companies do
     collection do
-      get '/:id/edit/:type', to: 'companies#edit', as: :edit_ini_company
-      get 'select_type_company', to:'companies#select_type_company', as: :type
+      get '/approve/:id', to: 'companies#approve_request', as: :approve_request
+      get '/reject/:id', to: 'companies#reject_request', as: :reject_request
     end
   end
+  resources :charges
+  resources :projects
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

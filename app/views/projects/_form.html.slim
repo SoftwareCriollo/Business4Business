@@ -1,0 +1,38 @@
+= form_for @project do |f|
+    = render 'shared/errors_messages', object: f.object
+    .row
+      .col.s6
+        .input-field
+          = f.label :name
+          = f.text_field :name, class:'validate'
+        .input-field
+          = f.select :skill_ids, Skill.all.collect {|p| [ p.name, p.id ] }, {}, { class:'browser-default chosen-select', multiple:true }
+      .col.s6
+        .input-field
+          = f.label :timeframes
+          = f.text_field :timeframes, class:'datepicker'
+        .input-field
+          = f.label :budget
+          = f.number_field :budget
+
+    .row
+      .col-s12
+        .input-field
+          = f.label :description
+          = f.text_area :description, class:'materialize-textarea validate', rows:1
+    .row
+      .col.s12
+        .file-field.input-field
+          .btn
+            span Upload Prject File
+            = f.file_field :file
+          .file-path-wrapper
+            input.file-path.validate type="text"
+
+    .actions
+      button.waves-effect.waves-light.blue.btn type='submit'
+        span ¡Save!
+        i.material-icons.right done
+
+
+
