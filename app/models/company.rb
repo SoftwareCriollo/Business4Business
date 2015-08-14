@@ -1,4 +1,5 @@
 class Company < ActiveRecord::Base
+  include Rails.application.routes.url_helpers
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -7,9 +8,9 @@ class Company < ActiveRecord::Base
   mount_uploader :logo, LogoUploader
   delegate :name, to: :category,  prefix: 'category'
 
-  validates :name, :type_company, presence: true, on: [ :create ]
+  validates :name, :type, presence: true
   validates :website, presence: true, url: true, on: [ :update ]
-  validates :name, :description, :category_id, :tax_id, :address, :type_company, :status, presence: true, on: [ :update ]
+  validates :description, :category_id, :tax_id, :address, :status, presence: true, on: [ :update ]
 
   belongs_to :category
   has_many :contacts,  dependent: :destroy
@@ -43,8 +44,19 @@ class Company < ActiveRecord::Base
     super && !deleted_at
   end
 
-  def is_team_company?
-    type_company == TypeCompany::TEAM_COMPANY
+  def dashboard_path
+    company_dashboard_path
   end
+
+  def after_sign_in_path
+    if complete_profile? and fee_paid?
+      dashboard_path
+    elsif !fee_paid?
+      pay_path
+    else
+      edit_company_path(self)
+    end
+  end
+
 
 end
