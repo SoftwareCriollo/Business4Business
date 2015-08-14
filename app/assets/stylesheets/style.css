@@ -29,21 +29,39 @@ p.infor-profile{
 h3.title-page hr {
   border: 2px solid #00bfa5;
   margin-top: 12px;
-  width: 247px;
+  width: 35%;
   margin-left: 0;
 }
 .card-content.content-small{
   padding: 18px 4px !important;
 }
-
+.card-content.content-project{
+  padding: 18px 4px !important;
+}
+.card-content .title-company{
+  padding-bottom: 5px;
+  font-size: 14px;
+}
+.card-content .skills{
+  padding-bottom: 5px;
+  font-size: 12px;
+  color:#989898 !important;
+}
 .card-action.action-small{
   padding: 10px 15px !important;
 }
 .card.small .card-content {
-  height: 90px !important;
+  height: 90px;
+}
+.card.small .content-project {
+  height: 106px;
 }
 .card.small.card-custom{
   background-color: #EBEFF2;
+}
+.card.small.card-project{
+  background-color: #EBEFF2;
+  height: 320px;
 }
 .text-small {
   font-size: 13px;

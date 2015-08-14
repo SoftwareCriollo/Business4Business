@@ -14,6 +14,8 @@ gem 'materialize-sass'
 gem "validate_url"
 # Stripe Gem
 gem 'stripe-rails'
+# Docorators
+gem 'draper', '~> 1.3'
 # Filters of search
 gem 'ransack'
 # Enumerate

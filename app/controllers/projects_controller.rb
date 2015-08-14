@@ -1,5 +1,11 @@
 class ProjectsController < ApplicationController
-  before_action :find_project, except: [:new, :create]
+  before_action :authenticate_company!
+  before_action :find_project, except: [:new, :create, :index]
+
+  def index
+    @q = Project.all.ransack(params[:q])
+    @projects = ProjectDecorator.decorate_collection(@q.result)
+  end
 
   def new
     @project = current_company.projects.new
