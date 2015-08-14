@@ -8,7 +8,7 @@ class ChargesController < ApplicationController
   end
 
   def create
-    @amount = 5000
+    @amount = 60000
     customer = Stripe::Customer.create(
       :email => current_company.email,
       :card  => params[:stripeToken]
@@ -23,7 +23,7 @@ class ChargesController < ApplicationController
 
     respond_to do |format|
       save_payment
-      format.json { render json: { message: charge.status } }
+      format.json { render json: { message: charge.status, url: edit_company_url(current_company) } }
     end
 
     rescue Stripe::CardError => e
