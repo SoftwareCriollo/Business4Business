@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-  before_action :authenticate_company!, except: [:new, :create, :type_company]
+  before_action :authenticate_company!, except: [ :new, :create, :type_company ]
   before_action :find_company, except: [ :new, :create, :type_company, :index ]
   before_action :check_paid, only: [ :update ]
 
@@ -11,7 +11,7 @@ class CompaniesController < ApplicationController
   def new
     @type = params[:type]
     @companies = Company.new(type_company: @type)
-    render layout: "public"
+    render layout: "sign_up_company"
   end
 
   def create
@@ -44,7 +44,7 @@ class CompaniesController < ApplicationController
   end
 
   def type_company
-    render layout: "public"
+    render layout: "type_company"
   end
 
 private
