@@ -27,4 +27,9 @@ section#step2.container
           = select_tag :skills, options_for_select(Skill.all.map {|s| [s.name, s.id]}, @companies.skills.map {|j| j.id}), :multiple => true, :size => 10, :class => "input-sign-up-company validate"
           = c.label :skills, class: "label-sign-up-company"
 
+  .row
+    .col
       button class="btn-large waves-effect waves-light btn-sign-up-company" type="submit" name="action" Create Profile
+    .col
+      = link_to root_path, class: 'btn-large waves-effect waves-light btn-cancel-company' do
+        | Cancel
