@@ -8,8 +8,8 @@
 	.row.margin-title-pay
 		.col.s12
 			.text-mount-pay-total
-				span.text-mount-pay $ 50/month 
-				span.text-pay-yearly pay yearly 
+				span.text-mount-pay $ 50/month
+				span.text-pay-yearly pay yearly
 
 	.row
 		.col.s12
@@ -41,11 +41,7 @@
 				| With this you can access the projects both as a team and company. As a Company, you can post your own projects and the teams can apply to work or otherwise can view profiles of teams for subsequent employment for your project.
 
 	.row
-		- unless current_company.fee_paid?
-			.col.s6
-				button.waves-effect.waves-light.darken-4.btn.btn-large.btn-pay id="customButton"
-					span Pay
+		.col.s6
+			button.waves-effect.waves-light.darken-4.btn.btn-large.btn-pay id="customButton"
+				span Pay
 
-		- if current_company.fee_paid?
-			.col.s6
-				= link_to "Complete Profile", edit_company_path(current_company), :class => 'waves-effect waves-light darken-4 btn btn-large btn-pay'
