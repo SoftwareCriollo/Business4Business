@@ -11,6 +11,8 @@ $(function(){
         Materialize.toast(data.message+', please try again', 4000);
         $('#customButton').prop('disabled', false);
         $('#customButton').removeClass('disabled');
+      }else{
+        window.location.reload();
       }
     });
   }

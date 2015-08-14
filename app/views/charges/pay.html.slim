@@ -1,0 +1,51 @@
+.container.container-pay
+	.row.margin-title-pay
+		.col.s5
+			h3.header.title-pay
+				| PRICING
+				hr
+
+	.row.margin-title-pay
+		.col.s12
+			.text-mount-pay-total
+				span.text-mount-pay $ 50/month 
+				span.text-pay-yearly pay yearly 
+
+	.row
+		.col.s12
+			.text-p-pay
+				| This is a paid service, canceled a monthly basis.
+
+	.row
+		.col.s12
+			.box-img-text-pay
+				img src="/images/circulo_1.png"
+				.text-img-pay
+					| BEST SOFTWARE COMPANIES
+			.box-img-text-pay
+				img src="/images/circulo_2.png"
+				.text-img-pay
+					| BEST TEAMS TO WORK
+			.box-img-text-pay
+				img src="/images/circulo_3.png"
+				.text-img-pay
+					| TALENTS
+			.box-img-text-pay
+				img src="/images/circulo_4.png"
+				.text-img-pay
+					| HIGH QUALITY PROJECTS
+
+	.row
+		.col.s8
+			.text-p-pay
+				| With this you can access the projects both as a team and company. As a Company, you can post your own projects and the teams can apply to work or otherwise can view profiles of teams for subsequent employment for your project.
+
+	.row
+		- unless current_company.fee_paid?
+			.col.s6
+				button.waves-effect.waves-light.darken-4.btn.btn-large.btn-pay id="customButton"
+					span Pay
+
+		- if current_company.fee_paid?
+			.col.s6
+				= link_to "Complete Profile", edit_company_path(current_company), :class => 'waves-effect waves-light darken-4 btn btn-large btn-pay'

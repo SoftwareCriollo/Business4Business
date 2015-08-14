@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   get 'company/cancel/:id', to: 'companies#cancel_account', as: :cancel_account
 
+  get 'company/pay', to: 'charges#pay', as: :pay
+
   # get 'company/approve/:id', to: 'companies#approve_request', as: :approve_request
   # get 'company/reject/:id', to: 'companies#reject_request', as: :reject_request
   # The priority is based upon order of creation: first created -> highest priority.

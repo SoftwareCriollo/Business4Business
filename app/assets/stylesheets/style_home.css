@@ -4,6 +4,12 @@
 	width: 100%;
 }
 
+.body-pay {
+	background: black url('/images/5-IMG_Pricing_B4B.jpg') no-repeat center top;
+	height: 100%;
+	width: 100%;
+}
+
 .body-public2 {
 	background: black url('/images/4-IMG_Project_createprofile_B4B.jpg') no-repeat center top;
 	height: 100%;
@@ -150,4 +156,63 @@
 	font-weight: 500;
 	text-transform: none !important;
 	margin-top: 45px;
+}
+
+.container-pay {
+	padding-top: 40px;
+	padding-left: 10px;
+	color: #263238;
+}
+
+.title-pay {
+	margin-top: 10px;
+	font-size: 36px;
+}
+
+.title-pay hr {
+	border: 2px solid #00bfa5;
+	margin-left: 0;
+	margin-top: 12px;
+	width: 100px;
+}
+
+.margin-title-pay {
+	margin-bottom: 0px !important;
+}
+
+.text-mount-pay {
+	font-size: 40px;
+}
+
+.text-pay-yearly {
+	font-size: 20px;
+	width: 100px;
+}
+
+.text-p-pay {
+	font-size: 19px;
+    font-weight: 300;
+}
+
+.btn-pay {
+	font-size: 24px;
+	text-transform: none !important;
+}
+
+.box-img-text-pay {
+	width: 170px;
+	height: 210px;
+    text-align: center;
+    margin: 5px 25px 5px 0px;
+    float: left;
+}
+
+.box-img-text-pay img {
+
+}
+
+.text-img-pay {
+	line-height: 1.25em;
+    font-size: 13px;
+    font-weight: 500;
 }
