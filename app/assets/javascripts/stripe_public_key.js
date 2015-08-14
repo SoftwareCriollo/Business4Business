@@ -12,7 +12,7 @@ $(function(){
         $('#customButton').prop('disabled', false);
         $('#customButton').removeClass('disabled');
       }else{
-        window.location.reload();
+        window.location.href = data.url;
       }
     });
   }
@@ -22,7 +22,7 @@ $(function(){
     handler.open({
       name: 'Business4Business',
       description: 'Annual payment',
-      amount: 5000,
+      amount: 60000,
       color: '#2196F3'
     });
     e.preventDefault();
