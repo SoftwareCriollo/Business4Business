@@ -19,7 +19,7 @@ html
           - if current_company
               ul.right.hide-on-med-and-down.list-text-black
                 li
-                  = link_to current_company do
+                  = link_to company_path(current_company) do
                     = "#{current_company.name.upcase} "
                     img src="/images/user_icon_12px.png"
                 li
