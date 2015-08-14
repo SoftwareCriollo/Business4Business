@@ -1,5 +1,9 @@
 class ChargesController < ApplicationController
 
+  def pay
+    render layout: "pay"
+  end
+
   def new
   end
 

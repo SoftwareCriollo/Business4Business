@@ -6,7 +6,11 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     if resource.class.name == 'Company'
-      current_company_has_complete_profile?
+      if current_company_has_payment?
+        current_company_has_complete_profile?
+      else
+        pay_path
+      end
     else
       super
     end

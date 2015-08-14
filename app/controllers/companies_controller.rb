@@ -18,7 +18,7 @@ class CompaniesController < ApplicationController
     @companies = Company.new(company_params)
     if @companies.save
       sign_in @companies
-      redirect_to edit_company_path(@companies), notice: 'Company created successfully'
+      redirect_to pay_path, notice: 'Company created successfully'
     else
       render 'new', layout: "public"
     end

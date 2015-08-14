@@ -45,9 +45,11 @@ ActiveAdmin.register Company do
     end
 
     panel 'Projects' do
-      table_for company.payments do
-        column(:amount){ |a| "$#{a.amount / 100}" }
-        column('Paid date'){ |val| val.created_at.strftime("%c") }
+      table_for company.projects do
+        column(:name)
+        column('Description'){ |des| truncate(des.description, omision: "...", length: 100) }
+        column(:timeframes)
+        column('Budget'){ |val| number_to_currency(val.budget) }
       end
     end
   end

@@ -12,6 +12,10 @@ module ApplicationHelper
     end
   end
 
+  def current_company_has_payment?
+    current_company.fee_paid?
+  end
+
   def current_company_has_complete_profile?
     if current_company.complete_profile?
       path_for_dashboard
