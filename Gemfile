@@ -8,6 +8,8 @@ gem 'devise'
 gem 'pg'
 # Code templante
 gem 'slim'
+# Nested form
+gem "nested_form"
 # Material Desing
 gem 'materialize-sass'
 # Validates URL

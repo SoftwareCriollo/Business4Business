@@ -16,9 +16,11 @@ class Company < ActiveRecord::Base
   has_many :contacts,  dependent: :destroy
   has_many :payments,  dependent: :destroy
   has_many :projects,  dependent: :destroy
-  has_and_belongs_to_many :skills
+  has_many :pictures, as: :owner, dependent: :destroy
+  has_and_belongs_to_many :skills, dependent: :destroy
 
-  accepts_nested_attributes_for :skills, :allow_destroy => true, :reject_if => :all_blank
+  accepts_nested_attributes_for :skills, allow_destroy: true, reject_if: :all_blank
+  accepts_nested_attributes_for :pictures, allow_destroy: true, reject_if: lambda { |t| t['file'].blank? and t['id'].blank? }
 
   scope :approved, -> { where(status: StatusCompany::APPROVE) }
   scope :profile_complete, -> { where(complete_profile: true) }
@@ -46,6 +48,10 @@ class Company < ActiveRecord::Base
 
   def dashboard_path
     company_dashboard_path
+  end
+
+  def constitution_date
+    read_attribute(:constitution_date) ? read_attribute(:constitution_date).strftime('%e %B, %Y') : read_attribute(:constitution_date)
   end
 
   def after_sign_in_path

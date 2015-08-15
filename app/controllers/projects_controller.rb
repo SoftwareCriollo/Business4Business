@@ -39,7 +39,13 @@ class ProjectsController < ApplicationController
 private
 
   def project_params
-    params.require(:project).permit(:name, :description, :file, :budget, :timeframes, { skill_ids: [] })
+    params.require(:project).permit(:name, :description, :file, :budget, :timeframes, { skill_ids: [] }, pictures_attributes: pictures_attributes)
+  end
+
+  def pictures_attributes
+    [
+      :id, :file, :default, :_destroy
+    ]
   end
 
   def find_project
