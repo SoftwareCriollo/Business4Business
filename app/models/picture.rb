@@ -3,4 +3,6 @@ class Picture < ActiveRecord::Base
   belongs_to :project
 
   mount_uploader :file, ImageUploader
+
+  scope :default_pic, -> { where(default: true) }
 end

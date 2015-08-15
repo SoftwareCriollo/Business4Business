@@ -6,7 +6,7 @@ class CompaniesController < ApplicationController
 
   def index
     @q = Company.approved.profile_complete.ransack(params[:q])
-    @companies = @q.result
+    @companies = CompanyDecorator.decorate_collection(@q.result)
   end
 
   def new
