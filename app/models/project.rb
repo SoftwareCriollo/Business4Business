@@ -1,5 +1,6 @@
 class Project < ActiveRecord::Base
   has_and_belongs_to_many :skills, dependent: :destroy
+  has_many :pictures, as: :owner, dependent: :destroy
   belongs_to :company
 
   mount_uploader :file, LogoUploader

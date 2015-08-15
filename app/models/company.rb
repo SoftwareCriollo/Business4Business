@@ -16,7 +16,8 @@ class Company < ActiveRecord::Base
   has_many :contacts,  dependent: :destroy
   has_many :payments,  dependent: :destroy
   has_many :projects,  dependent: :destroy
-  has_and_belongs_to_many :skills
+  has_many :pictures, as: :owner, dependent: :destroy
+  has_and_belongs_to_many :skills, dependent: :destroy
 
   accepts_nested_attributes_for :skills, :allow_destroy => true, :reject_if => :all_blank
 
