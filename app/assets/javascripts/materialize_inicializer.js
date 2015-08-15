@@ -12,4 +12,8 @@ $(document).ready(function(){
   });
   $('input#input_text, textarea#textarea1').characterCounter();
   $(".button-collapse").sideNav();
+
+  $('body').on('click', 'input[type=checkbox]', function(){
+    $('input[type=checkbox]:checked').not(this).prop('checked', false);
+  });
 });

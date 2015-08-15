@@ -6,7 +6,7 @@
           h3 = 'Edit Profile Information'
       - else
           h3 = 'Almost Done'
-      = form_for(@company) do |f|
+      = nested_form_for(@company, url: company_path) do |f|
         = render 'shared/errors_messages', object: f.object
         .row
           .col.s12
@@ -46,14 +46,20 @@
             = f.label :constitution_date
             = f.text_field :constitution_date, class:'datepicker'
         .row
-          - if !current_company.fee_paid?
-            .col.s8.offset-m5.m3.offset-s4
-              = link_to pay_path, :class => 'waves-effect waves-light orange darken-4 btn btn-large' do
-                | Pay Now
-                i.material-icons.right payment
-
-            script src="https://checkout.stripe.com/checkout.js"
-
+          = f.fields_for :pictures do |p|
+            .col.s12
+              .col.s1.center
+                = p.link_to_remove class:'btn-floating waves-effect waves-light red'
+                  i class="large material-icons" delete
+              .col.s2.center
+                = p.check_box :default, {}, 'true', 'false'
+                = p.label :default
+              .col.s2
+                = p.file_field :file
+                = p.hidden_field :id
+            br
+            br
+          = f.link_to_add "Add a Picture", :pictures, class:' waves-effect waves-light green btn'
         .actions
           button.waves-effect.waves-light.blue.btn type='submit'
             span Ready!
