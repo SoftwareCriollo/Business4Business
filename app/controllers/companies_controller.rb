@@ -11,7 +11,7 @@ class CompaniesController < ApplicationController
 
   def new
     @type = params[:type]
-    @companies = Company.new(type_company: @type)
+    @companies = Company.new(type: @type)
     render layout: "sign_up_company"
   end
 
@@ -51,7 +51,7 @@ class CompaniesController < ApplicationController
 private
 
   def company_params
-    params.require(name_class).permit(:name, :address, :website, :constitution_date, :description, :category_id, :tax_id, :address, :logo, :type_company, :email, :password, :password_confirmation, skills: skill_attributes, contact_attributes: contact_params, pictures_attributes: pictures_attributes)
+    params.require(name_class).permit(:name, :address, :website, :constitution_date, :description, :category_id, :tax_id, :address, :logo, :type, :email, :password, :password_confirmation, skills: skill_attributes, contact_attributes: contact_params, pictures_attributes: pictures_attributes)
   end
 
   def contact_params
