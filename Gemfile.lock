@@ -443,7 +443,6 @@ DEPENDENCIES
   carrierwave
   codeclimate-test-reporter
   coffee-rails (~> 4.1.0)
-  coffee-script-source (= 1.8.0)
   database_cleaner
   devise
   dotenv-rails
@@ -477,3 +476,6 @@ DEPENDENCIES
   validate_url
   web-console (~> 2.0)
   will_paginate
+
+BUNDLED WITH
+   1.10.6

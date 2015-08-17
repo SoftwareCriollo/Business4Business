@@ -5,11 +5,10 @@ module ApplicationHelper
   end
 
   def name_class
-    if current_company
-      ActiveModel::Naming.singular(current_company).to_sym
+    if params[:company].nil?
+      'company_team'.to_sym
     else
-      company = Company.new(type: params[:company][:type])
-      ActiveModel::Naming.singular(company).to_sym
+      'company'.to_sym
     end
   end
 end
