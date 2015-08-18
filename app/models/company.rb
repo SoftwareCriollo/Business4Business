@@ -1,4 +1,5 @@
 class Company < ActiveRecord::Base
+  include Rails.application.routes.url_helpers
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -7,17 +8,19 @@ class Company < ActiveRecord::Base
   mount_uploader :logo, LogoUploader
   delegate :name, to: :category,  prefix: 'category'
 
-  validates :name, :type_company, presence: true, on: [ :create ]
+  validates :name, :type, presence: true
   validates :website, presence: true, url: true, on: [ :update ]
-  validates :name, :description, :category_id, :tax_id, :address, :type_company, :status, presence: true, on: [ :update ]
+  validates :description, :category_id, :tax_id, :address, :status, presence: true, on: [ :update ]
 
   belongs_to :category
   has_many :contacts,  dependent: :destroy
   has_many :payments,  dependent: :destroy
   has_many :projects,  dependent: :destroy
-  has_and_belongs_to_many :skills
+  has_many :pictures, as: :owner, dependent: :destroy
+  has_and_belongs_to_many :skills, dependent: :destroy
 
-  accepts_nested_attributes_for :skills, :allow_destroy => true, :reject_if => :all_blank
+  accepts_nested_attributes_for :skills, allow_destroy: true, reject_if: :all_blank
+  accepts_nested_attributes_for :pictures, allow_destroy: true, reject_if: lambda { |t| t['file'].blank? and t['id'].blank? }
 
   scope :approved, -> { where(status: StatusCompany::APPROVE) }
   scope :profile_complete, -> { where(complete_profile: true) }
@@ -43,8 +46,23 @@ class Company < ActiveRecord::Base
     super && !deleted_at
   end
 
-  def is_team_company?
-    type_company == TypeCompany::TEAM_COMPANY
+  def dashboard_path
+    company_dashboard_path
   end
+
+  def constitution_date
+    read_attribute(:constitution_date) ? read_attribute(:constitution_date).strftime('%e %B, %Y') : read_attribute(:constitution_date)
+  end
+
+  def after_sign_in_path
+    if complete_profile? and fee_paid?
+      dashboard_path
+    elsif !fee_paid?
+      pay_path
+    else
+      edit_company_path(self)
+    end
+  end
+
 
 end

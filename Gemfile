@@ -8,6 +8,8 @@ gem 'devise'
 gem 'pg'
 # Code templante
 gem 'slim'
+# Nested form
+gem "nested_form"
 # Material Desing
 gem 'materialize-sass'
 # Validates URL
@@ -32,6 +34,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
+
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 # Gem for upload files
@@ -46,7 +49,6 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -56,10 +58,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-
-
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
   gem 'byebug'
   gem 'pry-rails'
   # Use for set environment vars
