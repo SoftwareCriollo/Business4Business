@@ -65,6 +65,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'quiet_assets', '~> 1.1.0'
   gem 'coffee-script-source', '1.8.0'
+
   # Use for set environment vars
   gem 'dotenv-rails'
 
