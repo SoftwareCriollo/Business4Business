@@ -29,7 +29,7 @@ p.infor-profile{
 h3.title-page hr {
   border: 2px solid #00bfa5;
   margin-top: 12px;
-  width: 35%;
+  width: 16%;
   margin-left: 0;
 }
 .card-content.content-small{
@@ -81,6 +81,9 @@ h3.title-page hr {
   line-height: inherit;
   padding-left: 1rem;
   width: calc(100% - 0rem);
+}
+.fields-img{
+  padding-top: 5px;
 }
 @media only screen and (min-width: 993px){
   .container{
