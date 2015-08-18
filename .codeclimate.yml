@@ -5,3 +5,4 @@ languages:
    PHP: false
 exclude_paths:
 - "app/assets/javascripts/chosen.jquery.js"
+- "public/javascripts/nested_form.js"
