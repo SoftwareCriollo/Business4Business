@@ -147,7 +147,7 @@
                   = f.label :tax_id, class: "label-sign-up-company"
 
                 .input-field
-                  = f.text_field :address, class:'materialize-textarea validate', rows:2
+                  = f.text_field :address, class:' validate', rows:2
                   = f.label :address, class: "label-sign-up-company"
 
                 = f.fields_for :pictures do |p|
@@ -173,6 +173,6 @@
         = link_to root_path, class: 'btn-large waves-effect waves-light btn-cancel-company-profile' do
           | Cancel
         
-      = link_to "Cancel Suscription", cancel_account_path(@company), :class => 'waves-effect waves-light red btn right'
+      = link_to "Cancel Suscription", cancel_account_path(@company), class:'btn-large waves-effect waves-light red btn right'
 
 = javascript_include_tag 'address_autocomplete.js'
