@@ -5,7 +5,7 @@ $(window).bind("load", function() {
 });
 
 $(document).ready(function(){
-  $(".chosen-select").chosen({disable_search_threshold: 10});
+  $(".chosen-select").chosen({disable_search_threshold: 10, width: "100%"});
   $('.datepicker').pickadate({
     selectMonths: true,
     selectYears: 100

@@ -3,5 +3,7 @@
     .col-s12
       p
         = link_to 'Back', :back, class:'waves-effect waves-light blue btn right'
-      h3 Create new project
-      = render 'form'
+      h3.title-page
+        | New Project
+        hr
+      = render 'form', button_name:'Create Project'
