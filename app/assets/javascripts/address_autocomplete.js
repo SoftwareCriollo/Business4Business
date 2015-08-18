@@ -1,5 +1,5 @@
-function initialize(input) {
-  var input = document.getElementById(input);
+function initialize(input_id) {
+  var input = document.getElementById(input_id);
   var autocomplete = new google.maps.places.Autocomplete(input);
 }
 
