@@ -63,6 +63,7 @@ group :development, :test do
   gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
   gem 'byebug'
   gem 'pry-rails'
+  gem 'quiet_assets', '~> 1.1.0'
   gem 'coffee-script-source', '1.8.0'
   # Use for set environment vars
   gem 'dotenv-rails'

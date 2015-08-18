@@ -18,33 +18,22 @@ html
             img.img-logo-home src="/images/LOGO_oscuro.png"
 
           - if current_company
-              ul.right.hide-on-med-and-down.list-text-black
+              ul.right.list-text-black
                 li
                   = link_to company_path(current_company) do
                     = "#{current_company.name.upcase} "
                     img src="/images/user_icon_12px.png"
                 li
                   = link_to destroy_company_session_path, method: 'delete' do
-                    | SIGN OUT
+                    | LOG OUT
 
-              ul#nav-mobile.side-nav
-                li
-                  = link_to destroy_company_session_path, method: 'delete' do
-                    | SIGN OUT
           - else
-              ul.right.hide-on-med-and-down
-                li
-                  = link_to new_company_session_path, style: "display: #{cp('/companies/new')}" do
-                    | LOGIN
-                    img src="/images/user_icon_12px.png"
-              ul#nav-mobile.side-nav
+              ul.right
                 li
                   = link_to new_company_session_path, style: "display: #{cp('/companies/new')}" do
                     | LOGIN
                     img src="/images/user_icon_12px.png"
 
-          a.button-collapse data-activates="nav-mobile" href="#"
-            i.material-icons menu
       - if notice
         .card.green.accent-1
           p.notice = notice

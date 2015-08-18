@@ -10,7 +10,7 @@ section#step2.container
       = render 'shared/errors_messages', object: c.object
       .input-field
         = c.text_field :name, class: "input-sign-up-company validate", required: ""
-        = c.label 'Company Name', class: "label-sign-up-company"
+        = c.label :name, 'Company Name', class: "label-sign-up-company"
       .input-field
         = c.email_field :email, autocomplete: "off", class: "input-sign-up-company validate", required: ""
         = c.label :email, class: "label-sign-up-company"
