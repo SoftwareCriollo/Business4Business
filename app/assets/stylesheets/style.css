@@ -87,3 +87,80 @@ h3.title-page hr {
     width: 90%;
   }
 }
+
+.container-edit-profile {
+  margin-top: 20px;
+}
+
+.title-edit-profile-company {
+  color: #283337 !important;
+  margin-top: 10px;
+  font-size: 40px;
+}
+
+.title-edit-profile-company hr {
+  border: 2px solid #00bfa5;
+  margin-left: 0;
+  margin-top: 12px;
+  width: 215px;
+}
+
+.text-title-company-profile {
+  font-size: 26px;
+  margin: 10px 0;
+}
+
+.text-title-company-profile hr {
+  border: 2px solid #00bfa5;
+  margin-left: 0;
+  margin-top: 28px;
+  width: 215px;
+}
+
+.text-thin {
+  font-weight: 300;
+}
+
+.btn-file-company-profile {
+  color: #2d776a !important;
+  background-color: #eceff1 !important;
+  font-size: 20px;
+  font-weight: 400;
+  text-transform: none !important;
+}
+
+.btn-picture-company-profile {
+  color: #2d776a !important;
+  background-color: #eceff1 !important;
+  font-size: 20px;
+  font-weight: 400;
+  text-transform: none !important;
+  height: 3rem;
+  line-height: 3rem;
+  margin-top: 35px;
+}
+
+.margin-top-field-text {
+  margin-top: 0px;
+}
+
+.margin-top-file-field {
+  margin-top: 14px;
+}
+
+.btn-company-profile-submit {
+  background-color: #00bfa5 !important;
+  border-radius: 5px !important;
+  font-size: 20px;
+  font-weight: 500;
+  text-transform: none !important;
+}
+
+.btn-cancel-company-profile {
+  color: #2d776a !important;
+  background-color: #eceff1 !important;
+  border-radius: 5px !important;
+  font-size: 20px;
+  font-weight: 500;
+  text-transform: none !important;
+}
