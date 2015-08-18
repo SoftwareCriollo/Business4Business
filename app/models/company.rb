@@ -54,14 +54,15 @@ class Company < ActiveRecord::Base
   end
 
   def after_sign_in_path
-    if complete_profile? and fee_paid?
-      dashboard_path
-    elsif !fee_paid?
-      pay_path
-    else
-      edit_company_path(self)
-    end
+    company_can_access_dashboard? ? dashboard_path : path_to_redirect
   end
 
+  def company_can_access_dashboard?
+    complete_profile? and fee_paid? and status == StatusCompany::APPROVE
+  end
 
+  def path_to_redirect
+    edit_company_path(self) unless complete_profile? and status == StatusCompany::APPROVE
+    pay_path unless fee_paid?
+  end
 end

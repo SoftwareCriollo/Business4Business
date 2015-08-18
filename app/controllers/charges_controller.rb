@@ -5,7 +5,7 @@ class ChargesController < ApplicationController
   end
 
   def create
-    make_charges(create_customer, 60000)
+    charge = make_charges(create_customer, 60000)
 
     respond_to do |format|
       save_payment
