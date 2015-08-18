@@ -1,5 +1,6 @@
 class Company < ActiveRecord::Base
   include Rails.application.routes.url_helpers
+  include Picturable
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -16,11 +17,9 @@ class Company < ActiveRecord::Base
   has_many :contacts,  dependent: :destroy
   has_many :payments,  dependent: :destroy
   has_many :projects,  dependent: :destroy
-  has_many :pictures, as: :owner, dependent: :destroy
   has_and_belongs_to_many :skills, dependent: :destroy
 
   accepts_nested_attributes_for :skills, allow_destroy: true, reject_if: :all_blank
-  accepts_nested_attributes_for :pictures, allow_destroy: true, reject_if: lambda { |t| t['file'].blank? and t['id'].blank? }
 
   scope :approved, -> { where(status: StatusCompany::APPROVE) }
   scope :profile_complete, -> { where(complete_profile: true) }
