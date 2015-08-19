@@ -16,10 +16,10 @@ class CompaniesController < ApplicationController
   end
 
   def create
-    @companies = Company.new(company_params)
-    if @companies.save
-      send_email_create_account(@companies)
-      sign_in @companies
+    @company = Company.new(company_params)
+    if @company.save
+      send_email_create_account
+      sign_in @company
       redirect_to pay_path, notice: 'Company created successfully'
     else
       render 'new', layout: "public"
@@ -49,9 +49,8 @@ class CompaniesController < ApplicationController
     render layout: "type_company"
   end
 
-  def send_email_create_account(company)
-    @email = company.email
-    NotificationMailer.notification_create_account(email: @email).deliver_now
+  def send_email_create_account
+    NotificationMailer.notification_create_account(email: @company.email).deliver_now
   end
 
 private
