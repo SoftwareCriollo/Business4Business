@@ -38,8 +38,8 @@ describe CompaniesController do
       expect(response).to have_http_status(:ok)
     end
 
-    it "renders the edit template" do
-      post :create, id: company
+    it "renders the new template" do
+      post :create, company: company
       expect(response).to render_template(:new)
     end
   end
