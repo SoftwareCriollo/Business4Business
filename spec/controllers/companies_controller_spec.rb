@@ -7,6 +7,43 @@ describe CompaniesController do
     expect(subject.current_company).not_to be_nil
   end
 
+  describe "GET index" do
+    let(:company) { create(:company) }
+    it "responds with a 200 HTTP status code" do
+      get :index
+      expect(response).to have_http_status(:ok)
+    end
+  end
+
+  describe "GET new" do
+    it "responds with a 200 HTTP status code" do
+      get :new
+      expect(response).to have_http_status(:ok)
+    end
+  end
+
+  describe "GET Type Company" do
+    it "responds with a 200 HTTP status code" do
+      get :type_company
+      expect(response).to have_http_status(:ok)
+    end
+  end
+
+  describe "POST create" do
+    let(:company) { FactoryGirl.build(:company).attributes }
+    let(:company_fail) { FactoryGirl.build(:company, email:'').attributes }
+
+    it "responds with 200 HTTP status code" do
+      post :create, company: company
+      expect(response).to have_http_status(:ok)
+    end
+
+    it "renders the edit template" do
+      post :create, id: company
+      expect(response).to render_template(:new)
+    end
+  end
+
   describe "GET show" do
     let(:company) { create(:company) }
 
