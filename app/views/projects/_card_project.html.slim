@@ -10,6 +10,6 @@
         p.skills = p.skills
         p.text-small = p.description
       .col.m3.text-center
-        img class="circle" height="50" src="#{image_url('logo_company.png')}" width="50"
+        img class="circle" height="50" src="#{p.company.logo_url}" width="50"
     .card-action.action-small
       = link_to 'VIEW MORE', project_path(p), class:' teal-text text-lighten-2'
