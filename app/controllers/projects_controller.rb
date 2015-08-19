@@ -37,6 +37,10 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def show
+    @company = current_company
+  end
+
   def send_email_new_project(project)
     @company = current_company
     @project = project
