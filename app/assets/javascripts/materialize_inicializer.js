@@ -2,10 +2,10 @@ $(window).bind("load", function() {
   Materialize.updateTextFields();
   $('select').material_select();
   $('.select-dropdown').val('');
+  $(".chosen-select").chosen({disable_search_threshold: 10, width: "100%"});
 });
 
 $(document).ready(function(){
-  $(".chosen-select").chosen({disable_search_threshold: 10, width: "100%"});
   $('.datepicker').pickadate({
     selectMonths: true,
     selectYears: 100

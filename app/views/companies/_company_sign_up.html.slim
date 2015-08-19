@@ -24,8 +24,7 @@ section#step2.container
 
       - if @companies.type == TypeCompany::TEAM_COMPANY
         .input-field
-          = select_tag :skills, options_for_select(Skill.all.map {|s| [s.name, s.id]}, @companies.skills.map {|j| j.id}), :multiple => true, :size => 10, :class => "input-sign-up-company validate"
-          = c.label :skills, class: "label-sign-up-company"
+          = c.select :skill_ids, Skill.all.collect {|p| [ p.name, p.id ] }, {}, { class: "input-sign-up-company browser-default chosen-select", multiple: true, "data-placeholder" => "Skills" }
 
   .row
     .col
