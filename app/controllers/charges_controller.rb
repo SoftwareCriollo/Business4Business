@@ -5,7 +5,8 @@ class ChargesController < ApplicationController
   end
 
   def create
-    charge = make_charges(create_customer, 60000)
+    @amount = 60000
+    charge = make_charges(create_customer)
 
     respond_to do |format|
       save_payment
@@ -33,10 +34,10 @@ private
     )
   end
 
-  def make_charges(customer, amount)
+  def make_charges(customer)
     Stripe::Charge.create(
       customer: customer.id,
-      amount: amount,
+      amount: @amount,
       description: 'Pay Plan One Year b4b',
       currency: 'usd'
     )
