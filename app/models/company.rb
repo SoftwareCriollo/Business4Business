@@ -23,6 +23,11 @@ class Company < ActiveRecord::Base
 
   scope :approved, -> { where(status: StatusCompany::APPROVE) }
   scope :profile_complete, -> { where(complete_profile: true) }
+  scope :team_campanies, -> { where(type: TypeCompany::TEAM_COMPANY) }
+
+  def self.list_filtered
+    approved.profile_complete.team_campanies
+  end
 
   def approve_request_company
     update_attribute(:status, StatusCompany::APPROVE)
