@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-  before_action :authenticate_company!, except: [ :new, :create, :type_company ]
+  before_action :authenticate_company!, only: [ :edit, :update, :index ]
   before_action :find_company, except: [ :new, :create, :type_company, :index ]
   before_action :check_paid, only: [ :update ]
   include ApplicationHelper
