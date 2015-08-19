@@ -14,8 +14,10 @@ gem "nested_form"
 gem 'materialize-sass'
 # Validates URL
 gem "validate_url"
-# Stripe Gem
+# Stripe Gem for rails
 gem 'stripe-rails'
+# Stripe gem
+gem 'stripe', '~> 1.20.1'
 # Docorators
 gem 'draper', '~> 1.3'
 # Filters of search
@@ -87,4 +89,5 @@ group :test do
   gem 'factory_girl_rails'
   gem 'faker'
   gem "codeclimate-test-reporter", require: nil
+  gem 'stripe-ruby-mock'
 end
