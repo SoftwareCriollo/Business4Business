@@ -10,6 +10,7 @@ $(document).ready(function(){
     selectMonths: true,
     selectYears: 100
   });
+  $('.tooltipped').tooltip({delay: 50});
   $('input#input_text, textarea#textarea1').characterCounter();
   $(".button-collapse").sideNav();
 

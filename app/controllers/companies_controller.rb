@@ -5,7 +5,7 @@ class CompaniesController < ApplicationController
   include ApplicationHelper
 
   def index
-    @q = Company.approved.profile_complete.ransack(params[:q])
+    @q = Company.list_filtered.ransack(params[:q])
     @companies = CompanyDecorator.decorate_collection(@q.result)
   end
 
