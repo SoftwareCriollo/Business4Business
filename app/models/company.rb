@@ -50,7 +50,7 @@ class Company < ActiveRecord::Base
     super && !deleted_at
   end
 
-  def active?
+  def no_active?
     deleted_at
   end
 
