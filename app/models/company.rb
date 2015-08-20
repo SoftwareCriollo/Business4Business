@@ -45,6 +45,10 @@ class Company < ActiveRecord::Base
     super && !deleted_at
   end
 
+  def active?
+    deleted_at
+  end
+
   def dashboard_path
     company_dashboard_path
   end
