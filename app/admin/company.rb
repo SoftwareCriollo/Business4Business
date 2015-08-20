@@ -54,7 +54,7 @@ ActiveAdmin.register Company do
     end
   end
 
-  index do
+  index row_class: ->company { 'hide' if company.active? } do
     selectable_column
     id_column
     column('Status') { |s| StatusCompany.key_for(s.status).to_s.humanize }
