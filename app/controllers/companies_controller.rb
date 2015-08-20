@@ -56,18 +56,12 @@ class CompaniesController < ApplicationController
 private
 
   def company_params
-    params.require(name_class).permit(:name, :address, :website, :constitution_date, :description, :category_id, :tax_id, :address, :logo, :type, :email, :password, :password_confirmation, skills: skill_attributes, contact_attributes: contact_params, pictures_attributes: pictures_attributes)
+    params.require(name_class).permit(:name, :address, :website, :constitution_date, :description, :category_id, :tax_id, :address, :logo, :type, :email, :password, :password_confirmation, { skill_ids: [] }, contact_attributes: contact_params, pictures_attributes: pictures_attributes)
   end
 
   def contact_params
     [
       :id, :first_name, :last_name, :email, :phone
-    ]
-  end
-
-  def skill_attributes
-    [
-      :id, :name
     ]
   end
 
