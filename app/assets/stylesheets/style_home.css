@@ -104,6 +104,29 @@
 		width: 100% !important;
 		text-align: center;
 	}
+
+	.box-img-text-pay {
+		width: 154px !important;
+		height: 190px !important;
+	}
+
+	.box-img-text-pay img {
+		width: 151px;
+		height: 149px;
+	}
+}
+
+@media (max-width: 993px) {
+	.body-pay {
+		-webkit-background-size: 350% 350%;
+		-moz-background-size: 350% 350%;
+		-o-background-size: 350% 350%;
+		background-size: 350% 350%;
+	}
+
+	.box-width-pay {
+		width: 100% !important;
+	}
 }
 
 
@@ -244,4 +267,33 @@
 	line-height: 1.25em;
     font-size: 13px;
     font-weight: 500;
+}
+
+.label-edit-company {
+	left: 0 !important;
+	font-size: 20px !important;
+    color: #2d776a !important;
+}
+
+input.file-path.logo-edit-company::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+	color: #2d776a !important;
+}
+
+input.file-path.logo-edit-company:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+	color: #2d776a !important;
+	opacity:  1;
+}
+
+input.file-path.logo-edit-company::-moz-placeholder { /* Mozilla Firefox 19+ */
+	color: #2d776a !important;
+	opacity:  1;
+}
+
+input.file-path.logo-edit-company:-ms-input-placeholder { /* Internet Explorer 10-11 */
+	color: #2d776a !important;
+}
+
+.img-menu-company {
+	margin-top: 16px;
+	width: 30px;
 }
