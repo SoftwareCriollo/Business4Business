@@ -1,23 +1,28 @@
-.container
-  .row
-    .col.s4.offset-s4
-      h2 Log in
-      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-        .field
-          = f.label :email
-          br
-          = f.email_field :email, autofocus: true
-        .field
-          = f.label :password
-          br
-          = f.password_field :password, autocomplete: "off"
-          - if devise_mapping.rememberable?
-        .field
-          = f.check_box :remember_me
-          = f.label :remember_me
-        .actions
-          br
-           button.waves-effect.waves-light.blue.btn type='submit'
-              span Login!
-              i.material-icons.right perm_identity
-
+#index-banner.section.no-pad-bot
+  .container
+    br
+    .row
+      .col.s5
+        h3.header.white-text.title-sign-up-company
+          | LOG IN
+          hr
+    .row
+      .col.s5
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .input-field
+            = f.label :email, class: "label-sign-up-company"
+            br
+            = f.email_field :email, class:'input-sign-up-company'
+          .input-field
+            = f.label :password, class: "label-sign-up-company"
+            br
+            = f.password_field :password, autocomplete: "off", class:'input-sign-up-company'
+            - if devise_mapping.rememberable?
+          .field
+            = f.check_box :remember_me
+            = f.label :remember_me
+          .actions
+            br
+             button.waves-effect.waves-light.teal.btn.accent-4.btn-large type='submit'
+                span Sign In
+                i.material-icons.right perm_identity
