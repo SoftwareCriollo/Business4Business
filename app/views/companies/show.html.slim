@@ -16,6 +16,9 @@
       = link_to @company.website, @company.website
     .col.s8.center-align
       p.flow-text.company-description.grey-text = truncate(@company.description, omision: "...", length: 150)
+
+    = link_to "Cancel Suscription", cancel_account_path(@company), class:'btn-large waves-effect waves-light red btn right'
+    
   hr
   .row.center
   .row.center
