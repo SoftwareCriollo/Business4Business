@@ -1,11 +1,11 @@
 class CompaniesController < ApplicationController
-  before_action :authenticate_company!, except: [ :new, :create, :type_company ]
+  before_action :authenticate_company!, only: [ :edit, :update, :index ]
   before_action :find_company, except: [ :new, :create, :type_company, :index ]
   before_action :check_paid, only: [ :update ]
   include ApplicationHelper
 
   def index
-    @q = Company.approved.profile_complete.ransack(params[:q])
+    @q = Company.list_filtered.ransack(params[:q])
     @companies = CompanyDecorator.decorate_collection(@q.result)
   end
 
@@ -16,9 +16,10 @@ class CompaniesController < ApplicationController
   end
 
   def create
-    @companies = Company.new(company_params)
-    if @companies.save
-      sign_in @companies
+    @company = Company.new(company_params)
+    if @company.save
+      send_email_create_account
+      sign_in @company
       redirect_to pay_path, notice: 'Company created successfully'
     else
       render 'new', layout: "public"
@@ -48,21 +49,19 @@ class CompaniesController < ApplicationController
     render layout: "type_company"
   end
 
+  def send_email_create_account
+    NotificationMailer.notification_create_account(email: @company.email).deliver_now
+  end
+
 private
 
   def company_params
-    params.require(name_class).permit(:name, :address, :website, :constitution_date, :description, :category_id, :tax_id, :address, :logo, :type, :email, :password, :password_confirmation, skills: skill_attributes, contact_attributes: contact_params, pictures_attributes: pictures_attributes)
+    params.require(name_class).permit(:name, :address, :website, :constitution_date, :description, :category_id, :tax_id, :address, :logo, :type, :email, :password, :password_confirmation, { skill_ids: [] }, contact_attributes: contact_params, pictures_attributes: pictures_attributes)
   end
 
   def contact_params
     [
       :id, :first_name, :last_name, :email, :phone
-    ]
-  end
-
-  def skill_attributes
-    [
-      :id, :name
     ]
   end
 

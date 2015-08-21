@@ -5,7 +5,7 @@ FactoryGirl.define do
     name { Faker::Company.name }
     email { Faker::Internet.email }
     password { Faker::Internet.password }
-    type_company { TypeCompany::COMPANY }
+    type { TypeCompany::COMPANY }
     status { StatusCompany::ON_HOLD }
     category
 

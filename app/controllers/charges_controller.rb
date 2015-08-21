@@ -4,22 +4,9 @@ class ChargesController < ApplicationController
     render layout: "pay"
   end
 
-  def new
-  end
-
   def create
     @amount = 60000
-    customer = Stripe::Customer.create(
-      :email => current_company.email,
-      :card  => params[:stripeToken]
-    )
-
-    charge = Stripe::Charge.create(
-      :customer    => customer.id,
-      :amount      => @amount,
-      :description => 'Pay Plan One Year b4b',
-      :currency    => 'usd'
-    )
+    charge = make_charges(create_customer)
 
     respond_to do |format|
       save_payment
@@ -33,9 +20,27 @@ class ChargesController < ApplicationController
       end
   end
 
+private
+
   def save_payment
     payment = current_company.payments.new(amount:@amount)
     payment.save
+  end
+
+  def create_customer
+    Stripe::Customer.create(
+      email: current_company.email,
+      card: params[:stripeToken]
+    )
+  end
+
+  def make_charges(customer)
+    Stripe::Charge.create(
+      customer: customer.id,
+      amount: @amount,
+      description: 'Pay Plan One Year b4b',
+      currency: 'usd'
+    )
   end
 
 end

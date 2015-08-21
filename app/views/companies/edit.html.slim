@@ -1,70 +1,16 @@
-.container
+.container.container-edit-profile
   .row
     .col.s12
-      = link_to 'Back', :back, class:'waves-effect waves-light blue btn right'
-      - if @company.complete_profile?
-          h3 = 'Edit Profile Information'
-      - else
-          h3 = 'Almost Done'
-      = nested_form_for(@company, url: company_path) do |f|
-        = render 'shared/errors_messages', object: f.object
-        .row
-          .col.s12
-            .file-field
-              .btn
-                span Upload Logo
-                = f.file_field :logo
-              .file-path-wrapper
-                input.file-path.validate type="text"
-        .row
-          .col.s6
-            = f.label :name
-            = f.text_field :name, class:'validate'
-          .col.s6
-            = f.label :email
-            = f.email_field :email, autofocus: true, class:'validate'
-        .row
-          .col.s12
-            = f.label :description
-            = f.text_area :description, class:'materialize-textarea validate', rows:1
-        .row
-          .col.s8
-            = f.label :category_id, 'Industry'
-            = f.select :category_id, Category.all.collect {|p| [ p.name, p.id ] }, class:'validate'
-          .col.s4
-            = f.label :tax_id
-            = f.text_field :tax_id, class:'validate'
-        .row
-          .col.s12
-            = f.label :address
-            = f.text_field :address
-        .row
-          .col.s6
-            = f.label :website
-            = f.text_field :website
-          .col.s6
-            = f.label :constitution_date
-            = f.text_field :constitution_date, class:'datepicker'
-        .row
-          = f.fields_for :pictures do |p|
-            .col.s12
-              .col.s1.center
-                = p.link_to_remove class:'btn-floating waves-effect waves-light red'
-                  i class="large material-icons" delete
-              .col.s2.center
-                = p.check_box :default, {}, 'true', 'false'
-                = p.label :default
-              .col.s2
-                = p.file_field :file
-                = p.hidden_field :id
-            br
-            br
-          = f.link_to_add "Add a Picture", :pictures, class:' waves-effect waves-light green btn'
-        .actions
-          button.waves-effect.waves-light.blue.btn type='submit'
-            span Ready!
-            i.material-icons.right done
+      - if @company.type == TypeCompany::COMPANY
+        = render 'companies/edit_form_company'
 
-          = link_to "Cancel Suscription", cancel_account_path(@company), :class => 'waves-effect waves-light red btn right'
+      - else
+        = render 'companies/edit_form_team_company'
+      
+      .col
+        = link_to root_path, class: 'btn-large waves-effect waves-light btn-cancel-company-profile' do
+          | Cancel
+        
+      = link_to "Cancel Suscription", cancel_account_path(@company), class:'btn-large waves-effect waves-light red btn right'
 
 = javascript_include_tag 'address_autocomplete.js'

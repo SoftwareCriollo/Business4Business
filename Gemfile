@@ -14,8 +14,10 @@ gem "nested_form"
 gem 'materialize-sass'
 # Validates URL
 gem "validate_url"
-# Stripe Gem
+# Stripe Gem for rails
 gem 'stripe-rails'
+# Stripe gem
+gem 'stripe', '~> 1.20.1'
 # Docorators
 gem 'draper', '~> 1.3'
 # Filters of search
@@ -63,6 +65,9 @@ group :development, :test do
   gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
   gem 'byebug'
   gem 'pry-rails'
+  gem 'quiet_assets', '~> 1.1.0'
+  gem 'coffee-script-source', '1.8.0'
+
   # Use for set environment vars
   gem 'dotenv-rails'
 
@@ -84,4 +89,5 @@ group :test do
   gem 'factory_girl_rails'
   gem 'faker'
   gem "codeclimate-test-reporter", require: nil
+  gem 'stripe-ruby-mock'
 end

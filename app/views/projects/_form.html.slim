@@ -6,7 +6,7 @@
           = f.label :name
           = f.text_field :name, class:'validate'
         .input-field
-          = f.select :skill_ids, Skill.all.collect {|p| [ p.name, p.id ] }, {}, { class:'browser-default chosen-select', multiple:true }
+          = f.select :skill_ids, Skill.all.collect {|p| [ p.name, p.id ] }, {}, { class:'browser-default chosen-select', multiple:true, 'data-placeholder'=> "Skills" }
       .col.s6
         .input-field
           = f.label :timeframes
@@ -14,9 +14,8 @@
         .input-field
           = f.label :budget
           = f.number_field :budget
-
     .row
-      .col-s12
+      .col.s12
         .input-field
           = f.label :description
           = f.text_area :description, class:'materialize-textarea validate', rows:1
@@ -24,7 +23,7 @@
       .col.s12
         .file-field.input-field
           .btn
-            span Upload Prject File
+            span File
             = f.file_field :file
           .file-path-wrapper
             input.file-path.validate type="text"
@@ -35,19 +34,20 @@
           .col.s1.center
             = p.link_to_remove class:'btn-floating waves-effect waves-light red'
               i class="large material-icons" delete
-          .col.s2.center
-            = p.check_box :default, {}, 'true', 'false'
-            = p.label :default
-          .col.s2
-            = p.file_field :file
-            = p.hidden_field :id
+          .fields-img
+            .col.s2.center
+              = p.check_box :default, {}, 'true', 'false'
+              = p.label :default
+            .col.s2
+              = p.file_field :file
+              = p.hidden_field :id
         br
         br
-      = f.link_to_add "Add a Picture", :pictures, class:' waves-effect waves-light green btn'
+      = f.link_to_add "Add a Picture", :pictures, class:' waves-effect waves-light green btn right'
 
     .actions
-      button.waves-effect.waves-light.blue.btn type='submit'
-        span ¡Save!
+      button.waves-effect.waves-light.btn.btn-large.teal.lighten-1 type='submit'
+        span = button_name
         i.material-icons.right done
 
 

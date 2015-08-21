@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  devise_for :companies, controllers: { registrations: 'registrations' }
+  devise_for :companies, controllers: { registrations: 'registrations', sessions: 'sessions' }
 
   devise_scope :company do
     get 'companies/new/:type', to: 'companies#new', as: :company_sign_up

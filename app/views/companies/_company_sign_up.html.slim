@@ -10,7 +10,7 @@ section#step2.container
       = render 'shared/errors_messages', object: c.object
       .input-field
         = c.text_field :name, class: "input-sign-up-company validate", required: ""
-        = c.label 'Company Name', class: "label-sign-up-company"
+        = c.label :name, 'Company Name', class: "label-sign-up-company"
       .input-field
         = c.email_field :email, autocomplete: "off", class: "input-sign-up-company validate", required: ""
         = c.label :email, class: "label-sign-up-company"
@@ -24,8 +24,7 @@ section#step2.container
 
       - if @companies.type == TypeCompany::TEAM_COMPANY
         .input-field
-          = select_tag :skills, options_for_select(Skill.all.map {|s| [s.name, s.id]}, @companies.skills.map {|j| j.id}), :multiple => true, :size => 10, :class => "input-sign-up-company validate"
-          = c.label :skills, class: "label-sign-up-company"
+          = c.select :skill_ids, Skill.all.collect {|p| [ p.name, p.id ] }, {}, { class: "input-sign-up-company browser-default chosen-select", multiple: true, "data-placeholder" => "Skills" }
 
   .row
     .col
