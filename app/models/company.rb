@@ -11,10 +11,9 @@ class Company < ActiveRecord::Base
 
   validates :name, :type, presence: true
   validates :website, presence: true, url: true, on: [ :update ]
-  validates :description, :category_id, :tax_id, :address, :status, presence: true, on: [ :update ]
+  validates :description, :contact_name, :category_id, :tax_id, :address, :status, presence: true, on: [ :update ]
 
   belongs_to :category
-  has_many :contacts,  dependent: :destroy
   has_many :payments,  dependent: :destroy
   has_many :projects,  dependent: :destroy
   has_and_belongs_to_many :skills, dependent: :destroy
