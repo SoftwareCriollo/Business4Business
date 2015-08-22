@@ -9,4 +9,8 @@ class CompanyDecorator < Draper::Decorator
       pic.file_url
     end
   end
+
+  def name_capitalize
+    object.name.capitalize
+  end
 end

@@ -65,13 +65,7 @@ class CompaniesController < ApplicationController
 private
 
   def company_params
-    params.require(name_class).permit(:name, :address, :website, :constitution_date, :description, :category_id, :tax_id, :address, :logo, :type, :team_members, :email, :password, :password_confirmation, { skill_ids: [] }, contact_attributes: contact_params, pictures_attributes: pictures_attributes)
-  end
-
-  def contact_params
-    [
-      :id, :first_name, :last_name, :email, :phone
-    ]
+    params.require(name_class).permit(:name, :address, :contact_name, :website, :constitution_date, :description, :category_id, :tax_id, :address, :logo, :type, :team_members, :email, :password, :password_confirmation, { skill_ids: [] }, pictures_attributes: pictures_attributes)
   end
 
   def pictures_attributes
@@ -81,7 +75,7 @@ private
   end
 
   def find_company
-    @company = Company.find(params[:id])
+    @company = Company.find(params[:id]).decorate
   end
 
   def check_paid

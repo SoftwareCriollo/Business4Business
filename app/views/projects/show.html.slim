@@ -4,15 +4,19 @@
       h3.title-page
         = @project.name_upcase
         hr
+    .col.s12.l3
+      = link_to edit_project_path(@project), class:'edit-link right grey-text'
+        span EDIT PROJECT
+        i.material-icons mode_edit
   .row
     .col.s12.m6.l8
       = image_tag("#{@project.company_logo}", size: "100x100", alt: "Company Logo", class:'left materialboxed')
       .company-info
         p 
-          strong Company:
+          strong = 'Company: '
           = @project.company_name
         p
-          strong Timeframes:
+          strong = 'Timeframes: '
           = @project.timeframes
     .col.s12.m6.l4
       p.right-align.label-skill
