@@ -5,7 +5,9 @@
           img class='circle' src='#{@company.logo_url}' height='200' width='200'
       - else
           i.material-icons.large-max supervisor_account
-      p.teal-text.text-darken-2.company-title = @company.name.upcase
+      p
+        = link_to @company.name.upcase, my_account_path, class: 'teal-text text-darken-2 company-title'
+      
       .valign-wrapper
       p.infor-profile
         i.material-icons business
@@ -16,6 +18,9 @@
       = link_to @company.website, @company.website
     .col.s8.center-align
       p.flow-text.company-description.grey-text = truncate(@company.description, omision: "...", length: 150)
+
+    = link_to "Cancel Suscription", cancel_account_path(@company), class:'btn-large waves-effect waves-light red btn right'
+    
   hr
   .row.center
   .row.center

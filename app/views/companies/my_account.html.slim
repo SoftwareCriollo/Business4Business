@@ -1,0 +1,34 @@
+.container.container-edit-profile
+  .row
+    .col.s12
+
+      h3.header.title-edit-profile-company
+        | MY ACCOUNT
+        hr
+
+      .row
+        .col.s12
+          .row
+            .col.header-my-account
+              .col.img-logo-my-account
+                img class='circle' src='/images/logo_company.png' height='100' width='100'
+
+              .col.box-text-title-my-account
+                .text-title-my-account
+                  strong Name: 
+                  span.text-thin = @company.name
+                .text-title-my-account
+                  strong Email: 
+                  span.text-thin = @company.email
+          .title-edit-profile-company
+            hr
+
+        = render 'btn_edit_account'
+        = render 'form_edit_account'
+
+      .row
+        .col.box-link-cancel-my-account
+          = link_to cancel_account_path(@company), class: 'btn-cancel-membership' do
+            | CANCEL MEMBERSHIP
+
+    = javascript_include_tag 'wizard', 'data-turbolinks-track' => true
