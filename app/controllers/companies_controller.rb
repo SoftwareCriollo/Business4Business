@@ -49,6 +49,15 @@ class CompaniesController < ApplicationController
     render layout: "type_company"
   end
 
+  def edit_account
+    if @company.update(company_params)
+      sign_in @company
+      redirect_to my_account_path, notice: 'Account information edited successfully'
+    else
+      render 'my_account'
+    end
+  end
+
   def send_email_create_account
     NotificationMailer.notification_create_account(email: @company.email).deliver_now
   end
@@ -56,7 +65,7 @@ class CompaniesController < ApplicationController
 private
 
   def company_params
-    params.require(name_class).permit(:name, :address, :website, :constitution_date, :description, :category_id, :tax_id, :address, :logo, :type, :email, :password, :password_confirmation, { skill_ids: [] }, contact_attributes: contact_params, pictures_attributes: pictures_attributes)
+    params.require(name_class).permit(:name, :address, :website, :constitution_date, :description, :category_id, :tax_id, :address, :logo, :type, :team_members, :email, :password, :password_confirmation, { skill_ids: [] }, contact_attributes: contact_params, pictures_attributes: pictures_attributes)
   end
 
   def contact_params

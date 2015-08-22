@@ -297,3 +297,43 @@ input.file-path.logo-edit-company:-ms-input-placeholder { /* Internet Explorer 1
 	margin-top: 16px;
 	width: 30px;
 }
+
+.header-my-account {
+	margin-top: 40px;
+	margin-bottom: 35px;
+}
+
+.img-logo-my-account {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+.box-text-title-my-account {
+  margin-top: 20px;
+}
+
+.text-title-my-account {
+  font-size: 22px;
+}
+
+.btn-my-account {
+  background-color: #00bfa5 !important;
+  border-radius: 5px !important;
+  font-size: 20px;
+  font-weight: 500;
+  text-transform: none !important;
+  margin-top: 40px;
+}
+
+.box-link-cancel-my-account {
+  margin-top: 50px;
+}
+
+.btn-cancel-membership {
+  color: #868a8b;
+  text-decoration: underline;
+}
+
+.form-edit-account {
+  margin-top: 40px;
+}

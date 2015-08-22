@@ -5,7 +5,9 @@
           img class='circle' src='#{@company.logo_url}' height='200' width='200'
       - else
           i.material-icons.large-max supervisor_account
-      p.teal-text.text-darken-2.company-title = @company.name.upcase
+      p
+        = link_to @company.name.upcase, my_account_path, class: 'teal-text text-darken-2 company-title'
+      
       .valign-wrapper
       p.infor-profile
         i.material-icons business
