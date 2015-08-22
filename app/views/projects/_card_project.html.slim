@@ -7,8 +7,8 @@
     .card-content.content-project
       .col.m9
         p.title-company = p.company_name
-        p.skills = p.skills
-        p.text-small = p.description
+        p.skills = p.skills_formatted
+        p.text-small = p.description_short
       .col.m3.text-center
         img class="circle" height="50" src="#{p.company.logo_url}" width="50"
     .card-action.action-small
