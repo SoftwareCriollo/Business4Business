@@ -14,6 +14,7 @@ class ProjectsController < ApplicationController
   def create
     @project = current_company.projects.new(project_params)
     if @project.save
+      send_email_new_project(@project)
       redirect_to company_path(current_company), notice: 'Project created successfully'
     else
       render 'new'
@@ -34,6 +35,17 @@ class ProjectsController < ApplicationController
     else
       redirect_to company_path(current_company), alert: 'An error has occurred when deleting the project'
     end
+  end
+
+  def show
+    @company = current_company
+  end
+
+  def send_email_new_project(project)
+    @company = current_company
+    @project = project
+    NotificationMailer.notification_new_project_company(company: @company, project: @project).deliver_now
+    NotificationMailer.notification_new_project_admin(company: @company, project: @project).deliver_now
   end
 
 private

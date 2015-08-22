@@ -14,4 +14,12 @@ html lang="en"
     
     /! Begin page content
     .container-fluid.junke
+      .row
+        .col.s12.m6.offset-m3
+          - if notice
+            .card.success-message
+              p.notice = notice
+          - if alert
+            .card.error-message
+              p.alert = alert
       = yield

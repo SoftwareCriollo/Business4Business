@@ -1,5 +1,6 @@
 class Company < ActiveRecord::Base
   include Rails.application.routes.url_helpers
+  include Picturable
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -16,14 +17,17 @@ class Company < ActiveRecord::Base
   has_many :contacts,  dependent: :destroy
   has_many :payments,  dependent: :destroy
   has_many :projects,  dependent: :destroy
-  has_many :pictures, as: :owner, dependent: :destroy
   has_and_belongs_to_many :skills, dependent: :destroy
 
   accepts_nested_attributes_for :skills, allow_destroy: true, reject_if: :all_blank
-  accepts_nested_attributes_for :pictures, allow_destroy: true, reject_if: lambda { |t| t['file'].blank? and t['id'].blank? }
 
   scope :approved, -> { where(status: StatusCompany::APPROVE) }
   scope :profile_complete, -> { where(complete_profile: true) }
+  scope :team_campanies, -> { where(type: TypeCompany::TEAM_COMPANY) }
+
+  def self.list_filtered
+    approved.profile_complete.team_campanies
+  end
 
   def approve_request_company
     update_attribute(:status, StatusCompany::APPROVE)
@@ -46,6 +50,10 @@ class Company < ActiveRecord::Base
     super && !deleted_at
   end
 
+  def active?
+    deleted_at
+  end
+
   def dashboard_path
     company_dashboard_path
   end
@@ -55,14 +63,15 @@ class Company < ActiveRecord::Base
   end
 
   def after_sign_in_path
-    if complete_profile? and fee_paid?
-      dashboard_path
-    elsif !fee_paid?
-      pay_path
-    else
-      edit_company_path(self)
-    end
+    company_can_access_dashboard? ? dashboard_path : path_to_redirect
   end
 
+  def company_can_access_dashboard?
+    complete_profile? and fee_paid? and status == StatusCompany::APPROVE
+  end
 
+  def path_to_redirect
+    edit_company_path(self) unless complete_profile? and status == StatusCompany::APPROVE
+    pay_path unless fee_paid?
+  end
 end
