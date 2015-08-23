@@ -1,6 +1,5 @@
 ActiveAdmin.register Company do
-  permit_params :id, :name, :description, :category, :tax_id, :address, :logo, :type, :website, :status,
-                contacts_attributes: [:id, :first_name, :last_name, :email, :phone, :_destroy]
+  permit_params :id, :name, :description, :category, :tax_id, :address, :logo, :type, :website, :status
 
   action_item :view_site do
     link_to "View Site", "/"
@@ -28,12 +27,6 @@ ActiveAdmin.register Company do
         row :tax_id
         row('type') { |b| TypeCompany.key_for(b.type).to_s.humanize }
         row :logo
-      end
-    end
-
-    panel 'Contacts' do
-      attributes_table_for company.contacts do
-        rows :first_name, :last_name, :email, :phone
       end
     end
 

@@ -1,4 +1,5 @@
 class CompaniesController < ApplicationController
+  load_and_authorize_resource
   before_action :authenticate_company!, only: [ :edit, :update, :index ]
   before_action :find_company, except: [ :new, :create, :type_company, :index ]
   before_action :check_paid, only: [ :update ]

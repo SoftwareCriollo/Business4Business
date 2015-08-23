@@ -20,6 +20,8 @@ gem 'stripe-rails'
 gem 'stripe', '~> 1.20.1'
 # Docorators
 gem 'draper', '~> 1.3'
+# Gem for Access
+gem 'cancancan', '~> 1.10'
 # Filters of search
 gem 'ransack'
 # Enumerate

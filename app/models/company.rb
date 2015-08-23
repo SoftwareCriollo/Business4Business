@@ -36,6 +36,14 @@ class Company < ActiveRecord::Base
     update_attribute(:status, StatusCompany::REJECT)
   end
 
+  def is_team_company?
+    type == TypeCompany::TEAM_COMPANY
+  end
+
+  def is_normal_company?
+    type == TypeCompany::COMPANY
+  end
+
   def fee_paid?
     payment = payments.last
     payment.nil? ? false : !payment.time_expired?
