@@ -23,7 +23,7 @@ class Company < ActiveRecord::Base
 
   scope :approved, -> { where(status: StatusCompany::APPROVE) }
   scope :profile_complete, -> { where(complete_profile: true) }
-  scope :team_campanies, -> { where(type: TypeCompany::COMPANY) }
+  scope :team_campanies, -> { where(type: TypeCompany::TEAM_COMPANY) }
 
   def self.list_filtered
     approved.profile_complete.team_campanies
@@ -71,7 +71,9 @@ class Company < ActiveRecord::Base
   end
 
   def path_to_redirect
-    edit_company_path(self) unless complete_profile? and status == StatusCompany::APPROVE
-    pay_path unless fee_paid?
+    path = edit_company_path(self) unless complete_profile
+    path = edit_company_path(self) unless status == StatusCompany::APPROVE
+    path = pay_path unless fee_paid?
+    path
   end
 end

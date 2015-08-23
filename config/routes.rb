@@ -16,7 +16,9 @@ Rails.application.routes.draw do
 
   get 'company/pay', to: 'charges#pay', as: :pay
 
-  # get 'company/approve/:id', to: 'companies#approve_request', as: :approve_request
+  get 'company/account/:id', to: 'companies#my_account', as: :my_account
+  patch 'company/account/:id/edit', to: 'companies#edit_account', as: :edit_account
+
   # get 'company/reject/:id', to: 'companies#reject_request', as: :reject_request
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

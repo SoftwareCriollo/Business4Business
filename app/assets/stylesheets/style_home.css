@@ -158,10 +158,10 @@
 
 .text-type-company {
 	margin: 0 !important;
-    letter-spacing: 0px;
-    font-weight: 300;
-    font-size: 30px;
-    margin-top: -15px !important;
+  letter-spacing: 0px;
+  font-weight: 300;
+  font-size: 30px;
+  margin-top: -15px !important;
 }
 
 #step2 {
@@ -188,7 +188,7 @@
 .label-sign-up-company {
 	left: 0 !important;
 	font-size: 20px !important;
-    color: white !important;
+  color: white !important;
 }
 
 .btn-sign-up-company {
@@ -243,7 +243,7 @@
 
 .text-p-pay {
 	font-size: 19px;
-    font-weight: 300;
+  font-weight: 300;
 }
 
 .btn-pay {
@@ -254,9 +254,9 @@
 .box-img-text-pay {
 	width: 170px;
 	height: 210px;
-    text-align: center;
-    margin: 5px 25px 5px 0px;
-    float: left;
+  text-align: center;
+  margin: 5px 25px 5px 0px;
+  float: left;
 }
 
 .box-img-text-pay img {
@@ -265,8 +265,8 @@
 
 .text-img-pay {
 	line-height: 1.25em;
-    font-size: 13px;
-    font-weight: 500;
+  font-size: 13px;
+  font-weight: 500;
 }
 
 .label-edit-company {
@@ -296,4 +296,52 @@ input.file-path.logo-edit-company:-ms-input-placeholder { /* Internet Explorer 1
 .img-menu-company {
 	margin-top: 16px;
 	width: 30px;
+}
+
+.header-my-account {
+	margin-top: 40px;
+	margin-bottom: 35px;
+}
+
+.img-logo-my-account {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+.box-text-title-my-account {
+  margin-top: 20px;
+}
+
+.text-title-my-account {
+  font-size: 22px;
+}
+
+.btn-my-account {
+  background-color: #00bfa5 !important;
+  border-radius: 5px !important;
+  font-size: 20px;
+  font-weight: 500;
+  text-transform: none !important;
+  margin-top: 40px;
+}
+
+.box-link-cancel-my-account {
+  margin-top: 50px;
+}
+
+.btn-cancel-membership {
+  color: #868a8b;
+  text-decoration: underline;
+}
+
+.form-edit-account {
+  margin-top: 40px;
+}
+
+.error-message {
+	background-color: rgba(255, 82, 82, 0.7) !important;
+}
+
+.success-message {
+	background-color: rgba(82, 255, 212, 0.7) !important;
 }
