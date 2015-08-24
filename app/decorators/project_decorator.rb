@@ -1,17 +1,25 @@
 class ProjectDecorator < Draper::Decorator
   delegate_all
 
-  def skills
+  def skills_formatted
     helpers.content_tag :span, class: 'time' do
       object.skills.map(&:name).join(' | ')
     end
   end
 
-  def company_name
-    object.company.name
+  def company_logo
+    object.company.logo_url
   end
 
-  def description
+  def name_upcase
+    object.name.capitalize
+  end
+
+  def company_name
+    object.company.name.capitalize
+  end
+
+  def description_short
     object.description.truncate(80)
   end
 
