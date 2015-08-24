@@ -167,3 +167,55 @@ h3.title-page hr {
   font-weight: 500;
   text-transform: none !important;
 }
+
+.company-info{
+  font-size: 23px;
+  padding-left: 120px;
+  padding-top: 15px;
+}
+
+.company-data{
+  padding-top: 0;
+}
+
+.company-info p{
+  padding: 0;
+  margin: 0;
+}
+
+.company-info p strong{
+  font-weight: 800;
+}
+
+.skill-card{
+  border: 3px solid #E5E5E5;
+  font-size: 18px;
+}
+
+.label-skill{
+  font-size: 20px;
+  margin: 0;
+}
+
+.project-images{
+  width: 100%;
+}
+
+.contact-button{
+  font-size: 20px;
+}
+
+.project-description{
+  color:grey;
+}
+.company-website{
+  vertical-align: baseline;
+}
+.company-logo{
+  margin-top: 18px;
+}
+.edit-link{
+  padding-top: 42px;
+  font-size: 22px;
+  text-decoration: underline;
+}

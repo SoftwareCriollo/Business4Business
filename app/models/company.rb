@@ -11,10 +11,9 @@ class Company < ActiveRecord::Base
 
   validates :name, :type, presence: true
   validates :website, presence: true, url: true, on: [ :update ]
-  validates :description, :category_id, :tax_id, :address, :status, presence: true, on: [ :update ]
+  validates :description, :contact_name, :category_id, :tax_id, :address, :status, presence: true, on: [ :update ]
 
   belongs_to :category
-  has_many :contacts,  dependent: :destroy
   has_many :payments,  dependent: :destroy
   has_many :projects,  dependent: :destroy
   has_and_belongs_to_many :skills, dependent: :destroy
@@ -35,6 +34,14 @@ class Company < ActiveRecord::Base
 
   def reject_request_company
     update_attribute(:status, StatusCompany::REJECT)
+  end
+
+  def is_team_company?
+    type == TypeCompany::TEAM_COMPANY
+  end
+
+  def is_normal_company?
+    type == TypeCompany::COMPANY
   end
 
   def fee_paid?
@@ -63,10 +70,10 @@ class Company < ActiveRecord::Base
   end
 
   def after_sign_in_path
-    company_can_access_dashboard? ? dashboard_path : path_to_redirect
+    can_access_dashboard? ? dashboard_path : path_to_redirect
   end
 
-  def company_can_access_dashboard?
+  def can_access_dashboard?
     complete_profile? and fee_paid? and status == StatusCompany::APPROVE
   end
 

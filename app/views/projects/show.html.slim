@@ -1,41 +1,41 @@
 .container
   .row
-    .col.s12
-      p
-        = link_to 'Back', :back, class:'waves-effect waves-light blue btn right'
-      h1 = @project.name
-      hr
+    .col.m9.s12
+      h3.title-page
+        = @project.name_upcase
+        hr
+    .col.s12.l3
+      - if can? :update, @project
+          = link_to edit_project_path(@project), class:'edit-link right grey-text'
+            span EDIT PROJECT
+            i.material-icons mode_edit
+  .row
+    .col.s12.m6.l8
+      = image_tag("#{@project.company_logo}", size: "100x100", alt: "Company Logo", class:'left materialboxed')
+      .company-info
+        p 
+          strong = 'Company: '
+          = @project.company_name
+        p
+          strong = 'Timeframes: '
+          = @project.timeframes
+    .col.s12.m6.l4
+      p.right-align.label-skill
+        strong Skills
+      .row
+        - @project.skills.each do |skill|
+          .col.s6.m6.l4.white.skill-card.center
+             .grey-text = skill.name
 
   .row
-    .col.m8.s12
-      p.flow-text
-        strong = 'Project description: '
-        = @project.description
+    .project-images.center
+      - @project.pictures.each do |pic|
+          .col.s3.m2.l2.left
+            = image_tag("#{pic.file_url}", size: "200x200", alt: "Pic Projec", class:'materialboxed  responsive-img')
+  .row
+    .flow-text.project-description = @project.description
+    br
 
-      = link_to "mailto:#{@company.email.to_s}", class: 'btn-large waves-effect waves-light btn-sign-up-company' do
-        | Contact
-
-    .col.m4.s12.center
-      - if @project.skills.count > 0
-          ul.collection.with-header
-            li.collection-header.teal.lighten-2.white-text
-              strong Skills Required
-            - @project.skills.each do |skill|
-                li.collection-item = skill.name
-
-      - if @project.timeframes
-          ul.collection.with-header
-            li.collection-header.teal.lighten-2.white-text
-              strong TimeFrames
-            li.collection-item = @project.timeframes
-
-      - if @project.budget
-          ul.collection.with-header
-            li.collection-header.teal.lighten-2.white-text
-              strong Budget
-            li.collection-item = "$ #{@project.budget}"
-
-      - if @project.file.url
-          a.waves-effect.waves-light.btn-large href="#{@project.file.url}"
-            i.material-icons.left cloud
-            | Download Files
+  .row
+    button.waves-effect.waves-light.teal.btn.accent-4.btn-large.contact-button type='submit'
+      span Contact

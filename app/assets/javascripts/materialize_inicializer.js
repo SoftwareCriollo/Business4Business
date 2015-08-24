@@ -1,7 +1,6 @@
 $(window).bind("load", function() {
   Materialize.updateTextFields();
   $('select').material_select();
-  $('.select-dropdown').val('');
   $(".chosen-select").chosen({disable_search_threshold: 10, width: "100%"});
 });
 

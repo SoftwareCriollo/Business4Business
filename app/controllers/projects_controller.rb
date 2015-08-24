@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  load_and_authorize_resource 
   before_action :authenticate_company!
   before_action :find_project, except: [:new, :create, :index]
 
@@ -15,7 +16,7 @@ class ProjectsController < ApplicationController
     @project = current_company.projects.new(project_params)
     if @project.save
       send_email_new_project(@project)
-      redirect_to company_path(current_company), notice: 'Project created successfully'
+      redirect_to project_path(@project), notice: 'Project created successfully'
     else
       render 'new'
     end
@@ -23,7 +24,7 @@ class ProjectsController < ApplicationController
 
   def update
     if @project.update(project_params)
-      redirect_to company_path(current_company), notice: 'Edit project sucessfully'
+      redirect_to project_path(@project), notice: 'Edit project sucessfully'
     else
       render 'edit'
     end
@@ -35,10 +36,6 @@ class ProjectsController < ApplicationController
     else
       redirect_to company_path(current_company), alert: 'An error has occurred when deleting the project'
     end
-  end
-
-  def show
-    @company = current_company
   end
 
   def send_email_new_project(project)
@@ -61,6 +58,6 @@ private
   end
 
   def find_project
-    @project = Project.find(params[:id])
+    @project = Project.find(params[:id]).decorate
   end
 end
