@@ -350,3 +350,7 @@ input.file-path.logo-edit-company:-ms-input-placeholder { /* Internet Explorer 1
 .success-message {
 	background-color: rgba(82, 255, 212, 0.7) !important;
 }
+
+.text-spacing-btn-home {
+	letter-spacing: 0 !important;
+}
