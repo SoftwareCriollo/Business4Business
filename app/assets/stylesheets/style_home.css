@@ -114,6 +114,10 @@
 		width: 151px;
 		height: 149px;
 	}
+
+	.title-home {
+    margin-top: 100px;
+	}
 }
 
 @media (max-width: 993px) {
@@ -162,6 +166,7 @@
   font-weight: 300;
   font-size: 30px;
   margin-top: -15px !important;
+  text-transform: none !important;
 }
 
 #step2 {
