@@ -45,10 +45,9 @@
           = f.label :category_id, 'Industry', class: "label-edit-company"
 
       .col.s6
-        .input-field.margin-top-field-text
-          = f.fields_for :contacts do |c|  
-            = c.text_field :first_name, class:"validate", placeholder: 'First name'
-            = c.label :first_name, 'Contact Name', class: "label-edit-company"
+        .input-field.margin-top-field-text 
+          = f.text_field :contact_name, class:"validate", placeholder: ''
+          = f.label :contact_name, 'Contact Name', class: "label-edit-company"
 
         .input-field
           = f.text_field :team_members, type: 'number', min:'0', class:"validate"
