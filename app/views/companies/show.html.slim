@@ -22,7 +22,7 @@
           = link_to @company.website, @company.website, class:'company-website'
         p
           strong = 'Contact Name: '
-          | Lol
+          = @company.contact_name
         p
           strong = '# of members: '
           = @company.team_members

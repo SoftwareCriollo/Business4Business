@@ -1,5 +1,5 @@
 ActiveAdmin.register Company do
-  permit_params :id, :name, :description, :category, :tax_id, :address, :logo, :type, :website, :status
+  permit_params :id, :name, :description, :category_id, :tax_id, :address, :logo, :type, :website, :status
 
   action_item :view_site do
     link_to "View Site", "/"

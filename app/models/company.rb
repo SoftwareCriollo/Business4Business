@@ -70,10 +70,10 @@ class Company < ActiveRecord::Base
   end
 
   def after_sign_in_path
-    company_can_access_dashboard? ? dashboard_path : path_to_redirect
+    can_access_dashboard? ? dashboard_path : path_to_redirect
   end
 
-  def company_can_access_dashboard?
+  def can_access_dashboard?
     complete_profile? and fee_paid? and status == StatusCompany::APPROVE
   end
 

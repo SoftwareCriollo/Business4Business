@@ -7,11 +7,13 @@ class Ability
     company ||= Company.new # guest user (not logged in)
     if company.is_team_company?
       can :manage, Company, id: company.id
-      can :read, Project
+      can :read, Project if company.can_access_dashboard?
+      cannot :index, Company
       cannot [:edit, :destroy, :create], Project
     elsif company.is_normal_company?
-      can :manage, Project, company_id: company.id
+      can [:show, :update, :destroy, :create], Project, company_id: company.id
       can :manage, Company, id: company.id
+      cannot :index, Company unless company.can_access_dashboard?
     else
       can :create, Company
     end
