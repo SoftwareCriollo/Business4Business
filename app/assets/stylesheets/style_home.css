@@ -114,6 +114,10 @@
 		width: 151px;
 		height: 149px;
 	}
+
+	.title-home {
+    margin-top: 100px;
+	}
 }
 
 @media (max-width: 993px) {
@@ -162,6 +166,7 @@
   font-weight: 300;
   font-size: 30px;
   margin-top: -15px !important;
+  text-transform: none !important;
 }
 
 #step2 {
@@ -344,4 +349,13 @@ input.file-path.logo-edit-company:-ms-input-placeholder { /* Internet Explorer 1
 
 .success-message {
 	background-color: rgba(82, 255, 212, 0.7) !important;
+}
+
+.text-spacing-btn-home {
+	letter-spacing: 0 !important;
+}
+
+.select-edit-company-valid {
+	border-bottom: 1px solid #4CAF50 !important;
+	box-shadow: 0 1px 0 0 #4CAF50 !important;
 }
