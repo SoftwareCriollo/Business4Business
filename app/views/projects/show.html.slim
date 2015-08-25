@@ -5,7 +5,7 @@
         = @project.name_upcase
         hr
     .col.s12.l3
-      - if can? :update, @project
+      - if can? :update, current_company
           = link_to edit_project_path(@project), class:'edit-link right grey-text'
             span EDIT PROJECT
             i.material-icons mode_edit
