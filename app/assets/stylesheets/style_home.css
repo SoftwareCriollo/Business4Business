@@ -277,7 +277,7 @@
 .label-edit-company {
 	left: 0 !important;
 	font-size: 20px !important;
-    color: #2d776a !important;
+  color: #2d776a !important;
 }
 
 input.file-path.logo-edit-company::-webkit-input-placeholder { /* WebKit, Blink, Edge */
@@ -358,4 +358,14 @@ input.file-path.logo-edit-company:-ms-input-placeholder { /* Internet Explorer 1
 .select-edit-company-valid {
 	border-bottom: 1px solid #4CAF50 !important;
 	box-shadow: 0 1px 0 0 #4CAF50 !important;
+}
+
+.input-new-project {
+	color: #606568 !important;
+  font-size: 20px !important;
+}
+
+.select-skill-valid {
+  border-bottom: 1px solid #4CAF50 !important;
+  box-shadow: 0 1px 0 0 #4CAF50 !important;
 }
