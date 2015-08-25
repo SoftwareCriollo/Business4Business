@@ -21,3 +21,10 @@
 
 en:
   hello: "Hello world"
+  unauthorized:
+    update:
+      project: "Not allowed to update this project."
+    index:
+      company: "Your account has not yet been approved"
+    index:
+      project: "Your account has not yet been approved"

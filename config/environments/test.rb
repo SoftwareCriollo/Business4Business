@@ -1,6 +1,6 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   # The test environment is used exclusively to run your application's
   # test suite. You never need to work with it otherwise. Remember that
   # your test database is "scratch space" for the test suite and is wiped
@@ -37,6 +37,14 @@ Rails.application.configure do
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
 
+  config.action_mailer.smtp_settings = {
+    address: "smtp.gmail.com",
+    port: 587,
+    domain: ENV["DOMAIN_MAILER"],
+    authentication: "plain",
+    user_name: ENV["USERNAME_MAILER"],
+    password: ENV["PASSWORD_MAILER"]
+  }
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 end

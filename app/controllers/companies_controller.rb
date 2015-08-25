@@ -12,7 +12,7 @@ class CompaniesController < ApplicationController
 
   def new
     @type = params[:type]
-    @companies = Company.new(type: @type)
+    @company = Company.new(type: @type)
     render layout: "sign_up_company"
   end
 
@@ -23,7 +23,7 @@ class CompaniesController < ApplicationController
       sign_in @company
       redirect_to pay_path, notice: 'Company created successfully'
     else
-      render 'new', layout: "public"
+      render 'new', layout: "sign_up_company"
     end
   end
 
