@@ -8,6 +8,7 @@ class Ability
     if company.is_team_company?
       can :manage, Company, id: company.id
       can :read, Project if company.can_access_dashboard?
+      can :read, Company
       cannot :index, Company
       cannot [:edit, :destroy, :create], Project
     elsif company.is_normal_company?

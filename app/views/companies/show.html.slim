@@ -5,7 +5,7 @@
         | COMPANY PROFILE
         hr
     .col.s12.l3
-      - if can? :update, current_company
+      - if can? :update, @company
         = link_to edit_company_path(@company), class:'edit-link right grey-text'
           span EDIT COMPANY
           i.material-icons mode_edit
