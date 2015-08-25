@@ -21,6 +21,10 @@ FactoryGirl.define do
       after(:build) do |company, evaluator|
         create_list(:payment, evaluator.payments_count, company: company)
       end
+
+      after(:create) do |company, evaluator|
+        create_list(:payment, evaluator.payments_count, company: company)
+      end
     end
 
     factory :company_with_profile_complete do
@@ -32,7 +36,7 @@ FactoryGirl.define do
       complete_profile { true }
 
       factory :company_complete_with_payment do
-         transient do
+        transient do
           payments_count 2
         end
         after(:build) do |company, evaluator|
