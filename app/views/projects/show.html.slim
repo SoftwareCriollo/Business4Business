@@ -15,7 +15,7 @@
       .company-info
         p 
           strong = 'Company: '
-          = @project.company_name
+          = link_to @project.company_name, company_path(@project.company), class:'company-website link-profile'
         p
           strong = 'Timeframes: '
           = @project.timeframes
