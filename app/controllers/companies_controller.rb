@@ -12,7 +12,7 @@ class CompaniesController < ApplicationController
 
   def new
     @type = params[:type]
-    @companies = Company.new(type: @type)
+    @company = Company.new(type: @type)
     render layout: "sign_up_company"
   end
 
