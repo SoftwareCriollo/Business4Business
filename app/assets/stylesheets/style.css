@@ -219,3 +219,27 @@ h3.title-page hr {
   font-size: 22px;
   text-decoration: underline;
 }
+.body-public input:-webkit-autofill,
+.body-public input:-webkit-autofill:hover,
+.body-public input:-webkit-autofill:focus,
+.body-public input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s; 
+    -webkit-box-shadow: 0 0 0px 1000px none inset;
+    -webkit-text-fill-color: white;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s; 
+    -webkit-box-shadow: 0 0 0px 1000px none inset;
+}
+
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+textarea:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s; 
+    -webkit-box-shadow: 0 0 0px 1000px none inset;
+}
