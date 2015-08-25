@@ -222,7 +222,16 @@ h3.title-page hr {
 .body-public input:-webkit-autofill,
 .body-public input:-webkit-autofill:hover,
 .body-public input:-webkit-autofill:focus,
-.body-public input:-webkit-autofill:active {
+.body-public  input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s; 
+    -webkit-box-shadow: 0 0 0px 1000px none inset;
+    -webkit-text-fill-color: white;
+}
+
+.body-sign-up-company input:-webkit-autofill,
+.body-sign-up-company input:-webkit-autofill:hover,
+.body-sign-up-company input:-webkit-autofill:focus,
+.body-sign-up-company  input:-webkit-autofill:active {
     transition: background-color 5000s ease-in-out 0s; 
     -webkit-box-shadow: 0 0 0px 1000px none inset;
     -webkit-text-fill-color: white;
