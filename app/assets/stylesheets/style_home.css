@@ -354,3 +354,8 @@ input.file-path.logo-edit-company:-ms-input-placeholder { /* Internet Explorer 1
 .text-spacing-btn-home {
 	letter-spacing: 0 !important;
 }
+
+.select-edit-company-valid {
+	border-bottom: 1px solid #4CAF50 !important;
+	box-shadow: 0 1px 0 0 #4CAF50 !important;
+}

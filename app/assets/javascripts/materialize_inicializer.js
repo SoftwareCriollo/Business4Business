@@ -2,6 +2,7 @@ $(window).bind("load", function() {
   Materialize.updateTextFields();
   $('select').material_select();
   $(".chosen-select").chosen({disable_search_threshold: 10, width: "100%"});
+  $('.select-edit-company').find("input[type='text']").addClass('select-edit-company-valid');
 });
 
 $(document).ready(function(){

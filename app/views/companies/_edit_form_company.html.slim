@@ -41,12 +41,12 @@
           = f.label :description, 'Company Description', class: "label-edit-company"
 
         .input-field
-          = f.select :category_id, Category.all.collect {|p| [ p.name, p.id ] }, class:'validate'
+          = f.select :category_id, Category.all.collect {|p| [ p.name, p.id ] }, {}, { class: "select-edit-company validate" }
           = f.label :category_id, 'Industry', class: "label-edit-company"
 
       .col.s6
         .input-field.margin-top-field-text 
-          = f.text_field :contact_name, class:"validate", placeholder: ''
+          = f.text_field :contact_name, class:"validate"
           = f.label :contact_name, 'Contact Name', class: "label-edit-company"
 
         .input-field
