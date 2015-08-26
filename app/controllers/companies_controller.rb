@@ -37,8 +37,7 @@ class CompaniesController < ApplicationController
   end
 
   def show
-    @q = Project.all.ransack(params[:q])
-    @projects = ProjectDecorator.decorate_collection(@q.result)
+    @projects = ProjectDecorator.decorate_collection(@company.projects)
   end
 
   def approve_request

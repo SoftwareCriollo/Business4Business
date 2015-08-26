@@ -59,6 +59,6 @@
     .row
       - if @projects.count > 0
         - @projects.each do |project|
-          = render 'card_project', p:project
+          = render 'card_project', p: project
       - else
         = render 'empty_projects'
