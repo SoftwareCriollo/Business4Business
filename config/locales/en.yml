@@ -21,3 +21,6 @@
 
 en:
   hello: "Hello world"
+  unauthorized:
+    update:
+      project: "Not allowed to update this project."

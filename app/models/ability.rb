@@ -4,16 +4,17 @@ class Ability
   def initialize(company)
     # Define abilities for the passed in user here. For example:
     #
-    company ||= Company.new # guest user (not logged in)
+    company ||= Company.new(type:'Guest') # guest user (not logged in)
     if company.is_team_company?
       can :manage, Company, id: company.id
       can :read, Project if company.can_access_dashboard?
-      can :read, Company
+      can :show, Company
       cannot :index, Company
       cannot [:edit, :destroy, :create], Project
     elsif company.is_normal_company?
-      can [:show, :update, :destroy, :create], Project, company_id: company.id
+      can :manage, Project, company_id: company.id
       can :manage, Company, id: company.id
+      can :read, Company
       cannot :index, Company unless company.can_access_dashboard?
     else
       can :create, Company
