@@ -369,3 +369,7 @@ input.file-path.logo-edit-company:-ms-input-placeholder { /* Internet Explorer 1
   border-bottom: 1px solid #4CAF50 !important;
   box-shadow: 0 1px 0 0 #4CAF50 !important;
 }
+
+.btn-sign-in {
+  max-width: 200px;
+}

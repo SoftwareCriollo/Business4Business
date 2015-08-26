@@ -7,7 +7,7 @@
           | LOG IN
           hr
     .row
-      .col.s5
+      .col.s12.m5
         = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
           .input-field
             = f.label :email, class: "label-sign-up-company"
@@ -23,6 +23,6 @@
             = f.label :remember_me
           .actions
             br
-             button.waves-effect.waves-light.teal.btn.accent-4.btn-large type='submit'
+             button.waves-effect.waves-light.teal.btn.accent-4.btn-large.btn-sign-in type='submit'
                 span Sign In
                 i.material-icons.right perm_identity
