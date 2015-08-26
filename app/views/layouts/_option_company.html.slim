@@ -7,11 +7,8 @@ ul.dropdown-content id="dropdown-company-#{option}"
       = link_to my_account_path(current_company) do
         | My Account
     li
-      = link_to new_project_path do
-        | New Project
-    li
       = link_to company_dashboard_path do
-        | Team Companies
+        | Dashboard
 
   - else
     li
@@ -22,7 +19,7 @@ ul.dropdown-content id="dropdown-company-#{option}"
         | My Account
     li
       = link_to team_company_dashboard_path do
-        | Projects
+        | Dashboard
 
 a.dropdown-button href="" data-activates="dropdown-company-#{option}"
   = "#{current_company.name.upcase} "

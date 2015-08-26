@@ -373,3 +373,14 @@ input.file-path.logo-edit-company:-ms-input-placeholder { /* Internet Explorer 1
 .btn-sign-in {
   max-width: 200px;
 }
+
+.add-project-company {
+	min-width: 110px;
+}
+
+h5.title-my-proyects hr {
+  border: 2px solid #00bfa5;
+  margin-top: 12px;
+  width: 16%;
+  margin-left: 0;
+}

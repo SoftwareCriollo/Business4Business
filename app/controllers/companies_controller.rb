@@ -36,6 +36,11 @@ class CompaniesController < ApplicationController
     end
   end
 
+  def show
+    @q = Project.all.ransack(params[:q])
+    @projects = ProjectDecorator.decorate_collection(@q.result)
+  end
+
   def approve_request
     @company.approve_request_company
     redirect_to admin_company_path(@company.id)
