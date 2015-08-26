@@ -46,5 +46,5 @@
     br
 
   .row
-    button.waves-effect.waves-light.teal.btn.accent-4.btn-large.contact-button type='submit'
-      span Contact
+    = link_to "mailto:#{@company.email}", class: 'btn-large waves-effect waves-light btn-sign-up-company' do
+      | Contact

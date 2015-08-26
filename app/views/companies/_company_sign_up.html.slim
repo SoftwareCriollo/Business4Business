@@ -1,12 +1,12 @@
 section#step2.container
   .row
-    .col.s5
+    .col.s12.m5
       h3.header.white-text.title-sign-up-company
         | CREATE AN ACCOUNT
         hr
 
   .row
-    .col.s5
+    .col.s12.m5
       = render 'shared/errors_messages', object: c.object
       .input-field
         = c.text_field :name, class: "input-sign-up-company validate", required: ""
