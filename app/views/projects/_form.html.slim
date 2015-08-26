@@ -4,7 +4,7 @@
       .col.s6
         .input-field
           = f.label :name, 'Name of Project', class: 'label-edit-company'
-          = f.text_field :name, class: 'input-new-project validate'
+          = f.text_field :name, class: 'input-new-project validate', required: ""
         .input-field.input-select-skill-project
           = f.select :skill_ids, Skill.all.collect {|p| [ p.name, p.id ] }, {}, { class: "browser-default chosen-select", multiple: true, "data-placeholder" => "Skills" }
           = f.label :skill_ids, 'Skills', class: 'label-edit-company active'
@@ -12,15 +12,15 @@
       .col.s6
         .input-field
           = f.label :timeframes, 'Timeframe', class: 'label-edit-company'
-          = f.text_field :timeframes, class:'datepicker input-new-project datepicker-new-project'
+          = f.text_field :timeframes, class:'datepicker input-new-project datepicker-new-project', required: ""
         .input-field
           = f.label :budget, 'Budget', class: 'label-edit-company'
-          = f.text_field :budget, type: 'number', min:'0', class: "input-new-project validate"
+          = f.text_field :budget, type: 'number', min:'0', class: "input-new-project validate", required: ""
     .row
       .col.s12
         .input-field
           = f.label :description, 'Description', class: 'label-edit-company'
-          = f.text_area :description, class: 'materialize-textarea input-new-project validate', rows:1
+          = f.text_area :description, class: 'materialize-textarea input-new-project validate', rows:1, required: ""
     .row
       .col.s12
         .file-field.input-field
