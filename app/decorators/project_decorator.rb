@@ -15,6 +15,10 @@ class ProjectDecorator < Draper::Decorator
     object.name.capitalize
   end
 
+  def company_email
+    object.company.email
+  end
+
   def company_name
     object.company.name.capitalize
   end
