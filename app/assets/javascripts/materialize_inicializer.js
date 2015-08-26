@@ -2,6 +2,8 @@ $(window).bind("load", function() {
   Materialize.updateTextFields();
   $('select').material_select();
   $(".chosen-select").chosen({disable_search_threshold: 10, width: "100%"});
+  $('.select-edit-company').find("input[type='text']").addClass('select-edit-company-valid');
+  $('.input-select-skill-project').find("input[type='text']").addClass('input-new-project');
 });
 
 $(document).ready(function(){
@@ -15,5 +17,12 @@ $(document).ready(function(){
 
   $('body').on('click', 'input[type=checkbox]', function(){
     $('input[type=checkbox]:checked').not(this).prop('checked', false);
+  });
+  $('.datepicker-new-project').change(function() {
+    if ( $('.datepicker-new-project').val() ) {
+      $('.datepicker-new-project').addClass('select-skill-valid');
+    } else {
+      $('.datepicker-new-project').removeClass('select-skill-valid');
+    }
   });
 });
