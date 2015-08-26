@@ -15,6 +15,7 @@ class Ability
       can :manage, Project, company_id: company.id
       can :manage, Company, id: company.id
       can :read, Company
+      cannot :index, Project
       cannot :index, Company unless company.can_access_dashboard?
     else
       can :create, Company
