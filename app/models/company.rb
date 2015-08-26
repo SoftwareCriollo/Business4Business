@@ -36,6 +36,10 @@ class Company < ActiveRecord::Base
     update_attribute(:status, StatusCompany::REJECT)
   end
 
+  def it_is_distinct?(company)
+    type != company.type
+  end
+
   def is_team_company?
     type == TypeCompany::TEAM_COMPANY
   end

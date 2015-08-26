@@ -36,6 +36,7 @@
     .flow-text.project-description = @project.description
     br
 
-  .row
-    = link_to "mailto:#{@project.company_email}", class: 'btn-large waves-effect waves-light btn-sign-up-company' do
-      | Contact
+  -if current_company.it_is_distinct?(@project.company)
+    .row
+      = link_to "mailto:#{@project.company_email}", class: 'btn-large waves-effect waves-light btn-sign-up-company' do
+        | Contact

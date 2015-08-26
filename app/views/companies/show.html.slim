@@ -27,7 +27,7 @@
           strong = '# of members: '
           = @company.team_members
     .col.s12.m6.l4
-      - if @company.type == TypeCompany::TEAM_COMPANY
+      - if @company.is_team_company?
           p.right-align.label-skill
             strong Skills
           .row
@@ -45,17 +45,19 @@
     .flow-text.project-description = @company.description
     br
 
-  .row
-    = link_to "mailto:#{@company.email}", class: 'btn-large waves-effect waves-light btn-sign-up-company contact-button' do
-      | Contact
+  -if current_company.it_is_distinct?(@company)
+    .row
+      = link_to "mailto:#{@company.email}", class: 'btn-large waves-effect waves-light btn-sign-up-company contact-button' do
+        | Contact
 
-  .row
-    .col.l9.s12
-      h5.title-my-proyects
-        | My Projects
-        hr
 
-  - if @company.type == TypeCompany::COMPANY
+  - if @company.is_normal_company?
+    .row
+      .col.l9.s12
+        h5.title-my-proyects
+          | Projects
+          hr
+
     .row
       - if @projects.count > 0
         - @projects.each do |project|

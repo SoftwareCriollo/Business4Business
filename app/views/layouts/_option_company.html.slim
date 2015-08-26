@@ -1,5 +1,5 @@
 ul.dropdown-content id="dropdown-company-#{option}"
-  - if current_company.type == TypeCompany::COMPANY
+  - if current_company.is_normal_company?
     li
       = link_to company_path(current_company) do
         | My Profile
@@ -8,7 +8,7 @@ ul.dropdown-content id="dropdown-company-#{option}"
         | My Account
     li
       = link_to company_dashboard_path do
-        | Dashboard
+        | All Teams
 
   - else
     li
@@ -19,7 +19,7 @@ ul.dropdown-content id="dropdown-company-#{option}"
         | My Account
     li
       = link_to team_company_dashboard_path do
-        | Dashboard
+        | All Projects
 
 a.dropdown-button href="" data-activates="dropdown-company-#{option}"
   = "#{current_company.name.upcase} "
