@@ -281,21 +281,21 @@
 }
 
 input.file-path.logo-edit-company::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-	color: #2d776a !important;
+	color: #606568 !important;
 }
 
 input.file-path.logo-edit-company:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-	color: #2d776a !important;
+	color: #606568 !important;
 	opacity:  1;
 }
 
 input.file-path.logo-edit-company::-moz-placeholder { /* Mozilla Firefox 19+ */
-	color: #2d776a !important;
+	color: #606568 !important;
 	opacity:  1;
 }
 
 input.file-path.logo-edit-company:-ms-input-placeholder { /* Internet Explorer 10-11 */
-	color: #2d776a !important;
+	color: #606568 !important;
 }
 
 .img-menu-company {

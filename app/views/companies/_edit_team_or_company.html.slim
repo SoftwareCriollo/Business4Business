@@ -44,32 +44,32 @@
             = f.file_field :logo
             = f.hidden_field :logo_cache, value: @company.logo_cache
           .file-path-wrapper
-            input.file-path.logo-edit-company.validate type="text" placeholder="#{@company.logo? ? @company.logo.file.filename : 'Company logo'}"
+            input.file-path.logo-edit-company.input-new-project.validate type="text" placeholder="#{@company.logo? ? @company.logo.file.filename : 'Company logo'}"
 
         .input-field
-          = f.text_field :website, class:"validate"
+          = f.text_field :website, class:"input-new-project validate"
           = f.label :website, 'Company Website', class: "label-edit-company"
 
         .input-field.margin-select-botton
-          = f.select :category_id, Category.all.collect {|p| [ p.name, p.id ] }, {}, { class: "select-edit-company validate" }
+          = f.select :category_id, Category.all.collect {|p| [ p.name, p.id ] }, {}, { class: "input-new-project select-edit-company validate" }
           = f.label :category_id, 'Industry', class: "label-edit-company margin-label-industry"
 
         .input-field
-          = f.text_area :description, class:'materialize-textarea validate', rows: 1
+          = f.text_area :description, class:'materialize-textarea input-new-project validate', rows: 1
           = f.label :description, 'Company Description', class: "label-edit-company"
 
         - if @company.is_team_company?
           .input-field
-            = f.text_field :tax_id, class:'validate'
+            = f.text_field :tax_id, class:'input-new-project validate'
             = f.label :tax_id, 'Taxt ID', class: "label-edit-company"
 
       .col.s6
         .input-field.margin-top-field-text
-          = f.text_field :contact_name, class:"validate"
+          = f.text_field :contact_name, class:"input-new-project validate"
           = f.label :contact_name, 'Contact Name', class: "label-edit-company"
 
         .input-field
-          = f.text_field :team_members, type: 'number', min:'0', class:"validate"
+          = f.text_field :team_members, type: 'number', min:'0', class:"input-new-project validate"
           = f.label :team_members, '# of team members', class: "label-edit-company"
 
         - if @company.is_team_company?
@@ -78,11 +78,11 @@
             = f.label :skill_ids, 'Skills', class: 'label-edit-company active'
         - else
           .input-field
-            = f.text_field :tax_id, class:'validate'
+            = f.text_field :tax_id, class:'input-new-project validate'
             = f.label :tax_id, 'Taxt ID', class: "label-edit-company"
 
         .input-field.input-margin-top
-          = f.text_area :address, class:'materialize-textarea validate', rows: 1
+          = f.text_area :address, class:'materialize-textarea input-new-project validate', rows: 1
           = f.label :address, class: "label-edit-company"
 
         = f.fields_for :pictures do |p|
