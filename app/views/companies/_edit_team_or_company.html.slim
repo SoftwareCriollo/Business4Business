@@ -4,7 +4,10 @@
       hr
 - else
     h3.header.title-edit-profile-company
-      | COMPANY PROFILE
+      - if @company.is_team_company?
+        | TEAM PROFILE
+      - else
+        | COMPANY PROFILE
       hr
 
 .row
@@ -15,9 +18,19 @@
     .text-title-company-profile
       strong Email: 
       span.text-thin = @company.email
+    - if @company.is_team_company?
+      .text-title-company-profile
+        strong Skills: 
+        span.text-thin
+          - @company.skills.each do |f|
+            - if (f == @company.skills.last)
+              = "#{f.name.capitalize}"
+            - else
+              = "#{f.name.capitalize} | "
+    .text-title-company-profile
       hr
 
-= nested_form_for(@company, url: company_path) do |f|
+= nested_form_for(@company, url: company_path, html: { multipart: true }) do |f|
   = f.hidden_field :name
   = f.hidden_field :email
   = render 'shared/errors_messages', object: f.object
@@ -29,7 +42,7 @@
           .btn.btn-file-company-profile
             span File
             = f.file_field :logo
-            = f.hidden_field :logo_cache 
+            = f.hidden_field :logo_cache, value: @company.logo_cache
           .file-path-wrapper
             input.file-path.logo-edit-company.validate type="text" placeholder="#{@company.logo? ? @company.logo.file.filename : 'Company logo'}"
 
@@ -37,16 +50,21 @@
           = f.text_field :website, class:"validate"
           = f.label :website, 'Company Website', class: "label-edit-company"
 
+        .input-field.margin-select-botton
+          = f.select :category_id, Category.all.collect {|p| [ p.name, p.id ] }, {}, { class: "select-edit-company validate" }
+          = f.label :category_id, 'Industry', class: "label-edit-company margin-label-industry"
+
         .input-field
           = f.text_area :description, class:'materialize-textarea validate', rows: 1
           = f.label :description, 'Company Description', class: "label-edit-company"
 
-        .input-field
-          = f.select :category_id, Category.all.collect {|p| [ p.name, p.id ] }, {}, { class: "select-edit-company validate" }
-          = f.label :category_id, 'Industry', class: "label-edit-company"
+        - if @company.is_team_company?
+          .input-field
+            = f.text_field :tax_id, class:'validate'
+            = f.label :tax_id, 'Taxt ID', class: "label-edit-company"
 
       .col.s6
-        .input-field.margin-top-field-text 
+        .input-field.margin-top-field-text
           = f.text_field :contact_name, class:"validate"
           = f.label :contact_name, 'Contact Name', class: "label-edit-company"
 
@@ -54,14 +72,19 @@
           = f.text_field :team_members, type: 'number', min:'0', class:"validate"
           = f.label :team_members, '# of team members', class: "label-edit-company"
 
-        .input-field
-          = f.text_field :tax_id, class:'validate'
-          = f.label :tax_id, class: "label-edit-company"
+        - if @company.is_team_company?
+          .input-field.input-select-skill-project.margin-select-botton
+            = f.select :skill_ids, Skill.all.collect {|p| [ p.name, p.id ] }, {}, { class: "browser-default chosen-select", multiple: true, "data-placeholder" => "Skills" }
+            = f.label :skill_ids, 'Skills', class: 'label-edit-company active'
+        - else
+          .input-field
+            = f.text_field :tax_id, class:'validate'
+            = f.label :tax_id, 'Taxt ID', class: "label-edit-company"
 
-        .input-field
+        .input-field.input-margin-top
           = f.text_area :address, class:'materialize-textarea validate', rows: 1
           = f.label :address, class: "label-edit-company"
-                            
+
         = f.fields_for :pictures do |p|
           .col.s12
             .col.s1.center

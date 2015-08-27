@@ -403,3 +403,21 @@ h5.title-my-proyects hr {
 .text-min-character {
 	color: white;
 }
+
+.input-margin-top {
+	margin-top: 30px !important;
+}
+
+.margin-label-industry {
+	margin-top: -15px;
+}
+
+.margin-select-botton {
+	padding-bottom: 15px;
+}
+
+.link-add-project-company {
+	position: relative;
+	margin-left: 10px;
+	bottom: -7px;
+}

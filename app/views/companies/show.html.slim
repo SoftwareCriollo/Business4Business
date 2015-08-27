@@ -48,15 +48,21 @@
 
   -if current_company.it_is_distinct?(@company)
     .row
-      = link_to "mailto:#{@company.email}", class: 'btn-large waves-effect waves-light btn-sign-up-company contact-button' do
-        | Contact
-
+      .col
+        = link_to "mailto:#{@company.email}", class: 'btn-large waves-effect waves-light btn-sign-up-company contact-button' do
+          | Contact
+      .col
+        = link_to :back, class: 'btn-large waves-effect waves-light btn-cancel-company' do
+          | Back
 
   - if @company.is_normal_company?
     .row
       .col.l9.s12
         h5.title-my-proyects
-          | Projects
+          | Projects     
+          = link_to new_project_path, class: 'link-add-project-company' do
+            button.btn-floating.waves-effect.waves-light.teal.lighten-2
+              i.material-icons add
           hr
 
     .row

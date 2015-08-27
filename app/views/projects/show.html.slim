@@ -38,5 +38,9 @@
 
   -if current_company.it_is_distinct?(@project.company)
     .row
-      = link_to "mailto:#{@project.company_email}", class: 'btn-large waves-effect waves-light btn-sign-up-company' do
-        | Contact
+      .col
+        = link_to "mailto:#{@project.company_email}", class: 'btn-large waves-effect waves-light btn-sign-up-company' do
+          | Contact
+      .col
+        = link_to :back, class: 'btn-large waves-effect waves-light btn-cancel-company' do
+          | Back
