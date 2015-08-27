@@ -57,7 +57,7 @@ private
 
   def pictures_attributes
     [
-      :id, :file, :default, :_destroy
+      :id, :file, :file_cache, :default, :_destroy
     ]
   end
 

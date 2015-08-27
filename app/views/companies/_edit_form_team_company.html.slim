@@ -25,7 +25,7 @@
             = "#{f.name.capitalize} | "
       hr
 
-= nested_form_for(@company, url: company_path) do |f|
+= nested_form_for(@company, url: company_path, html: { multipart: true }) do |f|
   = f.hidden_field :name
   = f.hidden_field :email
   = render 'shared/errors_messages', object: f.object
@@ -37,8 +37,9 @@
           .btn.btn-file-company-profile
             span File
             = f.file_field :logo
+            = f.hidden_field :logo_cache, value: @company.logo_cache
           .file-path-wrapper
-            input.file-path.logo-edit-company.validate type="text" placeholder="Company Logo"
+            input.file-path.logo-edit-company.validate type="text" placeholder="#{@company.logo? ? @company.logo.file.filename : 'Company logo'}"
 
         .input-field
           = f.text_field :website, class:"validate"
@@ -79,6 +80,7 @@
               = p.label :default
             .col.s2
               = p.file_field :file
+              = p.hidden_field :file_cache
               = p.hidden_field :id
           br
           br

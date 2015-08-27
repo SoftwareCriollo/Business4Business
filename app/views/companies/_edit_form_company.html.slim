@@ -29,8 +29,9 @@
           .btn.btn-file-company-profile
             span File
             = f.file_field :logo
+            = f.hidden_field :logo_cache 
           .file-path-wrapper
-            input.file-path.logo-edit-company.validate type="text" placeholder="Company Logo"
+            input.file-path.logo-edit-company.validate type="text" placeholder="#{@company.logo? ? @company.logo.file.filename : 'Company logo'}"
 
         .input-field
           = f.text_field :website, class:"validate"
@@ -71,6 +72,7 @@
               = p.label :default
             .col.s2
               = p.file_field :file
+              = p.hidden_field :file_cache
               = p.hidden_field :id
           br
           br
