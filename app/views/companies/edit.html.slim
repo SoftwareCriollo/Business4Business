@@ -1,14 +1,14 @@
 .container.container-edit-profile
   .row
     .col.s12
-      - if @company.type == TypeCompany::COMPANY
+      - if @company.is_normal_company?
         = render 'companies/edit_form_company'
 
       - else
         = render 'companies/edit_form_team_company'
       
       .col
-        = link_to :back, class: 'btn-large waves-effect waves-light btn-cancel-company-profile' do
+        = link_to company_path(@company), class: 'btn-large waves-effect waves-light btn-cancel-company-profile' do
           | Cancel
           
 = javascript_include_tag 'address_autocomplete.js'

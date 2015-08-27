@@ -10,7 +10,8 @@ class Company < ActiveRecord::Base
   delegate :name, to: :category,  prefix: 'category'
 
   validates :name, :type, presence: true
-  validates :website, presence: true, url: true, on: [ :update ]
+  validates :website, presence: true, format: {with: /((?:https?\:\/\/|www\.)+(?:[-a-z0-9._%a-z\-]+\.)+[-a-z0-9]{2,4}+.*)/i}, on: [ :update ]
+
   validates :description, :contact_name, :category_id, :tax_id, :address, :status, presence: true, on: [ :update ]
 
   belongs_to :category
@@ -34,6 +35,10 @@ class Company < ActiveRecord::Base
 
   def reject_request_company
     update_attribute(:status, StatusCompany::REJECT)
+  end
+
+  def it_is_distinct?(company)
+    type != company.type
   end
 
   def is_team_company?

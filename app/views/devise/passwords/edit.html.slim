@@ -1,0 +1,33 @@
+#index-banner.section.no-pad-bot
+  .container
+    br
+    .row
+      .col.s5
+        h3.header.white-text.title-sign-up-company
+          | Change your password
+          hr
+    .row
+      .col.s12.m5
+        = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
+          = devise_error_messages!
+          = f.hidden_field :reset_password_token
+          
+          .field
+            = f.label :password, "New password", class: "label-sign-up-company"
+            br
+            - if @minimum_password_length
+              em.text-min-character
+                = "#{@minimum_password_length} characters minimum"
+            br
+            = f.password_field :password, class: "input-sign-up-company validate", required: "", autofocus: true, autocomplete: "off"
+
+          .field
+            = f.label :password_confirmation, "Confirm new password", class: "label-sign-up-company"
+            br
+            = f.password_field :password_confirmation, class: "input-sign-up-company validate", autocomplete: "off"
+
+          .actions
+            br
+             button.waves-effect.waves-light.teal.btn.accent-4.btn-large type='submit'
+                span Change my password
+                i.material-icons.right perm_identity

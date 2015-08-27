@@ -22,7 +22,7 @@ section#step2.container
         = c.password_field :password_confirmation, autocomplete: "off", class: "input-sign-up-company validate", required: ""
         = c.label :password_confirmation, class: "label-sign-up-company"
 
-      - if @company.type == TypeCompany::TEAM_COMPANY
+      - if @company.is_team_company?
         .input-field.input-select-skill-company-sign-up
           = c.select :skill_ids, Skill.all.collect {|p| [ p.name, p.id ] }, {}, { class: "input-sign-up-company browser-default chosen-select", multiple: true, "data-placeholder" => "Skills" }
 
