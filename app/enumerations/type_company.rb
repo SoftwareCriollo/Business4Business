@@ -1,6 +1,6 @@
 class TypeCompany < EnumerateIt::Base
   associate_values(
-    :team_company  => 0,
-    :company => 1
+    team_company: 'Company::Team',
+    company: 'Company'
   )
 end

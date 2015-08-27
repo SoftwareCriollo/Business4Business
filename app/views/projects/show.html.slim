@@ -1,0 +1,42 @@
+.container
+  .row
+    .col.m9.s12
+      h3.title-page
+        = @project.name_upcase
+        hr
+    .col.s12.l3
+      - if can? :update, @project.company
+          = link_to edit_project_path(@project), class:'edit-link right grey-text'
+            span EDIT PROJECT
+            i.material-icons mode_edit
+  .row
+    .col.s12.m6.l8
+      = image_tag("#{@project.company_logo}", size: "100x100", alt: "Company Logo", class:'left materialboxed')
+      .company-info
+        p 
+          strong = 'Company: '
+          = link_to @project.company_name, company_path(@project.company), class:'company-website link-profile'
+        p
+          strong = 'Timeframes: '
+          = @project.timeframes
+    .col.s12.m6.l4
+      p.right-align.label-skill
+        strong Skills
+      .row
+        - @project.skills.each do |skill|
+          .col.s6.m6.l4.white.skill-card.center
+             .grey-text = skill.name
+
+  .row
+    .project-images.center
+      - @project.pictures.each do |pic|
+          .col.s3.m2.l2.left
+            = image_tag("#{pic.file_url}", size: "200x200", alt: "Pic Projec", class:'materialboxed  responsive-img')
+  .row
+    .flow-text.project-description = @project.description
+    br
+
+  -if current_company.it_is_distinct?(@project.company)
+    .row
+      = link_to "mailto:#{@project.company_email}", class: 'btn-large waves-effect waves-light btn-sign-up-company' do
+        | Contact

@@ -8,12 +8,22 @@ gem 'devise'
 gem 'pg'
 # Code templante
 gem 'slim'
+# Nested form
+gem "nested_form"
 # Material Desing
 gem 'materialize-sass'
 # Validates URL
 gem "validate_url"
-# Stripe Gem
+# Stripe Gem for rails
 gem 'stripe-rails'
+# Stripe gem
+gem 'stripe', '~> 1.20.1'
+# Docorators
+gem 'draper', '~> 1.3'
+# Gem for Access
+gem 'cancancan', '~> 1.10'
+# Filters of search
+gem 'ransack'
 # Enumerate
 gem "enumerate_it"
 # Paginator
@@ -28,6 +38,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
+
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 # Gem for upload files
@@ -42,7 +53,6 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -52,12 +62,14 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-
-
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
   gem 'byebug'
   gem 'pry-rails'
+  gem 'quiet_assets', '~> 1.1.0'
+  gem 'coffee-script-source', '1.8.0'
+
   # Use for set environment vars
   gem 'dotenv-rails'
 
@@ -79,4 +91,5 @@ group :test do
   gem 'factory_girl_rails'
   gem 'faker'
   gem "codeclimate-test-reporter", require: nil
+  gem 'stripe-ruby-mock'
 end

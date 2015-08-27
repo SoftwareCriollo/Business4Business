@@ -1,26 +1,67 @@
 .container
-  .row.company-profile.valign-wrapper
-    .col.s4.center-align
-      - if @company.logo
-          img class='circle' src='#{@company.logo_url}' height='200' width='200'
-      - else
-          i.material-icons.large-max supervisor_account
-      p.teal-text.text-darken-2.company-title = @company.name.upcase
-      .valign-wrapper
-      p.infor-profile
-        i.material-icons business
-        span = @company.category_name.capitalize
-      p.infor-profile
-        i.material-icons email
-        = mail_to "#{@company.email}"
-      = link_to @company.website, @company.website
-    .col.s8.center-align
-      p.flow-text.company-description.grey-text = truncate(@company.description, omision: "...", length: 150)
-  hr
   .row
-    .col.s12.m6
-      .card-panel.teal
-        span.white-text PROJECT
-    .col.s12.m6
-      .card-panel.teal
-        span.white-text PROJECT
+    .col.l9.s12
+      h3.title-page
+        | COMPANY PROFILE
+        hr
+    .col.s12.l3
+      - if can? :update, @company
+        = link_to edit_company_path(@company), class:'edit-link right grey-text'
+          span EDIT COMPANY
+          i.material-icons mode_edit
+
+  .row
+    .col.s12.m6.l8
+      = image_tag("#{@company.logo_url}", size: "100x100", alt: "Company Logo", class:'left materialboxed company-logo')
+      .company-info.company-data
+        p 
+          strong = 'Company: '
+          = @company.name_capitalize
+        p
+          strong = 'Website: '
+          = link_to @company.website, @company.website, class:'company-website'
+        p
+          strong = 'Contact Name: '
+          = @company.contact_name
+        p
+          strong = '# of members: '
+          = @company.team_members
+    .col.s12.m6.l4
+      - if @company.is_team_company?
+          p.right-align.label-skill
+            strong Skills
+          .row
+            - @company.skills.each do |skill|
+              .col.s6.m6.l4.white.skill-card.center.right
+                 .grey-text = skill.name
+
+  .row
+    .project-images.center
+      - @company.pictures.each do |pic|
+          .col.s3.m2.l2.left
+            = image_tag("#{pic.file_url}", size: "200x200", alt: "Pic Company", class:'materialboxed  responsive-img')
+
+  .row
+    .col.l12.s12
+      .flow-text.project-description = @company.description
+    br
+
+  -if current_company.it_is_distinct?(@company)
+    .row
+      = link_to "mailto:#{@company.email}", class: 'btn-large waves-effect waves-light btn-sign-up-company contact-button' do
+        | Contact
+
+
+  - if @company.is_normal_company?
+    .row
+      .col.l9.s12
+        h5.title-my-proyects
+          | Projects
+          hr
+
+    .row
+      - if @projects.count > 0
+        - @projects.each do |project|
+          = render 'card_project', p: project
+      - else
+        = render 'empty_projects'

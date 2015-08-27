@@ -1,62 +1,14 @@
-.container
+.container.container-edit-profile
   .row
-    .col-s12
-      = link_to 'Back', :back, class:'waves-effect waves-light blue btn right'
-      - if @company.complete_profile?
-          h3 = 'Edit Profile Information'
+    .col.s12
+      - if @company.is_normal_company?
+        = render 'companies/edit_form_company'
+
       - else
-          h3 = 'Almost Done'
-      = form_for(@company) do |f|
-        = render 'shared/errors_messages', object: f.object
-        .row
-          .col.s12
-            .file-field
-              .btn
-                span Upload Logo
-                = f.file_field :logo
-              input.file-path.validate type="text"
-        .row
-          .col.s6
-            = f.label :name
-            = f.text_field :name, class:'validate'
-          .col.s6
-            = f.label :email
-            = f.email_field :email, autofocus: true, class:'validate'
-        .row
-          .col.s12
-            = f.label :description
-            = f.text_area :description, class:'materialize-textarea validate', rows:1
-        .row
-          .col.s8
-            = f.label :category_id, 'Industry'
-            = f.select :category_id, Category.all.collect {|p| [ p.name, p.id ] }, class:'validate'
-          .col.s4
-            = f.label :tax_id
-            = f.text_field :tax_id, class:'validate'
-        .row
-          .col.s12
-            = f.label :address
-            = f.text_field :address
-        .row
-          .col.s6
-            = f.label :website
-            = f.text_field :website
-          .col.s6
-            = f.label :constitution_date
-            = f.text_field :constitution_date, class:'datepicker'
-        .row
-          - if !current_company.fee_paid?
-            .col.s8.offset-m5.m3.offset-s4
-              button.waves-effect.waves-light.orange.darken-4.btn.btn-large id="customButton"
-                span Pay Now
-                i.material-icons.right payment
-
-            script src="https://checkout.stripe.com/checkout.js"
-
-        = f.hidden_field :type_company
-        .actions
-          button.waves-effect.waves-light.blue.btn type='submit'
-            span Ready!
-            i.material-icons.right done
-
-          = link_to "Cancel Suscription", cancel_account_path(@company), :class => 'waves-effect waves-light red btn right'
+        = render 'companies/edit_form_team_company'
+      
+      .col
+        = link_to company_path(@company), class: 'btn-large waves-effect waves-light btn-cancel-company-profile' do
+          | Cancel
+          
+= javascript_include_tag 'address_autocomplete.js'

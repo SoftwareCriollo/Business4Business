@@ -1,0 +1,26 @@
+ul.dropdown-content id="dropdown-company-#{option}"
+  - if current_company.is_normal_company?
+    li
+      = link_to company_path(current_company) do
+        | My Profile
+    li
+      = link_to my_account_path(current_company) do
+        | My Account
+    li
+      = link_to company_dashboard_path do
+        | All Teams
+
+  - else
+    li
+      = link_to company_path(current_company) do
+        | My Profile
+    li
+      = link_to my_account_path(current_company) do
+        | My Account
+    li
+      = link_to team_company_dashboard_path do
+        | All Projects
+
+a.dropdown-button href="" data-activates="dropdown-company-#{option}"
+  = "#{current_company.name.upcase} "
+  img src="/images/user_icon_12px.png"

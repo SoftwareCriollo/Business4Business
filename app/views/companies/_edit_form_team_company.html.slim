@@ -1,0 +1,92 @@
+- if @company.complete_profile?
+    h3.header.title-edit-profile-company
+      | Edit Profile Information
+      hr
+- else
+    h3.header.title-edit-profile-company
+      | TEAM PROFILE
+      hr
+
+.row
+  .col.s12
+    .text-title-company-profile
+      strong Company: 
+      span.text-thin = @company.name
+    .text-title-company-profile
+      strong Email: 
+      span.text-thin = @company.email
+    .text-title-company-profile
+      strong Skills: 
+      span.text-thin
+        - @company.skills.each do |f|
+          - if (f == @company.skills.last)
+            = "#{f.name.capitalize}"
+          - else
+            = "#{f.name.capitalize} | "
+      hr
+
+= nested_form_for(@company, url: company_path, html: { multipart: true }) do |f|
+  = f.hidden_field :name
+  = f.hidden_field :email
+  = render 'shared/errors_messages', object: f.object
+
+  .row
+    .col.s12
+      .col.s6
+        .file-field
+          .btn.btn-file-company-profile
+            span File
+            = f.file_field :logo
+            = f.hidden_field :logo_cache, value: @company.logo_cache
+          .file-path-wrapper
+            input.file-path.logo-edit-company.validate type="text" placeholder="#{@company.logo? ? @company.logo.file.filename : 'Company logo'}"
+
+        .input-field
+          = f.text_field :website, class:"validate"
+          = f.label :website, 'Company Website', class: "label-edit-company"
+
+        .input-field
+          = f.text_area :description, class:'materialize-textarea validate', rows: 1
+          = f.label :description, 'Company Description', class: "label-edit-company"
+
+        .input-field
+          = f.select :category_id, Category.all.collect {|p| [ p.name, p.id ] }, {}, { class: "select-edit-company validate" }
+          = f.label :category_id, 'Industry', class: "label-edit-company"
+
+      .col.s6
+        .input-field.margin-top-field-text
+          = f.text_field :contact_name, class:"validate"
+          = f.label :contact_name, 'Contact Name', class: "label-edit-company"
+
+        .input-field
+          = f.text_field :team_members, type: 'number', min:'0', class:"validate"
+          = f.label :team_members, '# of team members', class: "label-edit-company"
+
+        .input-field
+          = f.text_field :tax_id, class:'validate'
+          = f.label :tax_id, class: "label-edit-company"
+
+        .input-field
+          = f.text_area :address, class:'materialize-textarea validate', rows: 1
+          = f.label :address, class: "label-edit-company"
+
+        = f.fields_for :pictures do |p|
+          .col.s12
+            .col.s1.center
+              = p.link_to_remove class:'btn-floating waves-effect waves-light red'
+                i class="large material-icons" delete
+            .col.s2.center
+              = p.check_box :default, {}, 'true', 'false'
+              = p.label :default
+            .col.s2
+              = p.file_field :file
+              = p.hidden_field :file_cache
+              = p.hidden_field :id
+          br
+          br
+        = f.link_to_add "Add a Picture", :pictures, class:'waves-effect waves-light btn btn-picture-company-profile'
+
+  .actions
+    .col
+      button.btn-large.waves-effect.waves-light.btn-company-profile-submit type='submit'
+        span Complete your Profile
