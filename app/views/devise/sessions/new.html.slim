@@ -21,8 +21,13 @@
           .field
             = f.check_box :remember_me
             = f.label :remember_me
+
+          .field
+            = link_to "Forgot your password?", new_password_path(resource_name), { class: 'forgot-password-style'}
+
           .actions
             br
              button.waves-effect.waves-light.teal.btn.accent-4.btn-large.btn-sign-in type='submit'
                 span Sign In
                 i.material-icons.right perm_identity
+

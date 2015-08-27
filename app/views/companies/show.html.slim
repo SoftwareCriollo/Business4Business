@@ -42,7 +42,8 @@
             = image_tag("#{pic.file_url}", size: "200x200", alt: "Pic Company", class:'materialboxed  responsive-img')
 
   .row
-    .flow-text.project-description = @company.description
+    .col.l12.s12
+      .flow-text.project-description = @company.description
     br
 
   -if current_company.it_is_distinct?(@company)

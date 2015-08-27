@@ -8,10 +8,10 @@
 
 .body-pay {
 	background: url(/images/5-IMG_Pricing_B4B.jpg) no-repeat center center fixed;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
+	-webkit-background-size: 200% 200%;
+	-moz-background-size: 200% 200%;
+	-o-background-size: 200% 200%;
+	background-size: 200% 200%;
 }
 
 .body-type-company {
@@ -122,10 +122,10 @@
 
 @media (max-width: 993px) {
 	.body-pay {
-		-webkit-background-size: 350% 350%;
-		-moz-background-size: 350% 350%;
-		-o-background-size: 350% 350%;
-		background-size: 350% 350%;
+		-webkit-background-size: 370% 370%;
+		-moz-background-size: 370% 370%;
+		-o-background-size: 370% 370%;
+		background-size: 370% 370%;
 	}
 
 	.box-width-pay {
@@ -383,4 +383,23 @@ h5.title-my-proyects hr {
   margin-top: 12px;
   width: 16%;
   margin-left: 0;
+}
+
+.forgot-password-style {
+	margin-top: 20px;
+	color: #9e9e9e;
+	position: relative;
+	cursor: pointer;
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	font-size: 1rem;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-ms-user-select: none;
+}
+
+.text-min-character {
+	color: white;
 }

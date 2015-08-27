@@ -1,0 +1,21 @@
+#index-banner.section.no-pad-bot
+  .container
+    br
+    .row
+      .col.s5
+        h3.header.white-text.title-sign-up-company
+          | Forgot your password?
+          hr
+    .row
+      .col.s12.m5
+        = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+          = devise_error_messages!
+          .input-field
+            = f.email_field :email, class: "input-sign-up-company validate", required: ""
+            = f.label :email, 'Email', class: "label-sign-up-company"
+
+          .actions
+            br
+             button.waves-effect.waves-light.teal.btn.accent-4.btn-large type='submit'
+                span Send me reset password instructions
+                i.material-icons.right perm_identity
