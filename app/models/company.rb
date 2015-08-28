@@ -25,6 +25,10 @@ class Company < ActiveRecord::Base
   scope :profile_complete, -> { where(complete_profile: true) }
   scope :team_campanies, -> { where(type: TypeCompany::TEAM_COMPANY) }
 
+  def joined_skills
+    skills.collect { |s| [ s.name ] }.join(" | ")
+  end
+
   def self.list_filtered
     approved.profile_complete.team_campanies
   end

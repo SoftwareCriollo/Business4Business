@@ -1,11 +1,7 @@
 .container.container-edit-profile
   .row
     .col.s12
-      - if @company.is_normal_company?
-        = render 'companies/edit_form_company'
-
-      - else
-        = render 'companies/edit_form_team_company'
+      = render 'companies/edit_team_or_company'
       
       .col
         = link_to company_path(@company), class: 'btn-large waves-effect waves-light btn-cancel-company-profile' do
