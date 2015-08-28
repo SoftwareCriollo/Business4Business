@@ -25,7 +25,7 @@ describe 'Company Profile' do
         find('.btn-company-profile-submit').click
       end
 
-      it { expect(page).to have_selector('.contact-button') }
+      it { expect(page).to have_no_selector('.contact-button') }
       it { expect(page).to have_content('EDIT COMPANY') }
     end
 
