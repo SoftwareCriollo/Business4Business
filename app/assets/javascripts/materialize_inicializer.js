@@ -37,7 +37,8 @@ $(window).bind("load", function() {
 $(document).ready(function(){
   $('.datepicker').pickadate({
     selectMonths: true,
-    selectYears: 100
+    selectYears: 100,
+    min:1
   });
   $('.tooltipped').tooltip({delay: 50});
   $('input#input_text, textarea#textarea1').characterCounter();
