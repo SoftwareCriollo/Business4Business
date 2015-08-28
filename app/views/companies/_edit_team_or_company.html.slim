@@ -73,9 +73,11 @@
           = f.label :team_members, '# of team members', class: "label-edit-company"
 
         - if @company.is_team_company?
-          .input-field.input-select-skill-project.margin-select-botton
-            = f.select :skill_ids, Skill.all.collect {|p| [ p.name, p.id ] }, {}, { class: "browser-default chosen-select", multiple: true, "data-placeholder" => "Skills" }
-            = f.label :skill_ids, 'Skills', class: 'label-edit-company active'
+          .input-field.input-select-skill-project.margin-select-botton.input-file-select-edit-company
+            = f.select :skill_ids, Skill.all.collect {|p| [ p.name, p.id ] }, {}, { class: "dropdown-content select-edit-company browser-default chosen-select", multiple: true, "data-placeholder" => "Skills" }
+            = f.label :skill_ids, 'Skills', class: 'label-select-edit-company-show label-edit-company active'
+            a.dropdown-button.hide href="" data-activates="company_team_skill_ids"
+              = f.label :skill_ids, 'Click to select Skills', {class: 'label-select-edit-company-hide label-sign-up-company hide', 'data-activates' => 'company_team_skill_ids'}
         - else
           .input-field
             = f.text_field :tax_id, class:'input-new-project validate'

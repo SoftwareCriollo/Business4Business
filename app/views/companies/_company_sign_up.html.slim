@@ -26,7 +26,7 @@ section#step2.container
         .input-field.input-select-skill-company-sign-up
           = c.select :skill_ids, Skill.all.collect {|p| [ p.name, p.id ] }, {}, { class: "dropdown-content select-sign-up input-sign-up-company browser-default chosen-select", multiple: true, "data-placeholder" => "Skills" }
           a.dropdown-button.hide href="" data-activates="company_team_skill_ids"
-            = c.label :skill_ids, 'Skills', {class: 'label-sign-up-company hide', 'data-activates' => 'company_team_skill_ids'}
+            = c.label :skill_ids, 'Click to select Skills', {class: 'label-sign-up-company hide', 'data-activates' => 'company_team_skill_ids'}
 
   .row
     .col

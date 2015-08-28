@@ -15,6 +15,22 @@ $(window).bind("load", function() {
     $('.select-sign-up').addClass('select-multiple-style');
     $('.input-select-skill-company-sign-up').find('label').removeClass('hide');
     $('.input-select-skill-company-sign-up').find('a').removeClass('hide');
+
+    $('.select-edit-company').find('option').addClass('hide');
+    $('.select-edit-company').css('background-color', 'transparent');
+    $('.select-edit-company').addClass('select-multiple-style');
+    $('.input-file-select-edit-company').addClass('style-select-height-hide');
+    $('.input-select-skill-project').find('.label-select-edit-company-show').addClass('hide');
+    $('.input-select-skill-project').find('.label-select-edit-company-hide').removeClass('hide');
+    $('.input-select-skill-project').find('a').removeClass('hide');
+
+    $('.select-new-project').find('option').addClass('hide');
+    $('.select-new-project').css('background-color', 'transparent');
+    $('.select-new-project').addClass('select-multiple-style');
+    $('.input-file-select-new-project').addClass('style-select-height-hide');
+    $('.input-file-select-new-project').find('.label-select-new-project-show').addClass('hide');
+    $('.input-file-select-new-project').find('.label-select-new-project-hide').removeClass('hide');
+    $('.input-file-select-new-project').find('a').removeClass('hide');
   }
 });
 

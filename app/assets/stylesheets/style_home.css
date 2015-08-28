@@ -443,3 +443,12 @@ h5.title-my-proyects hr {
   box-sizing: content-box;
   transition: all .3s;
 }
+
+.style-select-height-hide {
+	height: 57px;
+}
+
+.label-select-edit-company-hide {
+	position: initial;
+	color: #2d776a !important;
+}
