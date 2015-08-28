@@ -101,4 +101,7 @@
   .actions
     .col
       button.btn-large.waves-effect.waves-light.btn-company-profile-submit type='submit'
-        span Complete your Profile
+        - if @company.complete_profile?
+          span Save changes
+        - else
+          span Complete your Profile
