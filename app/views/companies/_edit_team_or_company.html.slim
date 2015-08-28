@@ -21,12 +21,7 @@
     - if @company.is_team_company?
       .text-title-company-profile
         strong Skills: 
-        span.text-thin
-          - @company.skills.each do |f|
-            - if (f == @company.skills.last)
-              = "#{f.name.capitalize}"
-            - else
-              = "#{f.name.capitalize} | "
+        span.text-thin = @company.joined_skills
     .text-title-company-profile
       hr
 
