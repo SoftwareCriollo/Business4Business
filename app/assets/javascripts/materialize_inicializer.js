@@ -32,6 +32,41 @@ $(window).bind("load", function() {
     $('.input-file-select-new-project').find('.label-select-new-project-hide').removeClass('hide');
     $('.input-file-select-new-project').find('a').removeClass('hide');
   }
+
+
+  $('.select-sign-up').change(function(){
+    $(".show-skills").empty();
+    $("#company_team_skill_ids option:selected").each(function () {
+      var $this = $(this);
+      if ($this.length) {
+        var selText = $this.text();
+        $('body').find('.show-skills').append('<div class="style-inside"><b class="item-show-skills">'+selText+'</b></div>');
+      }
+    });
+  });
+
+  $('.select-edit-company').change(function(){
+    $(".show-skills").empty();
+    $("#company_skill_ids option:selected").each(function () {
+      var $this = $(this);
+      if ($this.length) {
+        var selText = $this.text();
+        $('body').find('.show-skills').append('<div class="style-inside"><b class="item-show-skills">'+selText+'</b></div>');
+      }
+    });
+  });  
+
+
+  $('.select-new-project').change(function(){
+    $(".show-skills").empty();
+    $("#project_skill_ids option:selected").each(function () {
+      var $this = $(this);
+      if ($this.length) {
+        var selText = $this.text();
+        $('body').find('.show-skills').append('<div class="style-inside"><b class="item-show-skills">'+selText+'</b></div>');
+      }
+    });
+  });
 });
 
 $(document).ready(function(){
