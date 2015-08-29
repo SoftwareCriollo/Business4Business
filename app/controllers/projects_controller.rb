@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
   before_action :find_project, except: [:new, :create, :index]
 
   def index
-    @q = Project.all.ransack(params[:q])
+    @q = Project.availables.ransack(params[:q])
     @projects = ProjectDecorator.decorate_collection(@q.result)
   end
 

@@ -5,7 +5,7 @@ FactoryGirl.define do
     name { Faker::Lorem.word }
     description { Faker::Lorem.paragraph }
     timeframes { Time.now.utc }
-    company
+    company { create(:company_approve_with_payment) }
     after(:create) {|project| project.skills = [create(:skill)]}
 
     factory :project_invalid do
