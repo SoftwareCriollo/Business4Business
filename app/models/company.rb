@@ -24,13 +24,14 @@ class Company < ActiveRecord::Base
   scope :approved, -> { where(status: StatusCompany::APPROVE) }
   scope :profile_complete, -> { where(complete_profile: true) }
   scope :team_campanies, -> { where(type: TypeCompany::TEAM_COMPANY) }
+  scope :available, -> { where(deleted_at: nil) }
 
   def joined_skills
     skills.collect { |s| [ s.name ] }.join(" | ")
   end
 
   def self.list_filtered
-    approved.profile_complete.team_campanies
+    approved.profile_complete.team_campanies.available
   end
 
   def approve_request_company
