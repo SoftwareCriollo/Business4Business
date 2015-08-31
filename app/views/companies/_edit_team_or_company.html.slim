@@ -56,7 +56,7 @@
         - if @company.is_team_company?
           .input-field
             = f.text_field :tax_id, class:'input-new-project validate'
-            = f.label :tax_id, 'Taxt ID', class: "label-edit-company"
+            = f.label :tax_id, 'Tax ID', class: "label-edit-company"
 
       .col.s6
         .input-field.margin-top-field-text
@@ -73,10 +73,15 @@
             = f.label :skill_ids, 'Skills', class: 'label-select-edit-company-show label-edit-company active'
             a.dropdown-button.hide href="" data-activates="company_team_skill_ids"
               = f.label :skill_ids, 'Click to select Skills', {class: 'label-select-edit-company-hide label-sign-up-company hide', 'data-activates' => 'company_team_skill_ids'}
+          
+          .row
+            .col.show-skills.show-skills-edit-company
+            
+
         - else
           .input-field
             = f.text_field :tax_id, class:'input-new-project validate'
-            = f.label :tax_id, 'Taxt ID', class: "label-edit-company"
+            = f.label :tax_id, 'Tax ID', class: "label-edit-company"
 
         .input-field.input-margin-top
           = f.text_area :address, class:'materialize-textarea input-new-project validate', rows: 1
@@ -101,4 +106,7 @@
   .actions
     .col
       button.btn-large.waves-effect.waves-light.btn-company-profile-submit type='submit'
-        span Complete your Profile
+        - if @company.complete_profile?
+          span Save changes
+        - else
+          span Complete your Profile

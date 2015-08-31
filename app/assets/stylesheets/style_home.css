@@ -452,3 +452,43 @@ h5.title-my-proyects hr {
 	position: initial;
 	color: #2d776a !important;
 }
+
+.row-show-skills {
+  margin-top: 50px;
+}
+
+.item-show-skills {
+  position: relative;
+  margin: 3px 5px 3px 0px;
+  padding: 3px 3px 3px 5px;
+  border: 1px solid #00BCAB;
+  max-width: 100%;
+  background-color: #00BCAB;
+  background-size: 100% 19px;
+  background-repeat: repeat-x;
+  box-shadow: 0px 0px 2px #FFF inset, 0px 1px 0px rgba(0, 0, 0, 0.05);
+  color: #FFF;
+  font-size: 20px;
+  font-weight: normal;
+  cursor: default;
+}
+
+.style-inside {
+  margin: 3px 1px 3px 1px;
+  display: inline;
+  float: left;
+}
+
+.show-skills {
+  border-bottom: 1px solid #9e9e9e;
+}
+
+.show-skills-edit-company {
+  margin-top: -14px;
+  width: 100%;
+}
+
+.show-skills-new-project {
+  margin-top: -14px;
+  width: 100%;
+}
