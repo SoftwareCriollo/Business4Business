@@ -56,7 +56,7 @@
         - if @company.is_team_company?
           .input-field
             = f.text_field :tax_id, class:'input-new-project validate'
-            = f.label :tax_id, 'Taxt ID', class: "label-edit-company"
+            = f.label :tax_id, 'Tax ID', class: "label-edit-company"
 
       .col.s6
         .input-field.margin-top-field-text
@@ -81,7 +81,7 @@
         - else
           .input-field
             = f.text_field :tax_id, class:'input-new-project validate'
-            = f.label :tax_id, 'Taxt ID', class: "label-edit-company"
+            = f.label :tax_id, 'Tax ID', class: "label-edit-company"
 
         .input-field.input-margin-top
           = f.text_area :address, class:'materialize-textarea input-new-project validate', rows: 1
