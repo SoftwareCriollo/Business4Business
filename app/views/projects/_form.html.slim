@@ -7,10 +7,8 @@
           = f.text_field :name, class: 'input-new-project validate', required: ""
         .input-field.input-select-skill-project.input-file-select-new-project
           = f.select :skill_ids, Skill.all.collect {|p| [ p.name, p.id ] }, {}, { class: "dropdown-content select-new-project browser-default chosen-select", multiple: true, "data-placeholder" => "Skills" }
-          = f.label :skill_ids, 'Skills', class: 'label-select-new-project-show label-edit-company active'
-          a.dropdown-button.hide href="" data-activates="project_skill_ids"
-            = f.label :skill_ids, 'Click to select Skills', {class: 'label-select-new-project-hide label-edit-company hide', 'data-activates' => 'project_skill_ids'}
-        
+          = f.label :skill_ids, 'Skills', class: 'label-skill-sign-up label-select-new-project-show label-edit-company active'
+          
         .col.show-skills.show-skills-new-project.hide
 
       .col.s6
