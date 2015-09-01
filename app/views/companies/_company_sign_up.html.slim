@@ -24,12 +24,10 @@ section#step2.container
 
       - if @company.is_team_company?
         .input-field.input-select-skill-company-sign-up
+          = c.label :skill_ids, 'Skills', class: "label-skill-sign-up label-sign-up-company active"
           = c.select :skill_ids, Skill.all.collect {|p| [ p.name, p.id ] }, {}, { class: "dropdown-content select-sign-up input-sign-up-company browser-default chosen-select", multiple: true, "data-placeholder" => "Skills" }
-          a.dropdown-button.hide href="" data-activates="company_team_skill_ids"
-            = c.label :skill_ids, 'Click to select Skills', {class: 'label-sign-up-company hide', 'data-activates' => 'company_team_skill_ids'}
-
-  .row.row-show-skills
-    .col.s12.m5.show-skills
+          
+      .col.row-show-skills.show-skills.show-skills-new-project.hide
 
   .row
     .col

@@ -454,7 +454,13 @@ h5.title-my-proyects hr {
 }
 
 .row-show-skills {
-  margin-top: 50px;
+  margin-top: 40px;
+}
+
+.row-show-skill-edit {
+  margin-top: 41px;
+  margin-left: 0px !important;
+  margin-right: 0px !important;
 }
 
 .item-show-skills {
@@ -486,9 +492,11 @@ h5.title-my-proyects hr {
 .show-skills-edit-company {
   margin-top: -14px;
   width: 100%;
+  padding: 0px 0px !important;
 }
 
 .show-skills-new-project {
-  margin-top: -14px;
+  margin-top: 42px;
   width: 100%;
+  padding: 0px 0px !important;
 }
