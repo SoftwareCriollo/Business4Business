@@ -1,7 +1,33 @@
 .body-public {
-	background: black url('/images/1-IMG_landing_page_B4B.jpg') no-repeat center top;
-	height: 100%;
-	width: 100%;
+	background: url(/images/1-IMG_landing_page_B4B.jpg) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.body-pay {
+	background: url(/images/5-IMG_Pricing_B4B.jpg) no-repeat center center fixed;
+	-webkit-background-size: 200% 200%;
+	-moz-background-size: 200% 200%;
+	-o-background-size: 200% 200%;
+	background-size: 200% 200%;
+}
+
+.body-type-company {
+	background: url(/images/2-IMG_landing_select_company_B4B.jpg) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.body-sign-up-company {
+	background: url(/images/4-IMG_Project_createprofile_B4B.jpg) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
 
 .nav-public {
@@ -34,4 +60,443 @@
 	border-radius: 5px !important;
 	font-size: 24px;
 	font-weight: 500;
+}
+
+#step1 {
+	padding-top: 15px;
+}
+
+.title-type-company {
+	margin-top: 10px;
+}
+
+.btn-select-type-company {
+	height: 160px !important;
+	width: 280px !important;
+	border-radius: 5px !important;
+	padding: 0 0 !important;
+}
+
+@media (max-width: 991px) {
+	.title-home {
+		font-size: 3.5rem;
+	}
+}
+
+@media (max-width: 640px) {
+	.type-company-align-box-left {
+		margin-top: 0;
+		margin-left: auto !important;
+		margin-bottom: 10px;
+		margin-right: auto !important;
+		float: none !important;
+	}
+
+	.type-company-align-box-right {
+		margin-top: 0;
+		margin-left: auto !important;
+		margin-bottom: 10px;
+		margin-right: auto !important;
+		float: none !important;
+	}
+
+	.type-company-box-col {
+		width: 100% !important;
+		text-align: center;
+	}
+
+	.box-img-text-pay {
+		width: 154px !important;
+		height: 190px !important;
+	}
+
+	.box-img-text-pay img {
+		width: 151px;
+		height: 149px;
+	}
+
+	.title-home {
+    margin-top: 100px;
+	}
+}
+
+@media (max-width: 993px) {
+	.body-pay {
+		-webkit-background-size: 370% 370%;
+		-moz-background-size: 370% 370%;
+		-o-background-size: 370% 370%;
+		background-size: 370% 370%;
+	}
+
+	.box-width-pay {
+		width: 100% !important;
+	}
+}
+
+
+
+.type-company-display {
+	display: inline !important;
+}
+
+.type-company-box-col {
+	float: left;
+	min-width: 280px;
+}
+
+.type-company-align-box-left {
+	float: right;
+	margin-right: 15px;
+}
+
+.type-company-align-box-right {
+	float: left;
+	margin-left: 15px;
+}
+
+.box-panel-type-company {
+	margin-top: 20px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.text-type-company {
+	margin: 0 !important;
+  letter-spacing: 0px;
+  font-weight: 300;
+  font-size: 30px;
+  margin-top: -15px !important;
+  text-transform: none !important;
+}
+
+#step2 {
+	padding-top: 40px;
+}
+
+.title-sign-up-company {
+	margin-top: 10px;
+	font-size: 36px;
+}
+
+.title-sign-up-company hr {
+	border: 2px solid #00bfa5;
+	margin-left: 0;
+	margin-top: 12px;
+	width: 210px;
+}
+
+.input-sign-up-company {
+	font-size: 24px !important;
+	color: white !important;
+}
+
+.label-sign-up-company {
+	left: 0 !important;
+	font-size: 20px !important;
+  color: white !important;
+}
+
+.btn-sign-up-company {
+	background-color: #00bfa5 !important;
+	border-radius: 5px !important;
+	font-size: 20px;
+	font-weight: 500;
+	text-transform: none !important;
+	margin-top: 45px;
+}
+
+.btn-cancel-company {
+	color: #2d776a !important;
+	background-color: #eceff1 !important;
+	border-radius: 5px !important;
+	font-size: 20px;
+	font-weight: 500;
+	text-transform: none !important;
+	margin-top: 45px;
+}
+
+.container-pay {
+	padding-top: 40px;
+	padding-left: 10px;
+	color: #263238;
+}
+
+.title-pay {
+	margin-top: 10px;
+	font-size: 36px;
+}
+
+.title-pay hr {
+	border: 2px solid #00bfa5;
+	margin-left: 0;
+	margin-top: 12px;
+	width: 100px;
+}
+
+.margin-title-pay {
+	margin-bottom: 0px !important;
+}
+
+.text-mount-pay {
+	font-size: 40px;
+}
+
+.text-pay-yearly {
+	font-size: 20px;
+	width: 100px;
+}
+
+.text-p-pay {
+	font-size: 19px;
+  font-weight: 300;
+}
+
+.btn-pay {
+	font-size: 24px;
+	text-transform: none !important;
+}
+
+.box-img-text-pay {
+	width: 170px;
+	height: 210px;
+  text-align: center;
+  margin: 5px 25px 5px 0px;
+  float: left;
+}
+
+.box-img-text-pay img {
+
+}
+
+.text-img-pay {
+	line-height: 1.25em;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.label-edit-company {
+	left: 0 !important;
+	font-size: 20px !important;
+  color: #2d776a !important;
+}
+
+input.file-path.logo-edit-company::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+	color: #606568 !important;
+}
+
+input.file-path.logo-edit-company:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+	color: #606568 !important;
+	opacity:  1;
+}
+
+input.file-path.logo-edit-company::-moz-placeholder { /* Mozilla Firefox 19+ */
+	color: #606568 !important;
+	opacity:  1;
+}
+
+input.file-path.logo-edit-company:-ms-input-placeholder { /* Internet Explorer 10-11 */
+	color: #606568 !important;
+}
+
+.img-menu-company {
+	margin-top: 16px;
+	width: 30px;
+}
+
+.header-my-account {
+	margin-top: 40px;
+	margin-bottom: 35px;
+}
+
+.img-logo-my-account {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+.box-text-title-my-account {
+  margin-top: 20px;
+}
+
+.text-title-my-account {
+  font-size: 22px;
+}
+
+.btn-my-account {
+  background-color: #00bfa5 !important;
+  border-radius: 5px !important;
+  font-size: 20px;
+  font-weight: 500;
+  text-transform: none !important;
+  margin-top: 40px;
+}
+
+.box-link-cancel-my-account {
+  margin-top: 50px;
+}
+
+.btn-cancel-membership {
+  color: #868a8b;
+  text-decoration: underline;
+}
+
+.form-edit-account {
+  margin-top: 40px;
+}
+
+.error-message {
+	background-color: rgba(255, 82, 82, 0.7) !important;
+}
+
+.success-message {
+	background-color: rgba(82, 255, 212, 0.7) !important;
+}
+
+.text-spacing-btn-home {
+	letter-spacing: 0 !important;
+}
+
+.select-edit-company-valid {
+	border-bottom: 1px solid #4CAF50 !important;
+	box-shadow: 0 1px 0 0 #4CAF50 !important;
+}
+
+.input-new-project {
+	color: #606568 !important;
+  font-size: 20px !important;
+}
+
+.select-skill-valid {
+  border-bottom: 1px solid #4CAF50 !important;
+  box-shadow: 0 1px 0 0 #4CAF50 !important;
+}
+
+.btn-sign-in {
+  max-width: 200px;
+}
+
+.add-project-company {
+	min-width: 110px;
+}
+
+h5.title-my-proyects hr {
+  border: 2px solid #00bfa5;
+  margin-top: 12px;
+  width: 16%;
+  margin-left: 0;
+}
+
+.forgot-password-style {
+	margin-top: 20px;
+	color: #9e9e9e;
+	position: relative;
+	cursor: pointer;
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	font-size: 1rem;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-ms-user-select: none;
+}
+
+.text-min-character {
+	color: white;
+}
+
+.input-margin-top {
+	margin-top: 30px !important;
+}
+
+.margin-label-industry {
+	margin-top: -15px;
+}
+
+.margin-select-botton {
+	padding-bottom: 15px;
+}
+
+.link-add-project-company {
+	position: relative;
+	margin-left: 10px;
+	bottom: -7px;
+}
+
+.select-multiple-style {
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  border-bottom: 1px solid #9e9e9e;
+  border-radius: 0;
+  outline: none;
+  height: 3rem;
+  width: 100%;
+  font-size: 1rem;
+  margin: 0 0 15px 0;
+  padding: 0;
+  box-shadow: none;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  transition: all .3s;
+}
+
+.style-select-height-hide {
+	height: 57px;
+}
+
+.label-select-edit-company-hide {
+	position: initial;
+	color: #2d776a !important;
+}
+
+.row-show-skills {
+  margin-top: 40px;
+}
+
+.row-show-skill-edit {
+  margin-top: 41px;
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+
+.item-show-skills {
+  position: relative;
+  margin: 3px 5px 3px 0px;
+  padding: 3px 3px 3px 5px;
+  border: 1px solid #00BCAB;
+  max-width: 100%;
+  background-color: #00BCAB;
+  background-size: 100% 19px;
+  background-repeat: repeat-x;
+  box-shadow: 0px 0px 2px #FFF inset, 0px 1px 0px rgba(0, 0, 0, 0.05);
+  color: #FFF;
+  font-size: 20px;
+  font-weight: normal;
+  cursor: default;
+}
+
+.style-inside {
+  margin: 3px 1px 3px 1px;
+  display: inline;
+  float: left;
+}
+
+.show-skills {
+  border-bottom: 1px solid #9e9e9e;
+}
+
+.show-skills-edit-company {
+  margin-top: -14px;
+  width: 100%;
+  padding: 0px 0px !important;
+}
+
+.show-skills-new-project {
+  margin-top: 42px;
+  width: 100%;
+  padding: 0px 0px !important;
 }

@@ -2,18 +2,26 @@ doctype html
 html lang="en"
   head
     title Business4business
+    meta name="viewport" content="width=device-width, initial-scale=0.5, maximum-scale=1"
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
-    = csrf_meta_tags
+    script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"
     link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" /
+    = csrf_meta_tags
 
-  body.body-public
-    /! Header Menu
-    = render 'layouts/public_menu'
+  body class="body-public"
+    header
+      /! Header Menu
+      = render 'layouts/public_menu'
     
     /! Begin page content
     .container-fluid.junke
+      .row
+        .col.s12.m6.offset-m3
+          - if notice
+            .card.success-message
+              p.notice = notice
+          - if alert
+            .card.error-message
+              p.alert = alert
       = yield
-    
-    /! Footer
-    /= render 'layouts/footer_menu'    

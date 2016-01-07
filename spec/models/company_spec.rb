@@ -6,7 +6,7 @@ describe Company do
   end
 
   it 'is invalid without type company' do
-    expect(build(:company, type_company:nil)).not_to be_valid
+    expect(build(:company, type:nil)).not_to be_valid
   end
 
   it 'with the profile complete' do

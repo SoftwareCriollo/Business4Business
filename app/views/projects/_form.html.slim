@@ -1,0 +1,59 @@
+= nested_form_for @project do |f|
+    = render 'shared/errors_messages', object: f.object
+    .row
+      .col.s6
+        .input-field
+          = f.label :name, 'Name of Project', class: 'label-edit-company'
+          = f.text_field :name, class: 'input-new-project validate', required: ""
+        .input-field.input-select-skill-project.input-file-select-new-project
+          = f.select :skill_ids, Skill.all.collect {|p| [ p.name, p.id ] }, {}, { class: "dropdown-content select-new-project browser-default chosen-select", multiple: true, "data-placeholder" => "Skills" }
+          = f.label :skill_ids, 'Skills', class: 'label-skill-sign-up label-select-new-project-show label-edit-company active'
+          
+        .col.show-skills.show-skills-new-project.hide
+
+      .col.s6
+        .input-field
+          = f.label :timeframes, 'Timeframe', class: 'label-edit-company'
+          = f.text_field :timeframes, class:'datepicker input-new-project datepicker-new-project', required: ""
+        .input-field
+          = f.label :budget, 'Budget', class: 'label-edit-company'
+          = f.text_field :budget, type: 'number', min:'0', class: "input-new-project validate", required: ""
+    .row
+      .col.s12
+        .input-field
+          = f.label :description, 'Description', class: 'label-edit-company'
+          = f.text_area :description, class: 'materialize-textarea input-new-project validate', rows:1, required: ""
+    .row
+      .col.s12
+        .file-field.input-field
+          .btn
+            span File
+            = f.file_field :file
+          .file-path-wrapper
+            input.file-path.validate.input-new-project type="text"
+
+    .row
+      = f.fields_for :pictures do |p|
+        .col.s12
+          .col.s1.center
+            = p.link_to_remove class:'btn-floating waves-effect waves-light red'
+              i class="large material-icons" delete
+          .fields-img
+            .col.s2.center
+              = p.check_box :default, {}, 'true', 'false'
+              = p.label :default
+            .col.s2
+              = p.file_field :file
+              = p.hidden_field :file_cache
+              = p.hidden_field :id
+        br
+        br
+      = f.link_to_add "Add a Picture", :pictures, class:' waves-effect waves-light green btn right'
+
+    .actions
+      button.waves-effect.waves-light.btn.btn-large.teal.lighten-1 type='submit'
+        span = button_name
+        i.material-icons.right done
+
+
+

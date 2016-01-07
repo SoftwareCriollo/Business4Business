@@ -1,0 +1,31 @@
+.row#form_edit_account style="display:none"
+  .col.s12
+    = form_for(@company, url: edit_account_path) do |f|
+      = render 'shared/errors_messages', object: f.object
+      .row.form-edit-account
+        .col.s12
+          .col.s6
+            .input-field
+              = f.text_field :name, class: "validate"
+              = f.label :name, 'Name', class: "label-edit-company"
+
+            .input-field
+              = f.text_field :email, class: "validate"
+              = f.label :email, 'Change email address', class: "label-edit-company"
+
+          .col.s6
+            .input-field
+              - if @minimum_password_length
+              = f.password_field :password, autocomplete: "off", class: "validate", required: ""
+              = f.label :password, 'Change Password', class: "label-edit-company"
+
+            .input-field
+              = f.password_field :password_confirmation, autocomplete: "off", class: "validate", required: ""
+              = f.label :password_confirmation, class: "label-edit-company"
+
+      .actions
+        .col
+          button class="btn-large waves-effect waves-light btn-sign-up-company" type="submit" name="action" Save Changes
+        .col
+          = link_to my_account_path, class: 'btn-large waves-effect waves-light btn-cancel-company' do
+            | Cancel

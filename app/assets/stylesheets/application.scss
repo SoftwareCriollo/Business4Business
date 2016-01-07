@@ -11,9 +11,10 @@
  * file per style scope.
  *
  *= require errors_form
- *= require style
+ *= require chosen
  *= require style_home
  *= require_self
+ *= require style
  */
  @import "materialize";
 
