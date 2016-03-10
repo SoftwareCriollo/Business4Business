@@ -1,26 +1,24 @@
 engines:
+  rubocop:
+    enabled: true
+  golint:
+    enabled: true
+  eslint:
+    enabled: true
+  csslint:
+    enabled: true
   duplication:
     enabled: true
     config:
       languages:
       - ruby
       - javascript
-  rubocop:
-    enabled: true
-  eslint:
-    enabled: true
-    config:
-      extensions:
-      - .js
-
-  ratings:
-     paths:
-     - "**.js"
-     - "**.rb"
-
-  scsslint:
-  csslint:
-    enabled: true
+ratings:
+  paths:
+  - "**.js"
+  - "**.rb"
 exclude_paths:
-  - "app/assets/javascripts/chosen.jquery.js"
-  - public/**/*
+- spec/**/*
+- app/assets/javascripts/chosen.jquery.js
+- public/**/*
+- "**/vendor/**/*"
