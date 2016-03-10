@@ -1,7 +1,6 @@
 languages:
   Ruby: true
   JavaScript: true
-  PHP: false
 exclude_paths:
 - spec/**/*
 - app/assets/javascripts/chosen.jquery.js
